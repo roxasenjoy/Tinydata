@@ -1,0 +1,77 @@
+<div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+
+ 
+
+  <div *ngIf="!isLoading" class="settingsContentText" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+
+    <div class="settingsFieldContainer">
+
+      <!--
+        Changer le nom
+      -->
+      <div class="settingsField">
+        <label for="namePersonalInformations">Nom</label>
+        <input type="text" placeholder="Nom" id="namePersonalInformations"
+               [(ngModel)]="lastName"
+               [value]="this.lastName"
+               [disabled]="this.lastNameField === false">
+        <div class="settingsButtonModificationContainer">
+            <span
+                  (click)="this.lastNameField === false ? this.changeField('lastName') : verifyInformation(lastName, 'lastName') "
+                  [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+                {{ this.lastNameField === false ? 'Modifier' : 'Enregistrer' }}
+              <i class="fas " [ngClass]="this.lastNameField === false ? 'fa-pen' : 'fa-save'"></i>
+            </span >
+          <span
+            *ngIf="this.lastNameField === true"
+            (click)="cancelField(this.lastName, this.lastNameMemory, 'lastName')"
+            [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}"
+            class="settingsDeleteModification">
+              Annuler
+              <i class="far fa-trash-alt"></i>
+            </span >
+        </div>
+      </div>
+
+
+      <!--
+      Changer le prénom
+      -->
+      <div class="settingsField">
+        <label for="firstNamePersonalInformation">Prénom</label>
+        <input type="text" placeholder="Nom" id="firstNamePersonalInformation"
+               [(ngModel)]="firstName"
+               [value]="this.firstName"
+               [disabled]="this.firstNameField === false">
+        <div class="settingsButtonModificationContainer">
+            <span
+              (click)="this.firstNameField === false ? this.changeField('firstName') :verifyInformation(firstName, 'firstName') "
+              [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+                {{ this.firstNameField === false ? 'Modifier' : 'Enregistrer' }}
+              <i class="fas " [ngClass]="this.firstNameField === false ? 'fa-pen' : 'fa-save'"></i>
+            </span >
+          <span
+            *ngIf="this.firstNameField === true"
+            (click)="cancelField(this.firstName, this.firstNameMemory, 'firstName')"
+            class="settingsDeleteModification "
+            [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}"> Annuler <i class="far fa-trash-alt"></i></span >
+
+        </div>
+      </div>
+
+      <div class="settingsField">
+        <label for="companyPersonalInformations">Entreprise</label>
+        <input type="text" placeholder="Entreprise" id="companyPersonalInformations" readonly [value]="company" [disabled]="true">
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="message loadingMessage settingsContentText" [ngClass]="{'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+    <mat-spinner style="margin: auto;"></mat-spinner>
+  </div>
+</div>
+

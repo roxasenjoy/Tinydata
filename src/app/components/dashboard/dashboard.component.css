@@ -1,0 +1,391 @@
+.exportActions {
+    position: fixed;
+    width: calc(80% - 250px);
+    left: calc(250px + 10%);
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: 0.3s ease;
+    z-index: 9999999;
+
+}
+
+.exportButton {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.exportButton mat-icon {
+    font-size: 40px;
+    width: 40px
+}
+
+.validButton,
+.cancelButton,
+.explicationExport {
+    flex: 0 0 47.5%;
+    -webkit-box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.43);
+    box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.43);
+    cursor: pointer;
+    margin-bottom: 5;
+    transition: all .2s ease-in-out;
+    border-radius: 50px;
+}
+
+.explicationExport {
+
+    flex: 0 0 97.5%;
+    margin-bottom: 25px;
+    display: inline-block;
+    background: var(--purple);
+    border-radius: 10px;
+    bottom: 12px;
+    color: #fff;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.explicationContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.explicationContent .explicationText {
+    flex: 0 0 80%;
+}
+
+.explicationContent .understandBtn {
+    flex: 0 0 15%;
+    background-color: var(--white);
+    color: var(--purple);
+    font-weight: 800;
+    margin-left: 10px;
+    -webkit-box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.10);
+    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.10);
+    border-radius: 8px;
+    padding: 5px 22px;
+    text-align: center;
+}
+
+.explicationContent .understandBtn:hover {
+    background-color: var(--blueGreen);
+    color: var(--white);
+}
+
+.explicationExport p {
+    margin-bottom: initial;
+}
+
+.validButton {
+    color: white;
+    padding: 20px;
+    background-color: var(--purple);
+    margin-left: 10px;
+    text-align: center;
+}
+
+.cancelButton {
+    padding: 20px;
+    background-color: var(--pink);
+    color: var(--white);
+    margin-right: 10px;
+    fill-opacity: 2;
+    text-align: center;
+}
+
+.validButton:hover {
+    font-weight: bold;
+    background-color: var(--blueGreen);
+}
+
+.cancelButton:hover {
+    font-weight: bold;
+    background-color: var(--blueGreen);
+}
+
+/************************************
+    Bouton pour afficher les informations du graphique
+************************************/
+.informationGraphic {
+    color: var(--purple);
+    font-size: 24px;
+}
+
+
+.hidnfo {
+    position: relative;
+    display: inline-block;
+}
+
+
+.hidnfo__label {
+    font-weight: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+
+
+.hidnfo__trigger {
+    position: relative;
+    cursor: pointer;
+}
+
+.hidnfo__checkbox {
+    position: absolute;
+    top: auto;
+    left: -9999px;
+    opacity: 0;
+}
+
+
+.hidnfo__close-area {
+    display: none;
+}
+
+.hidnfo__box {
+    position: absolute;
+    display: block;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    min-width: 400px;
+    max-width: 520px;
+    text-align: center;
+    z-index: 4;
+    top: 100%;
+    left: 0;
+    padding: 20px;
+    margin: 10px 0 0 0;
+    overflow-y: auto;
+    cursor: default;
+    border: solid 1px #ddd;
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+    font-family: inherit;
+    background: #fff;
+    border: solid 0px white;
+    -webkit-transition: opacity 0.4s ease;
+    -moz-transition: opacity 0.4s ease;
+    -o-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.hidnfo__box {
+    color: #444 !important;
+    text-decoration: none !important;
+}
+
+.hidnfo__caret {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 100%;
+    margin-top: 0;
+    height: 11px;
+    width: 30px;
+    overflow: hidden;
+}
+
+.hidnfo__transition {
+    -webkit-transform: translateY(8px);
+    -moz-transform: translateY(8px);
+    -o-transform: translateY(8px);
+    transform: translateY(8px);
+    opacity: 0;
+    -webkit-transition: transform 0.4s ease;
+    -moz-transition: transform 0.4s ease;
+    -o-transition: transform 0.4s ease;
+    transition: transform 0.4s ease;
+}
+
+/**
+    Design de la modal des informations
+**/
+#legendFiltersUsed {
+    font-size: 18px;
+    font-family: var(--policeBold);
+    color: var(--black);
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+
+
+
+
+
+.hidnfo:hover .hidnfo__box {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hidnfo:hover .hidnfo__caret {
+    display: block;
+}
+
+.hidnfo:hover .hidnfo__caret::before,
+.hidnfo:hover .hidnfo__caret::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    top: 100%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -4px;
+    margin-left: -5px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #fff;
+    border: solid 1px #ddd;
+    box-shadow: rgb(0 0 0 / 10%) 0 3px 8px !important;
+}
+
+.hidnfo:hover .hidnfo__box .hidnfo__transition {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+/* Scrollbar */
+/* width */
+.hidnfo__box::-webkit-scrollbar {
+    border-radius: 5px; /* Rayon de courbure des coins */
+  }
+  
+  .hidnfo__box::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Couleur de l'arrière-plan de la barre de défilement */
+    border-radius: 5px; /* Rayon de courbure des coins */
+  }
+  
+  .hidnfo__box::-webkit-scrollbar-thumb {
+    background-color: var(--purple); /* Couleur de la poignée de la barre de défilement */
+    border-radius: 5px; /* Rayon de courbure des coins */
+  }
+  
+  .hidnfo__box::-webkit-scrollbar-thumb:hover {
+    background-color: var(--purple); /* Couleur de la poignée de la barre de défilement au survol */
+  }
+  
+
+.legendDescription{
+    font-size: 16px;
+    color: var(--black);
+    font-family: var(--policeLight);
+}
+
+.chipsContainer{
+    margin: 10px auto;
+}
+
+/* In modal */ 
+.hidnfo .chipsUsed,
+.hidnfo .chipsUnused{
+    min-height: 16px;
+    font-size: 14px;
+    padding: 15px 10px;
+}
+
+/* Under graphic title */
+.chipsUsed,
+.chipsUnused{
+    min-height: 12px;
+    font-size: 10px;
+    padding: 10px 5px;
+}
+
+.chipsUsed{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.chipsUnused{
+    background-color: var(--greyLight);
+    color: var(--black);
+}
+
+
+
+/************************************
+    Bouton d'export des données 
+************************************/
+.dashboardContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboardContent .exportDashboard {
+    background-color: var(--purple);
+    color: #f0f0f0;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 10px 20px;
+    box-shadow: rgb(0 0 0 / 10%) 0 3px 8px !important;
+    margin: 15px 0;
+    border-radius: 7.5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.dashboardContent .exportDashboard:hover {
+    background-color: var(--blueGreen);
+}
+
+.dashboardContent .exportDashboard span {
+    margin-right: 10px;
+}
+
+
+@media all and (max-width: 900px) {
+    .exportActions {
+        position: sticky;
+        width: 100%;
+        left: 0;
+    }
+
+    .validButton,
+    .cancelButton {
+        width: 100%;
+    }
+
+    .exportDashboard {
+        display: none !important;
+    }
+}
+
+
+@media all and (max-width: 600px) {
+    .hidnfo__box{
+        min-width: 220px;
+    }
+}

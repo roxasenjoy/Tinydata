@@ -1,0 +1,100 @@
+<div [hidden]="displayGraphic" class="graphicLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div  [hidden]="!displayGraphic" class="graphic contentsValidGraphic" id="contentsValidData" style="height: 600px !important;"></div>
+
+<!-- Liste des granularités à droite du graphique -->
+<div class="containerFormations" [hidden]="!displayGraphic">
+
+    <!-- Détails des granularités en haut à droite -->
+    <!-- Design permettant à l'utilisateur de savoir où il se trouve -->
+    <div class="stepsGranularities">
+      <div class="formation">
+        <div style="display:flex">
+          <i class="fas fa-graduation-cap" style="margin:initial; width: 45px; color: var(--grey)"></i>
+
+          <div class="title" style="margin-left: 20px;">
+            Formation : {{formationName}}
+          </div>
+        </div>
+      
+      </div>
+
+      <div *ngIf="this.domainName">
+        <div class="domain">
+          <div style="display:flex;">
+            <div class="barGlobal">
+              <div class="bar domainColor transition"></div>
+              <div class="bar transition"></div>
+              <div class="bar transition"></div>
+              <div class="bar transition"></div>
+            </div>
+          </div>
+        
+          <div class="title" style="margin-left:15px">Domaine : {{ this.domainName }}</div>
+        </div>
+  
+        <div class="skill" >
+          <div style="display:flex;">
+            <div class="barGlobal">
+              <div class="bar domainColor transition"></div>
+              <div class="bar skillColor transition"></div>
+              <div class="bar transition"></div>
+              <div class="bar transition"></div>
+            </div>
+          </div>
+  
+          <div class="title" style="margin-left:15px">Compétence : {{ this.skillName }}</div>
+        </div>
+  
+        <div class="theme">
+          <div style="display:flex;">
+            <div class="barGlobal">
+              <div class="bar domainColor transition"></div>
+              <div class="bar skillColor transition"></div>
+              <div class="bar themeColor transition"></div>
+              <div class="bar transition"></div>
+            </div>
+            <div class="title" style="margin-left:15px">Thème : {{ this.themeName }}</div>
+          </div>
+        </div>
+  
+        <div class="acquis">
+          <div style="display:flex;">
+            <div class="barGlobal">
+              <div class="bar domainColor transition"></div>
+              <div class="bar skillColor transition"></div>
+              <div class="bar themeColor transition"></div>
+              <div class="bar acquisColor transition"></div>
+            </div>
+            <div class="title" style="margin-left:15px">Acquis : {{ this.acquisName }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <list-formation [nameFormationFilter]='nameFormationFilter' (idFormationFilter)="updateData($event)"></list-formation>
+</div>
+
+<!-- Éléments à gauche du graphique -->
+<div class="totalContentValid" [hidden]="!displayGraphic">
+  <div class="row hint--top-right hint--medium" aria-label="Nombre de contenus validés">
+    <div style="background-color: #00EECA; border-radius:50%; width:20px; height: 20px; margin-right:10px;"></div> 
+    Validé :  <strong style="padding-left: 5px;"> {{ this.contentValidated }} / {{ this.contentTotal }} </strong>
+  </div>
+  
+  <div class="row hint--top-right hint--medium" aria-label="Nombre de contenus non validés">
+    <div style="background-color: #FF404C; border-radius:50%; width:20px; height: 20px; margin-right:10px;"></div> 
+    Non validé :  <strong style="padding-left: 5px;"> {{ this.contentFailed }} / {{ this.contentTotal }} </strong>
+  </div>
+
+  <div class="row hint--top-right hint--medium" aria-label="Nombre de contenus restants">
+    <div style="background-color: #D4D8D6; border-radius:50%; width:20px; height: 20px; margin-right:10px;"></div> 
+    Restants :  <strong style="padding-left: 5px;"> {{ this.contentNeverDone }} / {{ this.contentTotal }} </strong>
+  </div>
+</div>
+
+
+<app-graph-details *ngIf="showDetails" [graphType]="'CONTENTS_VALID'"></app-graph-details>

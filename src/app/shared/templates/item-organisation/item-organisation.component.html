@@ -1,0 +1,26 @@
+<div [ngClass]="{'weightText': settingsStorageService.weightStorage === 'true',
+                 'filterMediumText': settingsStorageService.textSizeStorage === 'true',
+                 'nightBackground nightText': settingsStorageService.nightStorage === 'true'}">
+  <div class="filterParentCompany filterOrganisationContent childsContainer"
+    [ngStyle]="{'margin-left': level * 20 + 'px'}">
+    <mat-checkbox [(ngModel)]="organisation.completed" [indeterminate]="someComplete(organisation, 'parent')"
+      [color]="organisation.color" (change)="addOrganisationInStorage('parent', organisation, organisation, $event)">
+      {{organisation.name}}
+    </mat-checkbox>
+
+    <div>
+      <span (click)="navigateToCompany(organisation);" class="filterZoomEntreprise" style="margin-right:20px"><i
+          class="fas fa-eye"></i></span>
+      <span (click)="organisation['showChild' + level] = !organisation['showChild' + level]"
+        *ngIf="organisation.childs?.length > 0" class="filterZoomEntreprise">
+        <i class="fas"
+          [ngClass]="{'fa-chevron-right': !organisation['showChild' + level], 'fa-chevron-down': organisation['showChild' + level]}"></i>
+      </span>
+    </div>
+  </div>
+
+  <div *ngIf="organisation['showChild' + level]">
+    <app-item-organisation *ngFor="let child of organisation.childs" [organisation]="child"
+      [level]="level + 1"></app-item-organisation>
+  </div>
+</div>

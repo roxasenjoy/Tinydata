@@ -1,0 +1,16 @@
+.footer{
+    text-align: center;
+    margin-top: 25px;
+}
+
+:host{
+    width:100%
+}
+
+.footer a{
+    color: var(--purple);
+    border-bottom: solid 1px var(--purple);
+    text-decoration: none;
+}
+
+.footer.nightTextWhite a{color: white;}

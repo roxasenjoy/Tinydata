@@ -1,0 +1,315 @@
+<!-- Filtres -->
+<div class="filterContainer" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+
+
+	<div class="filterContent">
+
+		<!--------------->
+		<!-- Zoom user -->
+		<!--------------->
+		<div>
+			<p>Zoom</p>
+
+			<div class="zoomSlider" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+          'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				Utilisateur
+
+				<mat-form-field [hidden]="isResearchUp">
+
+					<!-- Champ de recherche pour l'utilisateur -->
+					<input #autoCompleteInput type="text" class="researchUsers" placeholder="Rechercher un utilisateur"
+						[(ngModel)]="userFilter" matInput [formControl]="myControl" [matAutocomplete]="auto"
+						style="font-size: 14px; background: initial !important;"
+						[ngClass]="this.settingsStorageService.nightStorage === 'true' ? this.settingsStorageService.nightFieldCSS: 'false'">
+					<!------------------------------------------->
+
+					<!-- Afficher le résultat de suite à la recherche -->
+					<mat-autocomplete autoActiveFirstOption="true" #auto="matAutocomplete" class="matAutocomplete"
+						[displayWith]="displayObjectName">
+
+						<mat-option (keyup.enter)="selectUser(returnValues)" (click)="selectUser(returnValues)"
+							*ngFor="let returnValues of filtered | async" [value]="returnValues">
+							{{ returnValues.fullName}}
+						</mat-option>
+
+					</mat-autocomplete>
+				</mat-form-field>
+
+
+
+				<div class="zoomUserInformation" [hidden]="!isResearchUp">
+					<span> {{ fullnameUser }} </span>
+					<button mat-button matSuffix mat-icon-button (click)="deselectUser($event)">
+						<mat-icon>close</mat-icon>
+					</button>
+				</div>
+
+				<!----------------------------------------------------->
+			</div>
+
+			<p>Filtres</p>
+
+
+			<!------------------------->
+			<!-- Filtre Groupe -->
+			<!------------------------->
+			<div matRipple [matRippleColor]="myColor" (click)="updateFilterOrganisations()"
+				class="example-ripple-container mat-elevation-z4 filter transition filterTitle">
+				<p>Groupes <span class="numberFiltered" *ngIf="totalNumberOrganisationsFiltered transition"> {{
+						totalNumberOrganisationsFiltered }}</span></p>
+				<p><i class="fas fa-chevron-right"></i></p>
+			</div>
+
+
+
+			<!----------------------->
+			<!-- Filtre Formations -->
+			<!----------------------->
+
+			<!-- Bouton pour afficher le modal -->
+			<div matRipple [matRippleColor]="myColor" (click)="displayModalFormations()"
+				class="example-ripple-container mat-elevation-z4 filter transition filterTitle">
+				<p>Formations <span class="numberFiltered" *ngIf="totalNumberOfFormationsFiltered transition"> {{
+						totalNumberOfFormationsFiltered }} </span></p>
+				<p><i class="fas fa-chevron-right"></i></p>
+
+			</div>
+
+			<!---------------------->
+			<!-- Filtre Niveau -->
+			<!---------------------->
+			<!--div matRipple
+         [matRippleColor]="myColor"
+         (click)="displayModalLevels()"
+         class="example-ripple-container mat-elevation-z4 filter transition filterTitle">
+      <p>Niveaux</p>
+      <p *ngIf="!modalFilterLevels"><i class="fas fa-chevron-right"></i></p>
+      <p *ngIf="modalFilterLevels"><i class="fas fa-chevron-down"></i></p>
+    </div>
+
+    <section class="example-section filter" *ngIf="modalFilterLevels">
+       <span class="example-list-section">
+          <ul class="listFormations">
+            <li *ngFor="let level of levels" >
+              <mat-checkbox [(ngModel)]="level.completed" [color]="level.color" (click)="addLevels($event)">
+                {{level.name}}
+              </mat-checkbox>
+            </li>
+          </ul>
+        </span>
+    </section-->
+
+
+			<section class="example-section datePicker" *ngIf="modalFilterDate">
+				<!-- POTENTIELLEMENT AFFICHER UN LIBELLÉ "DATES" -->
+				<!-- <mat-label>Dates</mat-label>
+      <br/>
+      <br/> -->
+				<!-- Date de début -->
+				<mat-form-field>
+					<mat-label>Date de début (JJ-MM-AAAA)</mat-label>
+					<input matInput (dateInput)="addBeginDate($event.value.toString())" [matDatepicker]="beginDate"
+						[formControl]="serializedDateBegin" placeholder="Date de début">
+					<mat-datepicker-toggle (click)="french()" matSuffix [for]="beginDate"></mat-datepicker-toggle>
+					<mat-datepicker #beginDate></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field>
+					<mat-label>Date de fin (JJ-MM-AAAA)</mat-label>
+					<input matInput (dateInput)="addEndDate($event.value.toString())" [matDatepicker]="endDate"
+						[formControl]="serializedDateEnd" placeholder="Date de fin">
+					<mat-datepicker-toggle (click)="french()" matSuffix [for]="endDate"></mat-datepicker-toggle>
+					<mat-datepicker #endDate></mat-datepicker>
+				</mat-form-field>
+
+			</section>
+
+
+			<!---------------------->
+			<!-- Lancer le filtre -->
+			<!---------------------->
+
+			<!-- ON SE TROUVE DANS FILTER - Comment lancer une function dans dashboard à
+    partir de filter ? -->
+
+			<div matRipple [matRippleColor]="myColor"
+				class="example-ripple-container mat-elevation-z4 filter filterBtn transition" (click)="filterContent()">
+				<p>Filtrer</p>
+			</div>
+
+			<!-- 
+      VERIFICATION DES DONNEES
+-->
+			<div matRipple [matRippleColor]="myColor"
+				class="example-ripple-container mat-elevation-z4 filter filterReverseBtn transition"
+				(click)="resetFilter(true)">
+				<p>Reinitialiser le filtre</p>
+			</div>
+
+		</div>
+	</div> <!-- Fin filter -->
+
+	<!-- Modal Formations -->
+	<div class="filterModal" [hidden]="!modalFilterFormations">
+		<div class="box">
+			<div class="modal-container" style="--m-background: hsla(0, 0%, 0%, .4);">
+				<div class="modal" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+      'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+					<mat-icon class="modalCloseIcon" (click)="displayModalFormations()">
+						close
+					</mat-icon>
+					<h1 class="modal__title">Formations</h1>
+					<div style="font-size: 12px;">
+						<mat-form-field appearance="fill">
+							<mat-label>Filtrer</mat-label>
+							<input [(ngModel)]="formaFilter" matInput>
+							<mat-icon matSuffix>search</mat-icon>
+						</mat-form-field>
+					</div>
+					<!-- <app-research-bar></app-research-bar> -->
+					<div class="filterFormationsALL">
+						<ul class="filterFormationsContainer">
+
+							<mat-spinner [hidden]='isUpdateGranularities' class="smallSpinner"></mat-spinner>
+
+							<!--
+                Matrices
+             -->
+							<div *ngFor="let matrix of matrixesFilter | myfilter: filterFormationThemes:formaFilter; index as i;"
+								[hidden]='!isUpdateGranularities'>
+								<div class="filterMatrixContainer" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+                'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+									<mat-checkbox [(ngModel)]="matrix.completed"
+										[indeterminate]="someComplete(matrix, 'matrixes')" [color]="matrix.color"
+										class="filterMatrixContent"
+										(change)="addFormationInStorage('matrix', matrix, matrix, $event)">
+										{{matrix.title}}
+									</mat-checkbox>
+									<span (click)="matrix.showDomains=true" *ngIf="!matrix.showDomains"
+										class="filterZoomEntreprise"><i class="fas fa-chevron-right"></i></span>
+									<span (click)="matrix.showDomains=false" *ngIf="matrix.showDomains"
+										class="filterZoomEntreprise"><i class="fas fa-chevron-down"></i></span>
+
+								</div>
+
+
+								<!--
+                Domaines
+              -->
+								<div *ngIf="matrix.showDomains" class="filterDomainContainer">
+									<div
+										*ngFor="let domain of matrix.domains | myfilter: filterFormationThemes:formaFilter">
+										<div class="filterDomainContent">
+											<mat-checkbox [(ngModel)]="domain.completed"
+												[indeterminate]="someComplete(domain, 'domains')" [color]="domain.color"
+												(change)="addFormationInStorage('domain', domain, matrix, $event)">
+												{{domain.title}}
+											</mat-checkbox>
+											<span (click)="domain.showSkills=true" *ngIf="!domain.showSkills"
+												class="filterZoomEntreprise"><i class="fas fa-chevron-right"></i></span>
+											<span (click)="domain.showSkills=false" *ngIf="domain.showSkills"
+												class="filterZoomEntreprise"><i class="fas fa-chevron-down"></i></span>
+										</div>
+
+										<!--
+                     Skill
+                   -->
+										<div *ngIf="domain.showSkills" class="filterSkillContainer">
+											<div
+												*ngFor="let skill of domain.skills | myfilter: filterFormationThemes:formaFilter">
+												<div class="filterSkillContent">
+													<mat-checkbox [(ngModel)]="skill.completed"
+														[indeterminate]="someComplete(skill, 'skills')"
+														[color]="skill.color"
+														(change)="addFormationInStorage('skill', skill, matrix, $event)">
+														{{skill.title}}
+													</mat-checkbox>
+													<span (click)="skill.showThemes=true" *ngIf="!skill.showThemes"
+														class="filterZoomEntreprise"><i
+															class="fas fa-chevron-right"></i></span>
+													<span (click)="skill.showThemes=false" *ngIf="skill.showThemes"
+														class="filterZoomEntreprise"><i
+															class="fas fa-chevron-down"></i></span>
+												</div>
+
+												<!--
+                       Themes
+                     -->
+												<div *ngIf="skill.showThemes" class="filterThemeContainer">
+													<div
+														*ngFor="let theme of skill.themes | myfilter: filterFormationThemes:formaFilter">
+														<div class="filterThemeContent">
+															<mat-checkbox [(ngModel)]="theme.completed"
+																[indeterminate]="someComplete(theme, 'themes')"
+																[color]="theme.color"
+																(change)="addFormationInStorage('theme', theme, matrix, $event)">
+																{{theme.title}}
+															</mat-checkbox>
+														</div>
+													</div>
+												</div> <!-- Fin de Themes -->
+											</div>
+										</div> <!-- Fin de skill -->
+									</div>
+								</div> <!-- Fin de domain -->
+							</div> <!-- Fin de matrix -->
+						</ul>
+					</div>
+
+					<!-- Pas de pagination -->
+
+					<div class="closeButtonDiv">
+						<button mat-raised-button class="filterReverseBtn resetModalBtn transition" (click)="resetPrivateFilter('formations', true)" style="margin-right:10px">Reinitialiser</button>
+						<button mat-raised-button color="primary" class="validModalBtn" (click)="updateFilterFormations()">Valider</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Modal Organisation -->
+	<div class="filterModal" [hidden]="!modalFilterOrganisation">
+		<div class="box">
+			<div class="modal-container" style="--m-background: hsla(0, 0%, 0%, .4);">
+				<div class="modal" [ngClass]="{'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+					<mat-icon class="modalCloseIcon" (click)="displayModalOrganisations()">
+						close
+					</mat-icon>
+					<h1 class="modal__title">Groupes</h1>
+					<div style="font-size: 12px;">
+
+						<!--
+            Barre de recherche pour faciliter la navigation de l'utilisateur
+          -->
+						<mat-form-field appearance="fill">
+							<mat-label>Filtrer</mat-label>
+							<input [(ngModel)]="orgaFilter" matInput>
+							<mat-icon matSuffix>search</mat-icon>
+						</mat-form-field>
+					</div>
+					<div class="filterOrganisationsALL">
+
+						<ul class="filterOrganisationsContainer filterOrganisationContentMobile">
+
+							<div *ngFor="let organisation of companiesFilter | myfilter: filterOrga:orgaFilter"
+								style="padding-right: 10px;">
+								<app-item-organisation [organisation]="organisation"></app-item-organisation>
+							</div>
+						</ul>
+					</div>
+					<div class="closeButtonDiv">
+						<button mat-raised-button class="filterReverseBtn transition resetModalBtn" (click)="resetPrivateFilter('organisations', true)" style="margin-right:10px">Reinitialiser</button>
+						<button mat-raised-button class="validModalBtn" color="primary" (click)="updateFilterOrganisations()">Valider</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</div>

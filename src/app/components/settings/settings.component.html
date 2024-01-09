@@ -1,0 +1,108 @@
+
+<div class="settingsAll wrapperInitial"
+     [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+  <div>
+    
+    
+    <!-- Titre de la page -->
+    <div class="settingsHeader">
+      <div class="leftSettingsHeader">
+        <div class="iconContainer" (click)="goToDashboard()"  
+        [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+        'smallTitle': this.settingsStorageService.textSizeStorage === 'true'}">
+          <mat-icon 
+          [ngClass]="{'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}"
+          matTooltip="Retour au tableau de bord"
+          class="back-icon backIcon"
+          >arrow_back
+          </mat-icon>
+
+          Retour
+        </div>
+          
+        <div class="settingsLogo">
+          <img alt="Logo de Tinydata" src="assets/images/tinydata_violet_gris.png" style="cursor: pointer;" (click)="goToDashboard()" alt="tinyLogo"/>
+        </div>
+      </div>
+
+      
+
+      <div class="titlePage rightSettingsHeader" 
+      [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+      'smallTitle': this.settingsStorageService.textSizeStorage === 'true'}">
+        {{titlePage}}
+      </div>
+      <!-- <p class="title" [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">PARAMÈTRES</p> -->
+    </div>
+
+    <!-- Contenu de la page -->
+    <div class="settingsContainer">
+      <div class="settingsMenu" [ngClass]="{'nightText nightBackground ': this.settingsStorageService.nightStorage === 'true'}">
+        <div class="settingsMenuContainer">
+
+          <div *ngIf="showAdminPanel" class="settingsAdmin">
+              <h4 class="subtitle">Administration</h4>
+
+              <!-- Liste de toutes les pages administrateurs -->
+              <div  class="settingsMenuSection" (click)="goToTinySuite()"
+                    [ngClass]="{'nightText nightBackground nightShadow nightHoverBackground': this.settingsStorageService.nightStorage === 'true'}">
+                    <p id="manageAccount"> Gestion des comptes TINY SUITE</p>
+              </div>
+              <hr>
+            </div>
+              
+          
+
+          <h4 class="subtitle">Mon compte</h4>
+
+          <!-- Liste de toutes les pages administrateurs -->
+          <div  *ngFor="let user of userPages" class="settingsMenuSection" routerLink="" (click)="goToSettings(user.url)"
+                [ngClass]="{'nightText nightBackground nightShadow nightHoverBackground': this.settingsStorageService.nightStorage === 'true', 
+                'activeSettingPage': this.pageSelected === user.url}">
+            <p> {{ user.name }} </p>
+            <p class="settingsHideArrows"><i class="fas fa-chevron-right"></i></p>
+          </div>
+
+
+          <!--div class=" settingsMenuSection" routerLink="" (click)="goToSettings('notifications')"
+          [ngClass]="{'nightText nightBackground nightShadow nightHoverBackground': this.settingsStorageService.nightStorage === 'true'}">
+            <p>Notifications</p>
+            <p class="settingsHideArrows"><i class="fas fa-chevron-right"></i></p>
+          </div-->
+        </div>
+      </div>
+
+
+      <div class="settingsContent">
+        <!-- Permet de rendre un affichage correct -->
+        <div class="settingsContentTitle settingsContentPreContent" *ngIf="!myTemplateRef"
+             [ngClass]="{'nightText nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+          <p>Titre du paramètre</p>
+        </div>
+
+        <div style="height: 400px;" class="settingsContentText settingsContentPreContent" *ngIf="!myTemplateRef" [ngClass]="{'nightText nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+          <p>Contenu du paramètre</p>
+        </div>
+
+        <ng-container *ngTemplateOutlet="myTemplateRef"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobileSettingsContainer"  [ngStyle]="{'position': showSettingsBack ? 'absolute' : 'initial'}">
+  <div class="settingsBack" *ngIf="showSettingsBack" (click)="goToSettings('')"
+       [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightText nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+    <p class="settingsHideArrows" ><i class="fas fa-arrow-left"></i> Retour</p>
+  </div>
+  <ng-container *ngTemplateOutlet="myTemplateRef" ></ng-container>
+</div>
+
+<ng-template #template>
+  <router-outlet> </router-outlet>
+</ng-template>

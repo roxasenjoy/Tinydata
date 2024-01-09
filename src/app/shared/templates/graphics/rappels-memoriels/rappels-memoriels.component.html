@@ -1,0 +1,20 @@
+<div [hidden]="displayGraphic" class="graphicLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="!displayGraphic" class="graphic" id="rappelsMemoriels"
+    style="max-width: initial !important; height: 600px; margin-bottom: 50px;"></div>
+
+
+<div class="arrowLeft hint--right" *ngIf='showCursorLeft' [hidden]="!displayGraphic"
+    aria-label="Éléments précédents" (click)="leftArrow()">
+    <i class="fa-solid fa-arrow-left"></i>
+</div>
+
+<list-formation [hidden]="!displayGraphic" [nameFormationFilter]='nameFormationFilter'
+    (idFormationFilter)="updateData($event)"></list-formation>
+
+<div class="arrowRight hint--left" *ngIf="showCursorRight" [hidden]="!displayGraphic"
+    aria-label="Éléments suivants" (click)="rightArrow()">
+    <i class="fa-solid fa-arrow-right"></i>
+</div>

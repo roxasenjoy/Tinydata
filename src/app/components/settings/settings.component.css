@@ -1,0 +1,49 @@
+.subtitle{
+    color:var(--purple)
+}
+
+.settingsTitleSection{
+    color: var(--purple);
+    font-size: var(--mediumText);
+    font-weight: 500;
+    text-align: center;
+    border-bottom: solid 1px var(--black);
+}
+
+.titlePage{
+    font-size: 24px;
+}
+
+.leftSettingsHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftSettingsHeader .settingsLogo{
+    margin-left: 40px;
+}
+
+.rightSettingsHeader{
+    font-size: 36px;
+    text-align: center;
+    margin: auto;
+}
+
+.activeSettingPage{
+    background: var(--blueGreen);
+    color: var(--white);
+}
+
+#manageAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#manageAccount mat-icon{
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    padding-left: 5px;
+}

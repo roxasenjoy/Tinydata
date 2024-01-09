@@ -1,0 +1,17 @@
+<div [hidden]="canShowGraphicComponent" class="graphicLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="!canShowGraphicComponent" class="graphic" id="graphicComponent"
+    style="max-width: initial !important; height: 500px;"></div>
+
+<div [hidden]="!canShowGraphicComponent">
+    <div class="dataTable" style="color: var(--black); padding: 2.5px 0;">
+        <h5 style="margin-left:15px; font-weight: bold;;">Légende :</h5>
+        <ul class="legend">
+            <li>L'appellation "compte ouvert" est utilisée pour désigner un compte créé par un utilisateur ayant le rôle
+                d'administrateur client, de super administrateur client ou faisant partie de l'équipe de Tinycoaching.
+            </li>
+        </ul>
+    </div>
+</div>

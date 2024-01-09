@@ -1,0 +1,36 @@
+<!-------------------------------------------------
+            Menu vertical - FORMAT ORDINATEUR
+   --------------------------------------------------->
+
+  <input type='checkbox' id='toggle' style='display:none;'/>
+  <label class='toggle-btn toggle-btn__cross' for='toggle'>
+    <div class="bar transition"></div>
+    <div class="bar transition"></div>
+    <div class="bar transition"></div>
+  </label>
+
+<div class="dashboardMenu sidebar" id="body" style="position: absolute;"
+     [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+
+  <!-- Contient tous les éléments -->
+  <div class="dashboardMenuContent">
+    <!-- Logo -->
+    <div class="dashboardMenuLogo">
+      <img src="assets/images/tinydata_blanc.svg" alt="Logo de Tinydata en blanc"/>
+    </div>
+
+    <div class="dashboardMenuFilters" [ngClass]="this.settingsStorageService.nightStorage === 'true' ?this.settingsStorageService.nightTextCSS: 'false'">
+      <!-- Naviguations -->
+      <div class="dashboardMenuIconSet">
+        <a href="/dashboard" class="dashboardMenuLink"><i class="dashboardMenuIcon fas fa-th-large"></i> <span class="hoverTitle">Tableau de bord</span></a>
+        <a style='cursor:pointer' (click)="navigateSettings()" class="dashboardMenuLink"><i class="dashboardMenuIcon fas fa-cog"></i> <span class="hoverTitle">Paramètres</span></a>
+        <a href="/home" class="dashboardMenuLink" (click)="logOut()"><i class="dashboardMenuIcon fas fa-sign-out-alt"></i> <span class="hoverTitle">Se déconnecter</span></a>
+      </div>
+
+      <!-- ON SE TROUVE SUR LA PAGE NAV-BAR -->
+      <app-filter></app-filter>
+
+    </div>
+  </div>
+</div>

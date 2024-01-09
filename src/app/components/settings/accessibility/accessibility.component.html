@@ -1,0 +1,70 @@
+<div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}"
+>
+
+  
+
+  <div class="settingsContentText" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+
+    <div class="settingsFieldContainer">
+      <div class="settingsAccessibilityContainer">
+        <p class="settingsAccessibilitySection">Mode nuit</p>
+        <hr [ngClass]="{'nightBackgroundPurple': this.settingsStorageService.nightStorage === 'true'}">
+        <div class="settingsAccessibilityContent" [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <p class="settingsAccessibilityTitle">Activé le mode nuit</p>
+          <span class="settingsAccessibilityStatut" *ngIf="nightChecked">Activé</span>
+          <span class="settingsAccessibilityStatut" *ngIf="!nightChecked">Désactivé</span>
+          <mat-slide-toggle
+            [(ngModel)]="nightChecked"
+            [ngClass]="this.settingsStorageService.textSizeStorage === 'true' ? 'settingsAccessibilityCheckbox' : 'false'"
+            [color]="color"
+            (click)="accessibilitySettings(nightChecked, 'night')">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="settingsAccessibilityContainer">
+        <p class="settingsAccessibilitySection" id="settingsAccessibilitySection">Affichage et taille du texte</p>
+        <hr [ngClass]="{'nightBackgroundPurple': this.settingsStorageService.nightStorage === 'true'}">
+        <div class="settingsAccessibilityContent" [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <p class="settingsAccessibilityTitle">Texte en gras</p>
+          <span class="settingsAccessibilityStatut" *ngIf="weightChecked">Activé</span>
+          <span class="settingsAccessibilityStatut" *ngIf="!weightChecked">Désactivé</span>
+          <mat-slide-toggle
+            [(ngModel)]="weightChecked"
+            [ngClass]="this.settingsStorageService.textSizeStorage === 'true' ? 'settingsAccessibilityCheckbox' : 'false'"
+            [color]="color"
+            (click)="accessibilitySettings(weightChecked, 'weight')">
+          </mat-slide-toggle>
+        </div>
+
+        <div class="settingsAccessibilityContent" [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <p class="settingsAccessibilityTitle">Police plus grande</p>
+          <span class="settingsAccessibilityStatut" *ngIf="textSizeChecked">Activé</span>
+          <span class="settingsAccessibilityStatut" *ngIf="!textSizeChecked">Désactivé</span>
+          <mat-slide-toggle
+            [(ngModel)]="textSizeChecked"
+            [ngClass]="this.settingsStorageService.textSizeStorage === 'true' ? 'settingsAccessibilityCheckbox' : 'false'"
+            [color]="color"
+            (click)="accessibilitySettings(textSizeChecked, 'textSize')">
+          </mat-slide-toggle>
+        </div>
+
+        <div class="settingsAccessibilityContent" [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <p class="settingsAccessibilityTitle">Description des contenus</p>
+          <span class="settingsAccessibilityStatut" *ngIf="descriptionContentCheckeded">Activé</span>
+          <span class="settingsAccessibilityStatut" *ngIf="!descriptionContentCheckeded">Désactivé</span>
+          <mat-slide-toggle
+            [(ngModel)]="descriptionContentCheckeded"
+            [ngClass]="this.settingsStorageService.textSizeStorage === 'true' ? 'settingsAccessibilityCheckbox' : 'false'"
+            [color]="color"
+            (click)="accessibilitySettings(descriptionContentCheckeded, 'descriptionContent')">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

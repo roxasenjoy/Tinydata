@@ -1,0 +1,49 @@
+<!-- Information sur l'utilisateur -->
+<div class="dashboardUserInformation"
+    [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                'nightBody': this.settingsStorageService.nightStorage === 'true'}"
+>
+
+<header> 
+</header>
+
+
+  <div class="dashboardEmptyDiv">
+<!--    <i class="fas fa-arrow-left"></i>-->
+  </div>
+
+  <div class="dashboardUser">
+    <p> {{ titleHeader }} </p> <!-- Changer avec un paramètre -->
+  </div>
+
+  <div class="dashboardSettings">
+
+    <!-- Affiche les notifications de l'utilisateur -->
+    <mat-icon matBadge="3" [matMenuTriggerFor]="menu" matBadgeOverlap="false" class="dashboardIcon" style="display: none;">notifications</mat-icon>
+    <mat-menu #menu="matMenu" class="notificationMenu">
+      <div class="notificationHeader">
+        Mes notifications
+      </div>
+
+      <!-- Boucle FOR sur toutes les notificiations -->
+      <div class="notificationContent">
+        <p> Bienvenue sur Tinydata ! </p>
+        <p class="notificationTime"> Il y a 2h </p>
+        <p class="notificationClose"><i class="fas fa-times "></i></p>
+      </div>
+
+      <div class="notificationContent" routerLink="home">
+        <p> Bienvenue sur Tinydata ! </p>
+        <p class="notificationTime"> Il y a 2h </p>
+        <p class="notificationClose"><i class="fas fa-times "></i></p>
+      </div>
+
+      <div class="notificationContent">
+        <p> Bienvenue sur Tinydata ! </p>
+        <p class="notificationTime"> Il y a 2h </p>
+        <p class="notificationClose"><i class="fas fa-times "></i></p>
+      </div>
+    </mat-menu>
+  </div>
+</div>
+

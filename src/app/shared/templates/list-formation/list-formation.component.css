@@ -1,0 +1,165 @@
+/******************************/
+/** Filtres **/
+.filtersFormations{
+    height: 75px; /* 75 + 325 = 400 - Taille du container */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtersFormations .element{
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filtersFormations .element:hover{background-color: var(--blueGreen);}
+
+.formationEmpty{
+    background: var(--greyLight);
+    color: var(--grey);
+}
+.formationEmpty:hover{
+    background: var(--greyLight) !important;
+    color: var(--grey) !important;
+}
+
+.filtersFormations .element svg{
+    transform: scale(1.75);
+}
+
+.isArticle svg{fill: #16c1d1;}
+.isPlay svg{fill: var(--yellow);}
+.isSound svg{fill: #4af2d9;}
+.isBrain svg{fill: var(--orange);}
+
+/** Formations **/
+.containerFormations .formations{
+    /* height: initial; Taille de la sélection des formations */
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: var(--white);
+}
+
+/* width */
+.containerFormations .formations::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+  
+/* Track */
+.containerFormations .formations::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.containerFormations .formations::-webkit-scrollbar-thumb {
+    background: var(--purple);
+}
+
+/* Handle on hover */
+.containerFormations .formations::-webkit-scrollbar-thumb:hover {
+    background: var(--purple);
+}
+
+.formations{
+    padding: 20px 0 40px 0;
+}
+
+.listFormations{
+    padding: 0 7px;
+    display: -webkit-inline-box;
+}
+
+#inputFilterFormation:focus-visible{
+    outline: var(--purple) 1px solid;
+}
+
+#inputFilterFormation{
+    /* background-color: var(--backgroundColor); */
+    /* box-shadow: 5px 5px 5px var(--backgroundColor);; */
+    border-radius: 8px;
+    width: 400px;
+}
+
+#searchFilterIcon{
+    right: 30px;
+    top: 7px;
+    opacity: 0.25;
+}
+
+.paddingResponsive{
+    padding: 0 30px;
+}
+
+.listFormations .formation{
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listFormations .formation:hover{
+    background: var(--blueGreen);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.matrixSelectedBackground{
+    background-color: var(--purple); 
+    color: var(--white);
+}
+/************************************************/
+
+.dataTable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.inputContainer{
+    display: flex;
+    justify-content: left;
+    margin-top: 25px;
+}
+
+.containerFormations input{
+    min-height: 1.5rem;
+    padding: 5px 10px;
+    border: none;
+}
+.search-icon {
+    position: relative;
+    right: 24px;
+    top:8px;
+    width: 24px;
+    height:24px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.notFoundFormation{
+    padding: 10px 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .dataTable{
+        flex-direction: column;
+        align-items: initial;
+    }
+
+    .inputContainer{
+        justify-content: left;
+        text-align: left;
+    }
+  }

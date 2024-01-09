@@ -1,0 +1,43 @@
+<div class="exportModal">
+  <div class="exportModalWrapper" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+  'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+  'nightBackground nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">
+    <div class="exportModalContent">
+      <mat-icon
+        class="modalCloseIcon"
+        (click)="cancelExportModal()">
+        close
+      </mat-icon>
+      <h2 class="exportTitle">
+        Export de graphiques
+      </h2>
+      <mat-form-field  style="width:100%">
+        <mat-label>Titre du rapport</mat-label>
+        <input matInput type="text" [(ngModel)]="exportTitle" >
+      </mat-form-field>
+
+      <mat-form-field  style="width:100%">
+        <mat-label>Analyse du rapport</mat-label>
+        <textarea rows="5" matInput [(ngModel)]="exportAnalysis" ></textarea>
+      </mat-form-field>
+
+      <div class="inColumn">
+        <p>Exporter au format</p>
+        <mat-radio-group (color)="'primary'" aria-label="Choisissez le format d'export" [(ngModel)]="exportType" class="inColumn">
+
+          <mat-radio-button value="PDF" checked *ngIf="!isPossibleToExportInPDF">PDF</mat-radio-button>
+          <mat-radio-button value="PDF" *ngIf="isPossibleToExportInPDF" disabled="true"> <span class=" hint--right hint--large hint--error" aria-label="Impossible d’exporter les données suivants : Contribution à l’amélioration, Nombre total de contenus validés, Nombre total de contenus non validés. Veuillez sélectionner un autre format d’export disponible : EXCEL, CSV, PNG.
+            (modifié)"  id="errorPDFExport">PDF <i class="fa-solid fa-circle-info error"></i></span></mat-radio-button>
+
+          <mat-radio-button value="PNG">PNG (pas d'analyse)</mat-radio-button>
+          <mat-radio-button value="CSV">CSV (pas d'analyse)</mat-radio-button>
+          <mat-radio-button value="EXCEL">EXCEL (pas d'analyse)</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="modalExportButtons">
+      <button mat-raised-button (click)="cancelExportModal()" class="cancelExport transition">Annuler</button>
+      <button mat-raised-button color="primary" (click)="startExport()" class="validExport transition">Exporter</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="contentAloneData shadow" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+    'smallText': this.settingsStorageService.weightStorage === 'true',
+    'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+
+    <div [hidden]="!canShowGraphic">
+
+        <div class="containerRawData">
+            <img src="assets/images/picto/hour-picto.svg" alt="" class="pictoStaticData">
+
+            <button mat-icon-button (click)="getDataModal()">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
+        
+        <p class="valueAloneData">{{ result }}</p>
+
+        <h3 class="titleAloneData"
+            [ngClass]="this.settingsStorageService.nightStorage === 'true' ? this.settingsStorageService.nightTextCSS: 'false'">
+            Temps total passé dans l'apprentissage</h3>
+    </div>
+
+    <div [hidden]="canShowGraphic" class="graphicLoading" style='display: flex; justify-content: center;'>
+        <mat-spinner></mat-spinner>
+    </div>
+
+</div>
+
+<app-modal-static-data-details
+    (updateDataEvent)   ="updateData($event)"
+    (displayModalEvent) ="modal = false" 
+
+    [modal]             ="modal" 
+    [dataIsReady]       ="dataIsReady"
+    [nameColumns]       ="nameColumns" 
+    [displayedColumns]  ="displayedColumns"
+    [dataExtended]      ="dataExtended" 
+    [totalElements]     ="totalElements">
+</app-modal-static-data-details>

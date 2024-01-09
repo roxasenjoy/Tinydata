@@ -1,0 +1,253 @@
+/* Taille du graphique */
+.contentsValidGraphic{
+      width: 100%;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      margin:initial;
+      flex: 3;
+}
+
+
+/**
+      Liste des formations en scroll vertical
+**/
+
+.containerFormations{
+      flex: 1;
+}
+
+/*******************************/
+/** Filtres **/
+.filtersFormations{
+      height: 75px; /* 75 + 325 = 400 - Taille du container */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+}
+
+.filtersFormations .element{
+      background-color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      border-radius: 8px;
+      cursor: pointer;
+}
+
+.filtersFormations .element:hover{background-color: var(--blueGreen);}
+
+.filtersFormations .element svg{
+      transform: scale(1.75);
+}
+
+.isArticle svg{fill: #16c1d1;}
+.isPlay svg{fill: var(--yellow);}
+.isSound svg{fill: #4af2d9;}
+.isBrain svg{fill: var(--orange);}
+
+/** Formations **/
+.containerFormations .formations{
+      /* height: initial; Taille de la sélection des formations */
+      overflow-x: auto;
+      overflow-y: auto;
+      background-color: var(--white);
+}
+
+/* width */
+.containerFormations .formations::-webkit-scrollbar {
+      width: 5px;
+      height: 10px;
+}
+    
+/* Track */
+.containerFormations .formations::-webkit-scrollbar-track {
+      background: #f1f1f1;
+}
+
+/* Handle */
+.containerFormations .formations::-webkit-scrollbar-thumb {
+      background: var(--purple);
+}
+
+/* Handle on hover */
+.containerFormations .formations::-webkit-scrollbar-thumb:hover {
+      background: var(--purple);
+}
+
+.formations{
+      padding: 40px 0;
+}
+
+.listFormations{
+      padding: 0 7px; 
+      
+      display: -webkit-inline-box;
+}
+
+.paddingResponsive{
+      padding: 0 30px;
+}
+
+.listFormations .formation{
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.listFormations .formation:hover{
+      background: var(--blueGreen);
+      color: var(--white);
+      cursor: pointer;
+}
+
+.matrixSelectedBackground{background-color: var(--purple); color: var(--white);}
+
+/************* Total des contenus validés/échoués ***********/
+.totalContentValid{
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      border-radius: 8px;
+      padding: 10px;
+      display: block;
+      text-align: left;
+      word-wrap: break-word; 
+      background-color: var(--white); 
+ /*     border: var(--purple) 3px solid;*/
+}
+
+.totalContentValid .row{
+      display: flex;
+      justify-content:flex-start;
+      align-items: center;
+      padding: 5px 20px;
+}
+
+
+/*******************************/
+
+/**** Liste des granularités à droite du graphique  ****/
+.stepsGranularities{
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      width: 350px;
+      font-family: var(--policeLight);
+      display: initial;
+      padding: 10px;
+      background-color: var(--white);
+  }
+
+.stepsGranularities .barGlobal{
+      width: 50px;
+      min-width: 50px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+}
+  
+  
+  .stepsGranularities i{
+      font-size: 25px;
+      color: var(--grey);
+  }
+  
+  .stepsGranularities .formation,
+  .stepsGranularities .domain,
+  .stepsGranularities .skill,
+  .stepsGranularities .theme,
+  .stepsGranularities .acquis{
+      display: flex;
+      margin-top: 10px;
+      vertical-align: center;
+  }
+  
+  .stepsGranularities .title{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 15px;
+      font-size: 10px !important;
+  }
+  
+  
+  .stepsGranularities .bar{
+      height: 30px;
+      width: 10px;
+      margin-right: 1.5px;
+      border-radius: 10px;
+      border: solid rgba(0, 0, 0, 0.2) 1px;
+  }
+  
+  .stepsGranularities .domainColor{
+      background-color: var(--domain);
+  }
+  
+  .stepsGranularities .skillColor{
+      background-color: var(--skill);
+      height: 25px;
+      margin-top: 5px;
+  }
+  
+  .stepsGranularities .themeColor{
+      background-color: var(--theme);
+      height: 20px;
+      margin-top: 10px;
+  }
+  
+  .stepsGranularities .acquisColor{
+      background-color: var(--acquis);
+      height: 15px;
+      margin-top: 15px;
+  }
+  
+  .stepsGranularities .domain .bar:nth-child(1),
+  .stepsGranularities .skill .bar:nth-child(1),
+  .stepsGranularities .theme .bar:nth-child(1),
+  .stepsGranularities .acquis .bar:nth-child(1){
+      height: 25px;
+      margin-top: 5px;
+  }
+  
+  .stepsGranularities .domain .bar:nth-child(2),
+  .stepsGranularities .skill .bar:nth-child(2),
+  .stepsGranularities .theme .bar:nth-child(2),
+  .stepsGranularities .acquis .bar:nth-child(2){
+      height: 20px;
+      margin-top: 10px;
+  }
+  
+  .stepsGranularities .domain .bar:nth-child(3),
+  .stepsGranularities .skill .bar:nth-child(3),
+  .stepsGranularities .theme .bar:nth-child(3),
+  .stepsGranularities .acquis .bar:nth-child(3){
+      height: 15px;
+      margin-top: 15px;
+  }
+  
+  .stepsGranularities .domain .bar:nth-child(4),
+  .stepsGranularities .skill .bar:nth-child(4),
+  .stepsGranularities .theme .bar:nth-child(4),
+  .stepsGranularities .acquis .bar:nth-child(4){
+      height: 10px;
+      margin-top: 20px;
+  }
+  
+  
+  @media screen and (max-width: 1000px) {
+  
+      .stepsGranularities{
+          display: none;
+      }
+  
+  }

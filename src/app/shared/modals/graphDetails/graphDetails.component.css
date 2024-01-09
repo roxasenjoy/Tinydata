@@ -1,0 +1,52 @@
+
+.exportModal{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000008a;
+    z-index: 99;
+}
+
+.exportModalWrapper{
+    min-width: 370px;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    border-radius: 20px;
+}
+
+.exportModalContent{
+    padding:20px;
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.exportTitle{
+    text-align: center;
+    color: var(--purple);
+    font-weight: bold;
+    margin-bottom: 10px;
+    height:40px;
+}
+
+.modalButton{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    bottom: 10px;
+}
+
+.dataTableContainer{
+    max-height: calc(max(500px, 80vh) - 126px);
+    overflow: auto;
+    width: 100%;
+}
+
+.dataTable{
+    width: 100%;
+}

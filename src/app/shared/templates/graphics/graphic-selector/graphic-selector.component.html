@@ -1,0 +1,3 @@
+<div [ngClass]="{'graphSelector': showSelector, 'graphSelected': showSelector && isGraphSelected}" (click)="clickDiv()"></div>
+<mat-checkbox color="primary" *ngIf="showSelector" class="graphChecker" [(ngModel)]="isGraphSelected" (change)="onCheckboxChange()"></mat-checkbox>
+<ng-content></ng-content>

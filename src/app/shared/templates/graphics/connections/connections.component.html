@@ -1,0 +1,20 @@
+<div [hidden]="canShowGraphicsConnection" class="graphicLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="!canShowGraphicsConnection || precision == 'MONTH'" style="text-align: left; margin-left: 30px;">
+  <mat-icon
+  (click)="backToMonth()"
+  style="cursor:pointer;font-size: 40px; font-weight: bold;"
+  matTooltip="Retour"
+  >
+    arrow_back
+  </mat-icon>
+</div>
+
+<div  [hidden]="!canShowGraphicsConnection" class="graphic" id="connections" style="height: 350px !important;"></div> <!-- Graphique-->
+<p *ngIf ="numberOfConnections == 0" style="color: var(--purple); font-style: italic; width:100%; margin-left:10px ">
+  {{noConnectionsString}}
+</p>
+
+<app-graph-details *ngIf="showDetails" [graphType]="'CONNECTIONS'" [data]="dailyData" (close)="closeDetails()"></app-graph-details>

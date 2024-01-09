@@ -1,0 +1,27 @@
+<div class="login" xmlns="http://www.w3.org/1999/html">
+  <span *ngIf="errors" class="form-message position-absolute text-center w-100 error"   data-aos="zoom-in" >
+    {{errors}}
+  </span>
+    <div class="wrapper">
+        <section class="m-0 p-0">
+            <form class="loginform" [formGroup]="authForm" (ngSubmit)="submitForm()">
+                <img alt='Logo de Tinydata' src="assets/images/logo.png" class="d-block mx-auto mb-5"/>
+                <input [(ngModel)]="user.login"
+                        formControlName="login"
+                        name="login"
+                        class="form-control mb-4"
+                        type="text"
+                        required
+                        placeholder="Adresse e-mail ou numéro de téléphone"/>
+                <input [(ngModel)]="user.password"
+                       formControlName="password"
+                       name="login"
+                       type="password" class="form-control" name="password" placeholder="Mot de passe" required/>
+                <button class="btn ripple login-button mx-auto d-block mt-4 w-100">Se connecter</button>
+                <div class="exemples mt-4"  data-aos="zoom-in" *ngIf="errors">Saisissez une adresse e-mail ou un numéro de téléphone valide (exemple@domaine.com / 0626899561)</div>
+
+                <a class="text-center d-block pt-3" routerLink="/forgot_password"><span>Mot de passe oublié ???????</span></a>
+            </form>
+        </section>
+    </div>
+</div>

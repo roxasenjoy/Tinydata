@@ -1,0 +1,433 @@
+<!-- on-boarding.component.html - Page de connexion / Création de compte -->
+
+<!--
+    L'utilisateur n'est pas connecté
+-->
+<div class="homeBody" *ngIf="!isLoggedIn">
+
+    <!-- Header -->
+    <header class="homeHeader">
+        <div class="logo">
+            <img src="assets/images/tinydata_blanc.svg" alt="tinyLogo"/>
+        </div>
+        <div class="title">
+            <h1></h1>
+        </div>
+    </header>
+
+    <!-- Waves en dessous du Header -->
+    <div class="homeWaves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 260">
+            <path fill="#9229FF" fill-opacity="1" d="M0,96L40,90.7C80,85,160,75,240,85.3C320,96,400,128,480,170.7C560,
+            213,640,267,720,245.3C800,224,880,128,960,117.3C1040,107,1120,181,1200,218.7C1280,256,1360,256,1400,256L1440,
+            256L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,
+            0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+        </svg>
+    </div>
+
+    <!-- Content de la page -->
+    <div class="homeContent">
+        <div class="left">
+            <ng-lottie height="auto" [options]="options"></ng-lottie>
+        </div>
+
+        <div class="right">
+            <div class="text">
+                <p>DÉCOUVREZ VOS COMPÉTENCES AUTREMENT</p>
+            </div>
+            <div class="accountButton">
+
+                <!-- Login -->
+                <div class="login" id="showLoginModal" (click)="displayModalConnexion()">
+                    <a id="login" >Se connecter </a>
+                </div>
+
+                <!-- Création du compte
+                <div class="createAccount" id="showCreateModal">
+                    <a id="createAccount">
+                        Je crée mon compte
+                    </a>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!------------- Modal de base ---------------->
+
+
+    <div class="homeModalBackground"
+         *ngIf="modalLogin ||
+                modalEmailResetPassword ||
+                modalResetPassword ||
+                modalCreateAccount">
+
+
+        <div class="homeModal">
+            <div class="close" id="modalClose" (click)="hideAllModals()" *ngIf="!disableCrossDuringLoading">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="1">
+                        <path d="M18 6L6 18" stroke="#000" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M6 6L18 18" stroke="#000" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </g>
+                </svg>
+            </div>
+
+           <!------------------------------------------
+                CREATION DE COMPTE
+            ------------------------------------------>
+            <div class="modalContainer" id="createAccountModal" *ngIf="modalCreateAccount">
+                <div class="content">
+                    <div class="title">Initialisation du compte</div>
+
+                    <div *ngIf="loadingCreateAccount" class="message">
+                        <mat-spinner class='loadingMessage'></mat-spinner>
+                        <p id="createAccount"> Votre compte est en cours de création... </p>
+                    </div>
+
+                    <!-- Erreur dans la création du mot de passe -->
+                    <div class="errorContainer"
+                         *ngIf="(errors == 'Mot de passe incorrect' ||
+                                errors == 'FIELD EMPTY' ||
+                                errors == 'PHONE ERROR') && !loadingCreateAccount">
+                        <div class="iconDanger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="error">
+                            <h4 class="errorTitle"> Un problème est survenu </h4>
+
+                            <!-- ERREUR - Les mots de passe ne sont pas les mêmes -->
+                            <div *ngIf="errors == 'Mot de passe incorrect'">
+                                Votre mot de passe doit contenir au moins :
+                                <ul>
+                                    <li> 8 caractères </li>
+                                    <li> 1 majuscule </li>
+                                    <li> 1 minuscule </li>
+                                    <li> 1 caractère spécial @&>$§!%*</li>
+                                </ul>
+                            </div>
+
+                            <!-- ERREUR - L'utilisateur n'a rien tapé -->
+                            <div *ngIf="errors == 'FIELD EMPTY'">
+                                Veuillez remplir tous les champs obligatoires
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div *ngIf="!loadingCreateAccount">
+                        <div>
+                            <label class="form-check-label modal-cgu" for="signUpCGU">
+                                Afin de pouvoir accéder à Tinydata, veuillez modifier votre mot de passe temporaire.
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input [type]="displayPasswordCreateAccountEye ? 'text' : 'password'"
+                                       class="field inputPassword"
+                                       placeholder="Mot de passe"
+                                       name="signUpPassword"
+                                       [(ngModel)]="signUpPassword"
+                                       (keyup.enter)="signUpPassword">
+                                <div class="password-icon">
+                                    <i class="fa" (click)="displayPasswordCreateAccount()"
+                                       [ngClass]="{
+                                              'fa-eye-slash passwordHide': !displayPasswordCreateAccountEye,
+                                              'fa-eye passwordShow': displayPasswordCreateAccountEye
+                                            }"></i>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div>
+                            <label>
+                                <input [type]="displayVerifyPasswordCreateAccountEye ? 'text' : 'password'"
+                                       class="field inputPassword"
+                                       placeholder="Vérification de votre mot de passe"
+                                       name="signUpVerifyPassword"
+                                       [(ngModel)]="signUpVerifyPassword"
+                                       (keyup.enter)="signUpVerifyPassword">
+                                <div class="password-icon">
+                                    <i class="fa" (click)="displayVerifyPasswordCreateAccount()"
+                                       [ngClass]="{
+                                              'fa-eye-slash passwordHide': !displayVerifyPasswordCreateAccountEye,
+                                              'fa-eye passwordShow': displayVerifyPasswordCreateAccountEye
+                                            }"></i>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"  id="signUpCGU" name="signUpCGU"
+                                   [(ngModel)]="signUpCGU"
+                                   (keyup.enter)="signUpCGU">
+                            <label class="form-check-label modal-cgu" for="signUpCGU">
+                                En vous créant un compte, vous acceptez les
+                                <a href="https://tiny-coaching.com/index.php/conditions-dutilisation/" class="linkCGU"
+                                   target="_blank">
+                                    conditions générales d'utilisation.
+                                </a>
+                            </label>
+                        </div>
+
+
+                        <button type="submit" style="margin-bottom:30px"
+                                (click)="signUpTinydata()">Créer son compte</button>
+                    </div>
+                </div>
+            </div>
+
+            <!----------------------------------------
+                CONNEXION
+            ------------------------------------------>
+            <div class="modalContainer" *ngIf="modalLogin">
+                <div class="content contentConnexion">
+                    <div class="title">CONNEXION</div>
+
+                    <div *ngIf="loadingLogin" class="message ">
+                        <mat-spinner class='loadingMessage'></mat-spinner>
+                        <p id="connectingAccount"> En cours de connexion... </p>
+                    </div>
+
+                    <div class="errorContainer" *ngIf="authError && authError !== 'NO ERRORS' && !loadingLogin ">
+                        <div class="iconDanger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+
+                        <div class="error">
+
+                            <h4 class="errorTitle"> Un problème est survenu </h4>
+
+                            <!-- ERREUR - Email invalide -->
+                            <div *ngIf="authError === 'INVALID USERNAME'">
+                                Aucun compte n'est rattaché à cette adresse email
+                            </div>
+
+                            <!-- ERREUR - Aucun mot de passé tapé -->
+                            <div *ngIf="authError === 'MISSING PASSWORD'">
+                                Votre mot de passe est manquant.
+                            </div>
+
+                            <!-- ERREUR - Mot de passe incorrect -->
+                            <div *ngIf="authError === 'INVALID PASSWORD'">
+                                Votre mot de passe est invalide.
+                            </div>
+
+                            <!-- ERREUR - Accès non autorisé -->
+                            <div *ngIf="authError === 'UNAUTHORIZED ACCESS TINYDATA'">
+                                Vous n'êtes pas autorisé(e) à accéder à Tinydata
+                            </div>
+
+                            <!-- ERREUR - L'utilisateur n'a rien tapé -->
+                            <div *ngIf="authError === 'Veuillez remplir tous les champs obligatoires'">
+                                Veuillez remplir tous les champs obligatoires
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="!loadingLogin">
+                        <div  >
+                            <input
+                                    type="text"
+                                    name="myEmail"
+                                    class="field"
+                                    placeholder="Saisissez votre adresse email"
+                                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                    autocomplete="on"
+                                    [(ngModel)]="myEmail"
+                                    (keydown.enter)="verifyAccount(myEmail, myPassword, loginCGU)"/>
+                        </div>
+
+                        <div>
+                            <label>
+                                <input name="myPassword"
+                                       class="field inputPassword"
+                                       placeholder="Saisissez votre mot de passe"
+                                       autocomplete="on"
+                                       [type]="displayPasswordLoginEye ? 'text' : 'password'"
+                                       [(ngModel)]="myPassword"
+                                       (keydown.enter)="verifyAccount(myEmail, myPassword, loginCGU)"/>
+                                <div class="password-icon" >
+                                    <i class="fas" (click)="displayPasswordLogin()"
+                                       [ngClass]="{
+                                      'fa-eye-slash passwordHide': !displayPasswordLoginEye,
+                                      'fa-eye passwordShow': displayPasswordLoginEye
+                                    }">
+                                    </i>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline passwordRemember">
+                            <input class="form-check-input" type="checkbox" id="passwordRemember" [(ngModel)]="loginCGU" >
+                            <label class="form-check-label" for="passwordRemember">  Enregistrer mon mot de passe</label>
+                        </div>
+
+                        <button type="submit" class="btnConnexion"
+                                (click)="verifyAccount(myEmail, myPassword, loginCGU)">Se connecter</button>
+                        <div class="parentPasswordForgot">
+                            <a type="button" (click)="displayModalPassword()" class="password-forgot" id="btnPasswordForgot">Mot de passe oublié ?</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!------------------------------------------
+                MOT DE PASSE OUBLIÉ
+            ------------------------------------------>
+            <div class="modalContainer" *ngIf="modalEmailResetPassword">
+                <div class="content">
+                    <div class="title">MOT DE PASSE OUBLIÉ </div>
+
+                    <!-- SUCCESS - Adresse email valide -->
+                    <div  class="emailSuccess">
+                        <div class="success-checkmark" *ngIf="success">
+                            <div class="check-icon">
+                                <span class="icon-line line-tip"></span>
+                                <span class="icon-line line-long"></span>
+                                <div class="icon-circle"></div>
+                                <div class="icon-fix"></div>
+                            </div>
+                        </div>
+
+                        <div class="message" *ngIf="success">
+                            Un mail vient de vous être envoyé, veuillez vérifier votre boîte de réception.
+                        </div>
+
+                        <div *ngIf="successResetPassword" class="message">
+                            <mat-spinner class='loadingMessage'></mat-spinner>
+                            Votre email est en chemin ! Merci de patienter...
+                        </div>
+                    </div>
+
+
+
+                    <div class="errorContainer" *ngIf="errorsPassword">
+                        <div class="iconDanger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+
+                        <div class="error">
+                            <h4 class="errorTitle"> Un problème est survenu </h4>
+
+                            <!-- ERREUR - Adresse Email invalide -->
+                            <div *ngIf="errorsPassword">
+                                Aucun compte n'est rattaché à cette adresse email.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div *ngIf="!success" class="resetPassword" id="resetPassword">
+                        <figure></figure>
+                        Veuillez entrer votre adresse email, vous recevrez un lien pour réinitialiser votre mot de passe
+                    </div>
+
+                    <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+                        <input
+                                *ngIf="!isSubmitting && !success"
+                                [(ngModel)]="user.email"
+                                formControlName="email"
+                                name="email"
+                                class="field"
+                                type="text"
+                                required
+                                placeholder="Adresse email"/>
+                        <button *ngIf="!isSubmitting && !success" class="btnConnexion">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+
+            <!----------------------------------------
+                REINITIALISATION DU MOT DE PASSE
+            ------------------------------------------>
+            <div class="modalContainer" *ngIf="modalResetPassword">
+                <div class="content contentConnexion">
+                    <div class="title">CRÉATION DE VOTRE <BR>MOT DE PASSE</div>
+
+                    <div *ngIf="loadingResetPassword" class="message">
+                        <mat-spinner class='loadingMessage'></mat-spinner>
+                        <p id="connectionVerifyPassword"> Vérification des mots de passe... </p>
+                    </div>
+
+                    <!-- Erreur dans la création du mot de passe -->
+                    <div class="errorContainer" *ngIf="errors == 'Veuillez saisir un mot de passe valide' && !loadingResetPassword">
+                        <div class="iconDanger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="error">
+                            <h4 class="errorTitle"> Un problème est survenu </h4>
+
+                            <!-- ERREUR - Les mots de passe ne sont pas les mêmes -->
+                            <div>
+                                Votre mot de passe doit contenir au moins :
+                                <ul>
+                                    <li> 8 caractères </li>
+                                    <li> 1 majuscule </li>
+                                    <li> 1 minuscule </li>
+                                    <li> 1 caractère spécial @&>$§!%*</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- REINITIALISATION DU MOT DE PASSE -->
+                    <form class="loginform" [formGroup]="form" (ngSubmit)="submitFormResetPassword()" *ngIf="!loadingResetPassword">
+
+                        <div *ngIf="!isSubmitting && !success">
+                            <label>
+                                <input
+                                    [type]="displayPasswordEye ? 'text' : 'password'"
+                                    id="password"
+                                    class="field inputPassword"
+                                    formControlName="password"
+                                    placeholder="Nouveau mot de passe"
+                                    [formGroup]="form"/>
+                                    <div class="password-icon">
+                                        <i class="fa" (click)="displayPassword()"
+                                           [ngClass]="{
+                                              'fa-eye-slash passwordHide': !displayPasswordEye,
+                                              'fa-eye passwordShow': displayPasswordEye
+                                            }"></i>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <div *ngIf="!isSubmitting && !success">
+                            <label>
+                                <input
+                                        [type]="displayPasswordVerficiationEye ? 'text' : 'password'"
+                                        class="field inputPassword"
+                                        id="confirmPassword"
+                                        formControlName="confirmPassword"
+                                        placeholder="Confirmer votre mot de passe"
+                                        [formGroup]="form"/>
+                                        <div class="password-icon">
+                                            <i class="fa" (click)="displayVerifyPassword()"
+                                               [ngClass]="{
+                                                  'fa-eye-slash passwordHide': !displayPasswordVerficiationEye,
+                                                  'fa-eye passwordShow': displayPasswordVerficiationEye
+                                                }"></i>
+                                        </div>
+                            </label>
+                        </div>
+
+                        <button
+                                *ngIf="!isSubmitting && !success"
+                                class="btnConnexion"> Valider mon nouveau mot de passe
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

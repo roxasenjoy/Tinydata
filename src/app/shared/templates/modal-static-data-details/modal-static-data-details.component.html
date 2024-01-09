@@ -1,0 +1,42 @@
+<div class="exportModal" *ngIf="modal">
+    <div class="exportModalWrapper" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+    'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+    'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+        <div class="exportModalContent">
+            <h2 class="exportTitle">Détails des données</h2>
+
+            <div class="dataTableContainer">
+                <div class="mat-elevation-z8 ">
+                    <table mat-table [dataSource]="dataExtended" class="dataTable" *ngIf="dataIsReady">
+                        <ng-container *ngFor="let column of displayedColumns; let i = index" [matColumnDef]="column">
+                            <th mat-header-cell *matHeaderCellDef> {{nameColumns[i]}} </th>
+                            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div *ngIf="!dataIsReady" class="graphicLoading"
+                style='display: flex; justify-content: center; margin: 25px 0px;'>
+                <mat-spinner></mat-spinner>
+            </div>
+
+            <div class="containerPaginator">
+                <mat-paginator (page)="updateData($event)" [length]="totalElements" [pageSize]="10"
+                    [hidePageSize]="true">
+                </mat-paginator>
+
+                <div class="modalButton">
+                    <button mat-raised-button color="primary" (click)="displayModal()">Fermer</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

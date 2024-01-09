@@ -1,0 +1,44 @@
+<div class="exportModal">
+  <div class="exportModalWrapper" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+  'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+  'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+    <div class="exportModalContent">
+      <h2 class="exportTitle">Détails des données</h2>
+
+      <div class="dataTableContainer">
+        <table class="dataTable" mat-table [dataSource]="data" *ngIf="data" matSort>
+          <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+            <th mat-header-cell *matHeaderCellDef [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+            'smallText': this.settingsStorageService.textSizeStorage === 'true',
+            'nightBackground nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">
+              {{column.header}}
+            </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+            'smallText': this.settingsStorageService.textSizeStorage === 'true',
+            'nightBackground nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">
+              {{column.cell(row)}}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="graphicLoading" *ngIf="!data">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+
+      <div class="containerPaginator">
+        
+
+        <div class="modalButton">
+          <button mat-raised-button color="primary" (click)="closeModal()">Fermer</button>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>

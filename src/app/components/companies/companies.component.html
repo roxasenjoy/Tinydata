@@ -1,0 +1,74 @@
+<div>
+
+
+<app-nav-bar></app-nav-bar>
+
+
+  <div class="companiesMainContent wrapper"
+       [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+    <app-header [titleHeader]="titleHeader"></app-header>
+
+    <div class="dashboardContent filterContainer dataTable" style="display: flex;justify-content: start; background-color: transparent !important;">
+      <div class="example-ripple-container mat-elevation-z4 filter filterBtn transition back-button" (click)="goToDashboard()">
+        <mat-icon class="back-icon"
+        [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}"
+          >arrow_back</mat-icon>
+        Retour
+      </div>
+    </div>
+    <div>
+   
+
+    <app-research-bar></app-research-bar>
+
+    <div class="companiesContent contentPage" id="companiesContent">
+      <!-- Contrat + Formations choisies -->
+      <div class="companiesContractAndCourses" >
+          <div class="companiesContract companiesBox" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+            <div class="contractBegin">
+              <p class="title">Type de contrat</p>
+              <p> {{ this.typeContract }}</p>
+          </div>
+            <div class="contractBegin">
+                <p class="title">Début du contrat</p>
+                <p> {{ this.dateFrom }}</p>
+            </div>
+            <div class="contractEnd">
+              <p class="title">Fin du contrat</p>
+              <p> {{ this.dateTo }}</p>
+            </div>
+            <div class="NumberOfUsers">
+              <p class="title">Nombre d'utilisateurs</p>
+              <p> {{ this.numberUsers }} Utilisateurs </p>
+              <p>
+                <span class="UsersActifs hint--top-right hint--medium" aria-label="Les comptes actifs correspondent aux comptes dont la création a été finalisée.">
+                  {{ this.usersActive }} comptes actifs
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="companiesCourses companiesBox" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+            <p class="title titleCenter">Formation(s) choisie(s)</p>
+             <div *ngFor="let formation of formations" >
+                <p> -  {{ formation }}</p>
+             </div>
+          </div>
+      </div>
+
+      <!-- Objectifs professionnels -->
+      <!--div class="companiesPro companiesBox" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+        <p class="title titleCenter">Objectif(s) professionnel(s)</p>
+        <div *ngFor="let parcour of parcours" >
+          <p> -  {{ parcour }}</p>
+        </div>
+      </div-->
+
+    </div>
+     <app-footer></app-footer>
+  </div>
+</div>

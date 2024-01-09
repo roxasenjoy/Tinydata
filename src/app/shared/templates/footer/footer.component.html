@@ -1,0 +1,7 @@
+<footer class="footer" 
+[ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">
+Copyright DIGITAL FAST FORWARD - {{year}} | <a href="/settings/cgu-cgv"> Mentions légales </a>
+</footer>
+

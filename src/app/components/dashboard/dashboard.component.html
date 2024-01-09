@@ -1,0 +1,556 @@
+<div class="dashboardAll" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+	<!-- ON SE TROUVE SUR LA PAGE DASHBOARD -->
+	<app-nav-bar></app-nav-bar>
+
+	<div class="dashboardMainContent wrapper">
+		<app-header [titleHeader]="titleHeader"></app-header>
+		<app-research-bar></app-research-bar>
+
+		<!-- Exporter les graphiques -->
+		<div class="dashboardContent" style="display: flex; justify-content: end; margin-bottom:15px">
+			<div matRipple class="exportDashboard" (click)="prepareExport()">
+				<span> Exporter les graphiques</span>
+				<mat-icon class="icon download-icon">download</mat-icon>
+			</div>
+		</div>
+
+
+		<div class="dashboardContent contentPage"
+			[ngClass]="this.settingsStorageService.nightStorage === 'true' ? this.settingsStorageService.nightTextCSS: 'false'">
+
+			<!-----------------------------
+			Données brutes
+	  ----------------------------->
+			<section class="containerAloneData">
+				<div style="width: 100%; position: relative;" class="containerStaticData marginStaticData">
+
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('TOTAL_APPRENANTS', $event)">
+						<app-apprenants (sendData)="setTotalData('TOTAL_APPRENANTS',$event)"
+							(extendedData)="getExtendedData('TOTAL_APPRENANTS',$event)">
+						</app-apprenants>
+					</app-graphic-selector>
+				</div>
+
+				<div style="width: 100%; position: relative;" class="containerStaticData marginStaticData">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('TOTAL_CONNECTIONS', $event)">
+						<app-total-connection (extendedData)="getExtendedData('TOTAL_CONNECTIONS',$event)"
+							(sendData)="setTotalData('TOTAL_CONNECTIONS',$event)">
+						</app-total-connection>
+					</app-graphic-selector>
+				</div>
+
+				<div style="width: 100%; position: relative;" class="containerStaticData">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('TOTAL_LEARNING_TIME', $event)">
+						<app-total-learning-time (extendedData)="getExtendedData('TOTAL_LEARNING_TIME',$event)"
+							(sendData)="setTotalData('TOTAL_LEARNING_TIME',$event)">
+						</app-total-learning-time>
+					</app-graphic-selector>
+				</div>
+
+			</section>
+
+
+			<section class="specialBoxContentLeft">
+				<div class="containerStaticData"
+					style="margin-bottom: 15px; width: 100% !important; position: relative;">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('TOTAL_CONTENTS_VALID', $event)">
+						<app-valid-contents (extendedData)="getExtendedData('TOTAL_CONTENTS_VALID',$event)"
+							(sendData)="setTotalData('TOTAL_CONTENTS_VALID',$event)">
+						</app-valid-contents>
+					</app-graphic-selector>
+				</div>
+
+				<div style="width: 100%; position: relative;" class="containerStaticData">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('TOTAL_CONTENTS_FAILED', $event)">
+						<app-failed-contents (extendedData)="getExtendedData('TOTAL_CONTENTS_FAILED',$event)"
+							(sendData)="setTotalData('TOTAL_CONTENTS_FAILED',$event)">
+						</app-failed-contents>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!---------------------------------------------------------------------------->
+
+			<!-- Début du graphique TEMPS PASSE DANS L'APPRENTISSAGE -->
+			<section class="boxContent specialBoxContentRight" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+			'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:initial;" class="legendDescription"> - Temps = Temps
+											d’activité entre chaque réponse entre l'utilisateur et Tiny</p>
+										<p style="font-weight:initial;" class="legendDescription"> - Fin d’une session
+											= Au-delà de 5 minutes d’inaction entre l'utilisateur et Tiny ou 20 minutes
+											pour
+											le temps de lecture d'un contenu</p>
+										<p style="font-weight:initial;" class="legendDescription"> - Avant le
+											15/06/2022 : Données estimées</p>
+
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+
+
+
+					<div class="title">
+						Temps passé dans l'apprentissage
+
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('ANALYTICS_TIME')"></menu-graphic>
+				</div>
+
+
+
+
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('ANALYTICS_TIME', $event)">
+						<app-total-time-spent-in-learning (analyticsTimeData)="getChart('ANALYTICS_TIME', $event)"
+							(extendedData)="getExtendedData('ANALYTICS_TIME',$event)"></app-total-time-spent-in-learning>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique TEMPS PASSE DANS L'APPRENTISSAGE -->
+
+			<!-- Graphique performance -->
+			<section class="boxContent fullBoxContent" [ngClass]="{
+                  'weightText': this.settingsStorageService.weightStorage === 'true',
+                  'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Formations</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:bold; width:100%;margin-bottom: 0;">
+											Pourcentage de contenus validés
+										</p>
+										<p
+											style="color: var(--purple); font-size:12px; font-style: italic; width:100%;">
+											* Les éléments avec 0% de contenus validés ne sont pas affichés.
+										</p>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+
+
+					<div class="title">
+						Performance
+
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Formations</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+
+					</div>
+					<menu-graphic (clickMore)="graphZoom('PERFORMANCE')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('PERFORMANCE', $event)">
+						<app-performance (performanceData)="getChart('PERFORMANCE', $event)"
+							(extendedData)="getExtendedData('PERFORMANCE',$event)"></app-performance>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique performance -->
+
+			<!-- Début du graphique NOMBRE DE CONNEXIONS -->
+			<section class="boxContent fullBoxContent" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+          'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+					<div class="title">
+						Nombre de connexions
+
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('CONNECTIONS')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('CONNECTIONS', $event)">
+						<app-connections (connectionsData)="getChart('CONNECTIONS', $event)"
+							(extendedData)="getExtendedData('CONNECTIONS',$event)"></app-connections>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique NOMBRE DE CONNEXIONS-->
+
+			<!-- Début du graphique CONTENUS VALIDES -->
+			<section class="boxContent fullBoxContent" *ngIf="userZoom">
+				<div class="titleWrapper">
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+					<div class="title">
+						Validation des contenus
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('CONTENTS_VALID')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('CONTENTS_VALID', $event)">
+						<app-contents-valid class="appContentValid" (additionnalData)="getAdditionnalData($event)"
+							(contentsValidData)="getChart('CONTENTS_VALID', $event)"
+							(extendedData)="getExtendedData('CONTENTS_VALID',$event)"></app-contents-valid>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique CONTENUS VALIDES-->
+
+			<!-- Début du graphique OPEN-ACCOUNTS -->
+			<section class="boxContent fullBoxContent" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+        'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Formations</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:initial;" class="legendDescription">
+											L'appellation "compte ouvert" est utilisée pour désigner un compte
+											créé par un utilisateur ayant le rôle d'administrateur client, de
+											super administrateur client ou faisant partie de l'équipe de
+											Tinycoaching.
+										</p>
+
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+
+					<div class="title">
+						Ouverture de comptes
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Formations</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('OPENACCOUNTS')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('OPENACCOUNTS', $event)">
+						<app-open-accounts (openAccountsData)="getChart('OPENACCOUNTS', $event)"
+							(extendedData)="getExtendedData('OPENACCOUNTS',$event)"></app-open-accounts>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique OPEN-ACCOUNTS -->
+
+			<!-- Début du graphique FEEDBACK -->
+			<section class="boxContent fullBoxContent" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+         'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Formations</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:initial;" class="legendDescription">
+											Les valeurs représentent le pourcentage des feedbacks en fonction du nombre
+											total de feedback de la formation.
+										</p>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+					<div class="title">
+						Feedbacks
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Formations</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('FEEDBACK')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('FEEDBACK', $event)">
+						<app-feedback (feedbackData)="getChart('FEEDBACK', $event)"
+							(extendedData)="getExtendedData('FEEDBACK',$event)"></app-feedback>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique FEEDBACK -->
+
+			<!-- Début du graphique USER_CONTRIBUTIONS -->
+			<section class="boxContent fullBoxContent" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+      'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Formations</mat-chip>
+											<mat-chip class="chipsUsed">Date</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:initial;" class="legendDescription">
+											Les valeurs représentent le nombre de contributions à l'amélioration de la
+											formation sélectionnée
+										</p>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+					<div class="title">
+						Contribution à l'amélioration
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Formations</mat-chip>
+								<mat-chip class="chipsUsed">Date</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('USER_CONTRIBUTIONS')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('USER_CONTRIBUTIONS', $event)">
+						<app-user-contributions (userContributionsData)="getChart('USER_CONTRIBUTIONS', $event)"
+							(extendedData)="getExtendedData('USER_CONTRIBUTIONS',$event)"></app-user-contributions>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique USER_CONTRIBUTIONS -->
+
+			<!-- Début du graphique RAPPELS MEMORIELS -->
+			<section class="boxContent fullBoxContent" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+			 'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+				<div class="titleWrapper">
+
+					<span class="hidnfo">
+						<label class="hidnfo__label">
+							<span> <i class="fa-solid fa-circle-info informationGraphic hidnfo__trigger"></i> </span>
+							<span class="hidnfo__caret"></span>
+							<button class="hidnfo__box shadow transition" type="button" disabled>
+								<div class="hidnfo__transition">
+									<div class="example-text">
+
+										<p id="legendFiltersUsed"> Filtres utilisés :</p>
+										<mat-chip-list aria-label="Filtres utilisés">
+											<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+											<mat-chip class="chipsUsed">Groupes</mat-chip>
+											<mat-chip class="chipsUsed">Formations</mat-chip>
+										</mat-chip-list>
+
+										<p id="legendFiltersUsed" style="margin-top: 15px;"> Légende :</p>
+										<p style="font-weight:initial;" class="legendDescription">
+											Les valeurs représentent le nombre de contributions à l'amélioration de la
+											formation sélectionnée
+										</p>
+									</div>
+								</div>
+							</button>
+						</label>
+					</span>
+
+					<div class="title">
+						Rappels mémoriels
+						<div class="chipsContainer">
+							<mat-chip-list aria-label="Filtres utilisés">
+								<mat-chip class="chipsUsed">Utilisateur</mat-chip>
+								<mat-chip class="chipsUsed">Groupes</mat-chip>
+								<mat-chip class="chipsUsed">Formations</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<menu-graphic (clickMore)="graphZoom('RAPPELS_MEMO')"></menu-graphic>
+				</div>
+				<div class="fullDiv">
+					<app-graphic-selector [showSelector]="showSelector"
+						(graphSelected)="setGraphSelected('RAPPELS_MEMO', $event)">
+						<app-rappels-memoriels (rappelsMemorielsData)="getChart('RAPPELS_MEMO', $event)"
+							(extendedData)="getExtendedData('RAPPELS_MEMO',$event)"></app-rappels-memoriels>
+					</app-graphic-selector>
+				</div>
+			</section>
+			<!-- Fin du graphique RAPPELS MEMORIELS -->
+
+
+
+			<!-- Graphiques restants --
+
+          <section class="boxContent">
+            <div class="title">Tous les graphiques</div>
+            <div  class="graphic">
+              <h3 [hidden]="!canShowGraphics" class="inProgress">In progress...</h3>
+              <mat-spinner [hidden]="canShowGraphics"></mat-spinner>
+            </div>
+          </section>
+
+          <!-- Sections inférieures
+          <section class="boxContent boxAddGraphics transition">
+            <div  class="graphic">
+              <div class="title">Ajouter un graphique<br><i class="fas fa-plus addGraphics"></i></div>
+
+            </div>
+          </section> -->
+
+			<!-- Actions pour export -->
+			<div class="exportActions" *ngIf="!showButton">
+				<div class="explicationExport" *ngIf="!showExportExplication">
+					<div class="explicationContent">
+						<span class="explicationText">
+							Sélectionner le graphique que vous souhaitez rajouter à votre export en cliquant sur le fond
+							gris.
+						</span>
+
+						<span class="understandBtn transition" (click)="cancelExportExplication()">
+							J'ai compris
+						</span>
+					</div>
+				</div>
+				<div class="cancelButton" (click)="cancelExport()">Annuler</div>
+				<div class="validButton" (click)="chooseExportType()">Valider</div>
+			</div>
+
+			<app-export-modal (cancel)="cancelExportModal()" (export)="callExtendedDataAndExport($event)"
+				(additionnalData)="additionnalData($event)" [isPossibleToExportInPDF]="isPossibleToExportInPDF"
+				*ngIf="showExportModal"></app-export-modal>
+
+
+			<app-footer></app-footer>
+
+		</div>
+	</div>

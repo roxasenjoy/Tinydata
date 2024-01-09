@@ -1,0 +1,296 @@
+<div>
+
+  <app-nav-bar></app-nav-bar>
+  <app-export-modal (cancel)="cancelExportModal()" (export)="startExport($event)" [isPossibleToExportInPDF]="isPossibleToExportInPDF" *ngIf="showModal"></app-export-modal>
+
+  <div *ngIf="pageExist" class="graphZoomMainContent wrapper" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+    <app-header [titleHeader]="titleHeader"></app-header>
+    <app-research-bar></app-research-bar>
+    <div class="dashboardContent filterContainer dataTable" style="display: flex;justify-content: end; background-color: transparent !important;height: 100px !important;">
+      <div matRipple [matRippleColor]="myColor" class="example-ripple-container mat-elevation-z4 filter filterBtn transition back-button" (click)="goToDashboard()">
+        <mat-icon class="back-icon"
+        [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}"
+          >arrow_back</mat-icon>
+        Retour
+      </div>
+      <div matRipple [ngClass]="{'disabled': dataLoading }" [matRippleColor]="myColor" class="example-ripple-container mat-elevation-z4 filter filterBtn transition export-button" (click)="makeExport()">
+        Exporter le graphique
+        <mat-icon class="icon download-icon">download</mat-icon>
+      </div>
+    </div>
+    <div>
+      <nav mat-tab-nav-bar>
+        <div mat-tab-link *ngFor="let link of links"  [ngClass]="{
+          'weightText': this.settingsStorageService.weightStorage === 'true',
+          'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}" color="primary" style="width:50%; opacity:1;" (click)="onClickTab(link)" class="navigationExtendedData"
+          [active]="activeLink == link">
+          <mat-icon >{{link.icon}}</mat-icon>
+          &nbsp;{{link.title}}
+        </div>
+      </nav>
+    </div>
+
+    <div class="" [hidden]="activeLink.name!=='GRAPH'" [ngClass]="{
+      'withLegend' : graphToShow=='ANALYTICS_TIME'
+    }">
+      <!-- Changer les couleurs quand on se trouve dans le dark mode -->
+      <div class="graphDetails" [ngClass]="{
+        'weightText': this.settingsStorageService.weightStorage === 'true',
+      'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+        <div style="width:100%; height:100%">
+        
+          <!-- 
+            Liste des graphiques exportables
+          -->
+          <app-performance *ngIf="graphToShow=='PERFORMANCE'" (performanceData)="getChart('',$event)" (extendedData)="getData($event)" ></app-performance>
+
+          <app-connections *ngIf="graphToShow=='CONNECTIONS'" (connectionsData)="getChart('',$event)" (extendedData)="getData($event)" (precisionEvent)="setPrecision($event)"></app-connections>
+
+          <app-total-time-spent-in-learning *ngIf="graphToShow=='ANALYTICS_TIME'" (analyticsTimeData)="getChart('', $event)" (extendedData)="getData($event)"> </app-total-time-spent-in-learning> 
+
+          <app-contents-valid *ngIf="graphToShow=='CONTENTS_VALID'" (contentsValidData)="getChart('', $event)" (extendedData)="getData($event)" (additionnalData)="getAdditionnalData($event)"></app-contents-valid> 
+        
+          <app-feedback *ngIf="graphToShow=='FEEDBACK'" (feedbackData)="getChart('', $event)" (extendedData)="getData($event)"></app-feedback> 
+        
+          <app-open-accounts *ngIf="graphToShow=='OPENACCOUNTS'" (openAccountsData)="getChart('', $event)" (extendedData)="getData($event)"></app-open-accounts>
+
+          <app-user-contributions *ngIf="graphToShow=='USER_CONTRIBUTIONS'" (userContributionsData)="getChart('', $event)" (extendedData)="getData($event)"></app-user-contributions>
+
+          <app-rappels-memoriels *ngIf="graphToShow=='RAPPELS_MEMO'" (rappelsMemorielsData)="getChart('', $event)" (extendedData)="getData($event)"></app-rappels-memoriels>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="data" [hidden]="activeLink.name!=='DATA'">
+      <div [hidden]="!dataLoading" class="graphDetails">
+        <div class="graphicLoading">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+      <div [hidden]="dataLoading">
+        <!------------------------------------------------------------->
+        <mat-grid-list cols="4" rowHeight="60px" style="margin-bottom: 20px;margin-top: 20px;"> 
+
+          <!-- Filtes sur le tableau -->
+          <mat-grid-tile>
+            <mat-form-field appearance="outline" style="background-color: white;margin-bottom:-1.5em; margin-left: 5%">
+              <mat-label style="padding-left:50">Filtrer</mat-label>
+              <mat-icon style="color: #bebebe" matSuffix>search</mat-icon>
+              <input matInput (keyup)="applyFilter($event)"  placeholder="Filtrer..." #input>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <!-- Couleurs des granularités -->
+          <!-- Graphique PERFORMANCE && Graphique CONTENUS VALIDES -->
+          <mat-grid-tile colspan="3" rowHeight="60px" *ngIf="graphToShow ==='PERFORMANCE' || graphToShow === 'CONTENTS_VALID' || graphToShow === 'FEEDBACK' || graphToShow === 'USER_CONTRIBUTIONS'">
+            <mat-card class="mat-elevation-z0 performance-legend">
+              <span class="category">
+                <mat-icon class="icon matrix-icon">square</mat-icon>Formation
+              </span>
+              <span class="category">
+                <mat-icon class="icon domains-icon">square</mat-icon>Domaine
+              </span>
+              <span class="category">
+                <mat-icon class="icon skills-icon">square</mat-icon>Compétence
+              </span>
+              <span class="category">
+                <mat-icon class="icon themes-icon">square</mat-icon>Thème
+              </span>
+              <span class="category">
+                <mat-icon class="icon acquis-icon">square</mat-icon> Acquis
+              </span>
+            </mat-card> 
+          </mat-grid-tile>
+          <!---------------------------->
+        </mat-grid-list>
+
+        <!-- Tableau qui affiche toutes les données détaillées -->
+        <div class="tableContainer" style="overflow-x: auto; margin: 16px 16px 0 16px; position: relative;"  (scroll)="onScroll($event)" id="table__graphExtended">
+
+          <div class="table__arrowRight" [style.right.px]="rightPosition" *ngIf="!isEndReached">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <table id="extended-datatable" class="mat-elevation-z7 dataTable" mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+
+           
+            <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef" >
+
+              <th class="tableHeader" mat-header-cell mat-sort-header *matHeaderCellDef style="padding: 15px 23px;">
+                  {{column.header}}
+              </th>
+
+              <td mat-cell *matCellDef="let row" >
+                <ng-container *ngIf="(graphToShow === 'PERFORMANCE' && column.columnDef === 'name') || graphToShow === 'CONTENTS_VALID' || graphToShow === 'FEEDBACK' || graphToShow === 'USER_CONTRIBUTIONS'; else other_content">
+                  <!-- Graphique PERFORMANCE -->
+                  <mat-chip-list *ngIf="graphToShow === 'PERFORMANCE'">
+                    <mat-chip selected disableRipple [class]="getCurrentGranularity()" [ngClass]="column.columnDef" style="padding: 5px;">
+                      {{column.cell(row)}}
+                    </mat-chip>
+                  </mat-chip-list>
+                  <!------------------------------>
+  
+                  <!-- Graphique : Contenus validés -->
+                  <mat-chip-list *ngIf="graphToShow === 'CONTENTS_VALID' || graphToShow === 'USER_CONTRIBUTIONS'">
+                    <mat-chip selected disableRipple style="padding: 5px;" [ngClass]="column.columnDef">
+                      {{column.cell(row)}}
+                    </mat-chip>
+                  </mat-chip-list>
+                  <!------------------------------>
+
+                  <!-- Graphique : Feedback -->
+                  <mat-chip-list *ngIf="graphToShow === 'FEEDBACK'">
+                    <mat-chip selected disableRipple style="padding: 5px;" [ngClass]="column.columnDef" [class]="getCurrentGranularity()">
+                      {{column.cell(row)}}
+                    </mat-chip>
+                  </mat-chip-list>
+                  <!------------------------------>
+
+                </ng-container>
+  
+                <ng-template #other_content style="padding: 5px;">
+                 {{column.cell(row)}}
+                </ng-template>
+  
+              </td>
+            </ng-container>
+            <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef+'_low'">
+              <th mat-header-cell *matHeaderCellDef> {{column.description}}</th>
+            </ng-container>
+            
+            <tr class="tableRow" mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+            
+            <!-- Graphique : CONNECTION -->
+            <ng-container *ngIf="graphToShow==='CONNECTIONS'">
+              <tr mat-header-row *matHeaderRowDef="secondHeaderRow" class="description-row"></tr>
+            </ng-container>
+            <!-------------------------------->
+            <tr class="tableRow" mat-row *matRowDef="let row; let i = index; columns: displayedColumns;" (click)="getEmailOnBoarded(row)"></tr>
+          </table>
+        </div>
+        <mat-paginator 
+          class="paginatorBis" 
+          #paginatorLegal="matPaginator" 
+          [pageSize]=20 
+          [pageSizeOptions]="[5, 10, 20, 50]" 
+          showFirstLastButtons 
+          aria-label="Lignes affichées" 
+          (page)="onPaginateChange($event)">
+        </mat-paginator> <!-- pagination -->
+
+        <div class="tableRow dataTable" style="color: black; padding: 15px 0;"  *ngIf="graphToShow==='ANALYTICS_TIME'">
+          <h5 style="margin-left:15px; font-weight: bold;">Légende :</h5>
+          <ul style="margin-left:50px; font-size: 14px">
+            <li>Temps = Temps d’activité entre chaque réponse entre l’utilisateur et Tiny</li>
+            <li>Fin d’une session = Au-delà de 5 minutes d’inaction entre l’utilisateur et Tiny ou 20 minutes pour le temps de lecture d'un contenu</li>
+            <li>Avant le 15/06/2022 : Données estimées</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <app-footer [ngClass]="{
+      'FooterToBottom': graphToShow ==='GENERAL_PROGRESSION' && activeLink.name == 'DATA'}">
+    </app-footer>
+
+
+  </div>
+  <div *ngIf="!pageExist" class="graphZoomMainContent wrapper pageNotExist">
+    <div class="messageDiv">
+      <div class="messageNotExist">
+        <div class="messageTitleDiv">
+          <div class="messageIcon">
+            <mat-icon>error_outline</mat-icon>
+          </div>
+          <div class="messageTitle">
+            Oh Non !
+          </div>
+        </div>
+        <div class="messageContent">
+          Désolé, la page que vous souhaitez consulter n'existe pas.<br/><span class="messageLink" (click)="goToDashboard()">Veuillez retourner à la page d'accueil</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--
+    Modal pour afficher les données du graphique des OUVERTURES DE COMPTE
+  -->
+  <div class="exportModal" *ngIf="activeModal">
+    <div class="exportModalWrapper"  [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+    'filterMediumText': this.settingsStorageService.textSizeStorage === 'true',
+    'nightBackground': this.settingsStorageService.nightStorage === 'true'}">
+      <div class="exportModalContent">
+        <h2 class="exportTitle">Détails des données</h2>
+  
+        <div class="dataTableContainer">
+          <table mat-table [dataSource]="emailOpenAccounts" class="mat-elevation-z8" style="width:100%">
+
+            <ng-container matColumnDef="Roles">
+              <th mat-header-cell *matHeaderCellDef>Produit</th>
+              <td mat-cell *matCellDef="let element"> {{element.roles}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Groupe principal">
+              <th mat-header-cell *matHeaderCellDef> Groupe principal </th>
+              <td mat-cell *matCellDef="let element"> {{element.organisation}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Groupe">
+              <th mat-header-cell *matHeaderCellDef> Groupe </th>
+              <td mat-cell *matCellDef="let element"> {{element.sousOrganisation}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Formation">
+              <th mat-header-cell *matHeaderCellDef> Formation </th>
+              <td mat-cell *matCellDef="let element"> {{element.formation}} </td>
+            </ng-container>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="Prénom">
+              <th mat-header-cell *matHeaderCellDef> Prénom </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="Nom">
+              <th mat-header-cell *matHeaderCellDef> Nom </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+          
+           
+            <ng-container matColumnDef="Adresse email">
+              <th mat-header-cell *matHeaderCellDef> Adresse email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+          
+         
+            <ng-container matColumnDef="Date de la première connexion">
+              <th mat-header-cell *matHeaderCellDef> Date de la première connexion </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="openAccountdisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: openAccountdisplayedColumns;"></tr>
+          </table>
+          
+          <div class="graphicLoading" *ngIf="!activeModal">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+  
+        <div class="modalButton">
+          <button mat-raised-button color="primary" (click)="closeModal()">Fermer</button>
+        </div>
+    </div>
+  </div>
+
+  

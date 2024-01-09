@@ -1,0 +1,16 @@
+.chipsUsed,
+.chipsUnused{
+    min-height: 12px;
+    font-size: 10px;
+    padding: 10px 5px;
+}
+
+.chipsUsed{
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.chipsUnused{
+    background-color: var(--greyLight);
+    color: var(--black);
+}

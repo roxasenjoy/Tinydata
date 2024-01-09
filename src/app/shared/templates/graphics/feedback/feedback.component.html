@@ -1,0 +1,114 @@
+<div [hidden]="canShowGraphicsFeedbackComponent" class="graphicLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="!canShowGraphicsFeedbackComponent || zoom === 0" style="text-align: left;margin-left: 30px; margin-top: 0px;" >  
+  <!-- Bouton qui permet de retourner à la granularité précédente -->
+   <p class="previousFormationBtn transition" (click)="goBackGranularity()" [ngClass]="{
+    'weightText': this.settingsStorageService.weightStorage === 'true',
+  'nightShadow': this.settingsStorageService.nightStorage === 'true'}"> 
+     <mat-icon matTooltip="Retour" class="arrowPreviousFormationBtn"
+      [ngClass]="{
+        'weightText': this.settingsStorageService.weightStorage === 'true',
+      'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">
+      arrow_back</mat-icon>
+      <span [ngClass]="{
+        'weightText': this.settingsStorageService.weightStorage === 'true',
+      'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">Retour aux {{this.zoomName}}</span>
+    </p>
+</div>
+
+<!-- Liste des granularités à droite du graphique -->
+<div class="containerFormations" *ngIf="this.listNameGranularity[1]">
+  <div class="stepsGranularities">
+    <div class="formation">
+      <div style="display:flex">
+        <i class="fas fa-graduation-cap" style="margin:initial; width: 45px; color: var(--grey)"></i>
+
+        <div class="title" style="margin-left: 20px;">
+          {{this.listNameGranularity[1]}}
+        </div>
+      </div>
+    
+    </div>
+
+    <div *ngIf="this.listNameGranularity[2]">
+      <div class="domain">
+        <div style="display:flex;">
+          <div class="barGlobal">
+            <div class="bar domainColor transition"></div>
+            <div class="bar transition"></div>
+            <div class="bar transition"></div>
+            <div class="bar transition"></div>
+          </div>
+        </div>
+      
+        <div class="title" style="margin-left:15px">{{this.listNameGranularity[2]}}</div>
+      </div>
+
+      <div class="skill" *ngIf="this.listNameGranularity[3]">
+        <div style="display:flex;">
+          <div class="barGlobal">
+            <div class="bar domainColor transition"></div>
+            <div class="bar skillColor transition"></div>
+            <div class="bar transition"></div>
+            <div class="bar transition"></div>
+          </div>
+        </div>
+
+        <div class="title" style="margin-left:15px">{{this.listNameGranularity[3]}}</div>
+      </div>
+
+      <div class="theme" *ngIf="this.listNameGranularity[4]">
+        <div style="display:flex;">
+          <div class="barGlobal">
+            <div class="bar domainColor transition"></div>
+            <div class="bar skillColor transition"></div>
+            <div class="bar themeColor transition"></div>
+            <div class="bar transition"></div>
+          </div>
+          <div class="title" style="margin-left:15px">{{this.listNameGranularity[4]}}</div>
+        </div>
+      </div>
+
+      <div class="acquis" *ngIf="this.listNameGranularity[5]">
+        <div style="display:flex;">
+          <div class="barGlobal">
+            <div class="bar domainColor transition"></div>
+            <div class="bar skillColor transition"></div>
+            <div class="bar themeColor transition"></div>
+            <div class="bar acquisColor transition"></div>
+          </div>
+          <div class="title" style="margin-left:15px">{{this.listNameGranularity[5]}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="containerGraphWithArrows">
+  <div class="arrowLeft hint--right" *ngIf='showCursorLeft' [hidden]="!canShowGraphicsFeedbackComponent" aria-label="Éléments précédents" (click)="leftArrow()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </div>
+
+  <div [hidden]="!canShowGraphicsFeedbackComponent" class="graphic" id="feedbackComponent" style="max-width: initial !important; height: 350px; margin-top: 50px;"></div>
+
+  <div class="arrowRight hint--left" *ngIf="showCursorRight" [hidden]="!canShowGraphicsFeedbackComponent" aria-label="Éléments suivants" (click)="rightArrow()">
+    <i class="fa-solid fa-arrow-right"></i>
+  </div>
+  
+</div>
+
+<div class="dataTable" *ngIf="canShowGraphicsFeedbackComponent" style="margin-top: 50px; margin-bottom: 50px;">
+  <h5 style="margin-left:15px; font-weight: bold;">Légende :</h5>
+  <ul class="legend">
+    <li>Les valeurs représentent le pourcentage des feedbacks en fonction du nombre total de feedback de la formation.</li>
+  </ul>
+</div>
+
+<list-formation [nameFormationFilter]='nameFormationFilter' (idFormationFilter)="updateData($event)"></list-formation>
+
+
+

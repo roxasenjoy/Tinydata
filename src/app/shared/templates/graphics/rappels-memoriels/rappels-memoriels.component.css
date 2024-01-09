@@ -1,0 +1,23 @@
+.containerGraphWithArrows{
+    position: relative;
+}
+
+.arrowLeft,
+.arrowRight{
+    position: absolute;
+    transform: translateY(-40%);
+    top: 30%;
+    z-index: 2;
+    color: var(--purple);
+    font-size: 30px !important;
+    padding: 2px 7.5px;
+    border-radius: 50%;
+}
+
+.arrowLeft{
+    left: 0px;
+}
+
+.arrowRight{
+    right: 50px;
+}

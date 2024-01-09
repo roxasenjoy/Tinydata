@@ -1,0 +1,80 @@
+
+
+
+<div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+  <div class="settingsContentText" [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+
+    <div class="dashboardContent contentPage">
+      <div class="shortcutBrowser">
+        <p>Ordinateur et tablette</p>
+        <div class="shortcutLogo">
+          <i class="fab fa-windows"></i>
+          <i class="fab fa-apple"></i>
+        </div>
+
+        <ul class="shortcutVideoContainer">
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour Google Chrome" class="shortcutLogoNavigateur" src="assets/icons/navigateurs/chrome_logo.png"> Chrome
+            <video controls >
+              <source src="../../../assets/mp4/Raccourcis_chrome.mp4" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour edge" class="shortcutLogoNavigateur" src="assets/icons/navigateurs/logo_edge.png"> Edge
+            <video controls  >
+              <source src="../../../assets/mp4/Raccourcis_edge.mp4" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour safari" class="shortcutLogoNavigateur" src="assets/icons/navigateurs/logo_safari.png"> Safari
+            <video controls  >
+              <source src="../../../assets/mp4/raccourcis_safari.mp4" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour firefox" class="shortcutLogoNavigateur" src="assets/icons/navigateurs/logo_firefox.png"> Firefox
+            <video controls >
+              <source src="../../../assets/mp4/Raccourcis_firefox.mp4" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="shortcutPhone">
+        <p>Smartphone</p>
+        <div class="shortCutLogo">
+          <i class="fab fa-android"></i>
+          <i class="fab fa-apple"></i>
+        </div>
+
+        <ul class="shortcutVideoContainer">
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour les téléphones Android" class="shortcutLogoNavigateur" src="assets/icons/phone/android.png"> Android
+            <video controls >
+              <source src="../../../assets/mp4/Android_raccourci.mov" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+          <li class="shortcutVideoContent">
+            <img alt="Raccourci pour les téléphones Apple" class="shortcutLogoNavigateur" src="assets/icons/phone/logo_apple.png"> Apple
+            <video controls  >
+              <source src="../../../assets/mp4/IOS.MP4" type="video/mp4">
+              Vidéo indisponible.
+            </video>
+          </li>
+        </ul>
+      </div>
+    </div> <!-- dashboardContent -->
+  </div>
+</div>
+
+

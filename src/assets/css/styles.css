@@ -1,0 +1,4430 @@
+@import '~ngx-toastr/toastr';
+
+/**
+    Objectif de ce fichier CSS :
+
+        - Fichier principal du site
+        - Tous les changements (pour le design) seront fait ici
+ */
+/*******************
+       Général
+*********************/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+}
+
+:root {
+
+  /* Couleur */
+  --black: #000;
+  --grey: #777777;
+  --greyLight: #d4d6d8;
+  --blueLight: 'rgba(191,170,143,0.15)';
+  --purple: #9229ff;
+  --blueGreen: #00BBCE;
+  --white: #FFF;
+  --pink: #FF404C;
+  --backgroundColor: #f4f6f8;
+  --orange: #FF7D00;
+  --yellow: #ffbe00;
+
+  /* Couleurs filtres */
+  --matrix: #FFFFFF;
+  --domain: #9229ff;
+  --skill: #ce3699;
+  --theme: #ffbe00;
+  --acquis: #c8d6d4;
+  --content: #ffffff;
+
+  /* Texte principal */
+  --largeMain: 3em;
+  --mediumMain: 2em;
+  --smallMain: 1em;
+
+  /* Texte général */
+  --largeText: 2em;
+  --mediumText: 1.5em;
+  --smallText: 1em;
+
+  /* Police des textes */
+  --policeText: "Montserrat", "Montserrat", sans-serif;
+  --policeLight: "Montserrat-Light", "Montserrat", sans-serif;
+  --policeBold: 'Montserrat-Bold', 'Montserrat', sans-serif;
+
+
+}
+
+/**********************
+  Settings paramètres - DARK MODE
+ ***********************/
+.weightText {
+  font-weight: 700 !important;
+}
+
+.largeText {
+  font-size: 2.5em !important;
+}
+
+.mediumText {
+  font-size: 2em !important;
+}
+
+.filterMediumText {
+  font-size: 1.3em !important;
+}
+
+.smallText {
+  font-size: 1.5em !important;
+}
+
+.smallTitle {
+  font-size: 50px !important;
+}
+
+
+.nightTextWhite {
+  color: white !important;
+}
+
+.nightText {
+  color: #BB86FC !important;
+}
+
+.nightBackground {
+  background-color: #1E1E1E !important;
+}
+
+.nightField {
+  background-color: #454545 !important;
+}
+
+.nightSidebar {
+  background-color: #1F1B24 !important;
+}
+
+.nightBody {
+  background-color: #121212 !important;
+}
+
+.nightShadow {
+  box-shadow: rgba(255, 255, 255, 0.24) 2px 0px 5px !important;
+}
+
+.nightBackgroundPurple {
+  background-color: #BB86FC !important;
+}
+
+/** Filtres **/
+.filterContainer.nightBackground .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: white;
+}
+
+.nightBackground .mat-slider-track-background {
+  background-color: white !important;
+}
+
+.nightBackground .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: white;
+}
+
+/* Filtre Zoom Formation - Border */
+.nightBackground .researchUsers {
+  color: var(--purple) !important;
+}
+
+/* Filtre Zoom Utilisateur - Input de l'utilisateur */
+.nightBackground .mat-form-field-label {
+  color: white;
+}
+
+/* Filtre organisation - Le label du filtre */
+.nightBackground .material-icons {
+  color: white;
+}
+
+/* Filtre organisation - Icon de recherche */
+.nightBackground .mat-input-element {
+  color: white;
+}
+
+/* Filtre organisation - Input du filtre */
+.nightBackground .modalCloseIcon {
+  color: white;
+}
+
+/* Filtre organisation - Icon pour fermer la modal */
+.nightBackground .mat-form-field-underline::before {
+  background: white !important;
+}
+
+/* Filtre organisation - Trait sous le filtre */
+.nightBackground .mat-form-field-underline:hover {
+  background: white !important;
+}
+
+/* Filtre organisation - HOVER Trait sous le filtre */
+.nightBackground .filterOrganisationsALL .mat-checkbox-frame {
+  border-color: var(--purple) !important;
+}
+
+/* Filtre ORGANISATION - Checkbox */
+.nightBackground .mat-paginator {
+  color: white;
+  background: initial;
+}
+
+/* Filtre formations - Numéro de la pagination */
+.nightBackground .mat-icon-button.mat-button-disabled.mat-button-disabled {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Filtre formations - Quand les flèches sont disabled */
+.nightBackground .mat-form-field-appearance-legacy .mat-form-field-suffix .mat-icon-button {
+  color: white;
+}
+
+/* Filtre DATE - Icon calendrier */
+.nightBackground .mat-checkbox-frame {
+  border-color: white !important;
+}
+
+/**
+  Tous les tableaux - NIGHT 
+**/
+.nightTableElement:nth-child(even) {
+  background: #1E1E1E !important;
+}
+
+.nightTableElement:nth-child(odd) {
+  background: #262626 !important;
+}
+
+.nightTableElement:hover {
+  background-color: var(--purple) !important;
+}
+
+/**
+  Admin - Édition d'un compte - Organisation
+**/
+.nightBody .settingsField .settingsOrganisation span {
+  color: var(--white);
+}
+
+/* Voir plus */
+.nightBody .mat-form-field-underline::before {
+  background: white !important;
+}
+
+
+/* Barre de recherche - NIGHT */
+.nightBody .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: var(--white);
+}
+
+.nightBackgroundPlaceholder.placeholder {
+  color: white !important;
+}
+
+.nightTextWhite .mat-select-arrow {
+  color: white !important;
+}
+
+/** Export des fichiers */
+.exportModal .nightBackground .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: var(--white) !important;
+}
+
+.exportModal .nightBackground .mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+/** Hover **/
+.nightHoverBackground:hover {
+  background-color: #BB86FC !important;
+  color: var(--white) !important;
+}
+
+.cguHover:hover {
+  background-color: #00BBCE !important;
+  color: var(--white) !important;
+}
+
+.cguHover:hover mat-panel-title {
+  background-color: #00BBCE !important;
+  color: var(--white) !important;
+}
+
+/*************************/
+
+
+/*************************
+    Class globales
+**************************/
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+.transition:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.toast-container {
+  z-index: 999999999999 !important;
+}
+
+/* Modification du fichier Bootstrap */
+h1 {
+  margin-bottom: 0
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+button:focus {
+  outline: none;
+}
+
+a:not([href]):not([tabindex]):hover {
+  text-decoration: underline;
+}
+
+.shadow {
+  box-shadow: rgb(0 0 0 / 10%) 0 3px 8px !important;
+}
+
+/* Scrollbar */
+/* width */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: var(--purple);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--purple);
+}
+
+
+/*******************
+         Font
+*********************/
+@font-face {
+  font-family: "comforta-Light";
+  src: url("/assets/fonts/fonts/comfortaa/Comfortaa-Light.ttf");
+}
+
+@font-face {
+  font-family: "comforta-Regular";
+  src: url("/assets/fonts/comfortaa/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("/assets/fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Light";
+  src: url("/assets/fonts/montserrat/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("/assets/fonts/montserrat/Montserrat-Bold.ttf");
+}
+
+/**************************************************************************************************/
+/***************************** ORDINATEUR | INFINI -> 1400px **************************************/
+/**************************************************************************************************/
+
+body {
+  background: var(--backgroundColor);
+}
+
+/******************************
+            HOME
+ ******************************/
+.homeBody {
+  background: linear-gradient(to right, var(--pink), var(--purple));
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/********** Header **********/
+.homeHeader {
+  padding: 10px 40px;
+  background-color: var(--purple);
+}
+
+.homeHeader .logo {
+  padding-top: 15px;
+}
+
+.homeHeader .logo img {
+  width: 375px;
+}
+
+.homeHeader .title h1 {
+  color: var(--white);
+  text-align: right;
+  line-height: 120px;
+}
+
+/********** Waves **********/
+.homeWaves svg {
+  position: relative;
+  top: -10px;
+}
+
+
+/*********** Content ***********/
+.homeContent {
+  text-align: center;
+  color: var(--white);
+}
+
+.homeContent .left {
+  position: relative;
+  bottom: 120px;
+}
+
+.homeContent .left .homeGraph {
+  margin: auto;
+  max-width: 400px;
+}
+
+.homeContent .right {
+  padding: 25px 0;
+}
+
+.homeContent .right .accountButton {
+  font-family: var(--policeText);
+  font-size: var(--largeText);
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.homeContent .right .accountButton #showLoginModal:hover {
+  background-color: var(--blueGreen);
+  text-decoration: none;
+  color: var(--white);
+}
+
+.homeContent .right .accountButton a:nth-child(1n) {
+  margin: 0 25px;
+}
+
+.homeContent .right .accountButton #showLoginModal {
+  background-color: white;
+  color: var(--black);
+  padding: 25px 40px;
+  border-radius: 50px;
+  -webkit-box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+}
+
+/***************************************/
+
+/*********** Main Title ***********/
+.homeContent .right .text p,
+.homeHeader .title h1 {
+  font-size: var(--largeMain);
+}
+
+.homeHeader,
+.homeContent {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/*********** Tailles des divs sur la homePage *********************/
+.homeHeader div {
+  width: 50%;
+}
+
+.homeContent .right {
+  width: 65%;
+}
+
+.homeContent .left {
+  width: 35%
+}
+
+
+/********************/
+/*      Modal       */
+/********************/
+.homeModalBackground {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.homeModal {
+  background: white;
+  margin: auto;
+  width: 55%;
+  /* Taille du modal */
+  height: 75%;
+  text-align: center;
+  border-radius: 25px;
+  position: absolute;
+  z-index: 50;
+  scrollbar-width: none;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.homeModal::-webkit-scrollbar {
+  display: none;
+}
+
+.positionModal {
+  position: fixed;
+  height: 50%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 5px;
+  /*border: 2px solid var(--black);*/
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.homeModal .modalContainer {
+  margin: auto;
+}
+
+.homeModal .title {
+  font-family: var(--policeText);
+  color: var(--black);
+  font-size: var(--largeMain);
+  margin: 30px 0 10px 0;
+}
+
+.homeModal .loadingMessage {
+  margin: 50px auto;
+}
+
+/*********** Champ d'un formulaire d'inscription/connexion ***********/
+.homeModal div .field {
+  font-family: var(--policeText);
+  color: var(--grey);
+  font-size: var(--mediumText);
+  padding: 10px 50px;
+  margin: 20px 0;
+  width: 75%;
+  border-radius: 15px;
+  border: var(--grey) 1px solid;
+}
+
+/*********** Afficher / Cacher le mot de passe ***********/
+.modalContainer label {
+  position: relative;
+  width: 100%;
+}
+
+.modalContainer label input {
+  font-size: 1em;
+  color: #f9f9f9;
+  background: transparent;
+
+}
+
+.modalContainer label .password-icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 16%;
+  transform: translateY(-50%);
+  width: 10px;
+  font-size: 20px;
+  color: black;
+  transition: all 0.2s;
+}
+
+.modalContainer label .password-icon:hover {
+  cursor: pointer;
+  color: var(--blueGreen);
+}
+
+/* Le button */
+.homeModal button {
+  background: var(--purple);
+  color: var(--white);
+  width: 75%;
+  padding: 10px 0;
+  border-radius: 50px;
+  border: var(--purple) 1px solid;
+  font-size: var(--mediumMain);
+  margin-top: 20px;
+  -webkit-box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  -moz-box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+}
+
+.homeModal button.btnConnexion {
+  margin-bottom: 20px;
+  font-family: var(--policeText)
+}
+
+.homeModal .modalContainer .parentPasswordForgot {
+  margin-bottom: 40px;
+}
+
+.homeModal a:not([href]):not([tabindex]) {
+  /* .password-forgot */
+  color: var(--purple);
+  font-size: var(--mediumText);
+  font-family: var(--policeText);
+  cursor: pointer;
+  text-decoration: underline;
+  -webkit-appearance: none;
+}
+
+.homeModal a:not([href]):not([tabindex]):hover {
+  color: var(--blueGreen)
+}
+
+.homeModal button:hover {
+  background: var(--blueGreen);
+  border-color: var(--blueGreen);
+  cursor: pointer;
+}
+
+.homeModal div input::placeholder {
+  color: var(--grey);
+}
+
+/************ Les CGUs ************/
+.homeModal .modal-cgu {
+  color: var(--black);
+  font-family: var(--policeText);
+  font-size: var(--mediumText);
+  width: 75%;
+  padding: 30px 0;
+}
+
+.homeModal .modal-cgu .linkCGU {
+  color: var(--blueGreen);
+  text-decoration: underline;
+}
+
+.homeModal .modal-cgu .linkCGU:hover {
+  color: var(--purple);
+  cursor: pointer;
+}
+
+
+/* Bouton du checkbox */
+.form-check-input {
+  width: 25px;
+  height: 25px;
+  bottom: 30px;
+  position: relative;
+}
+
+.form-check-input::placeholder {
+  background: red;
+}
+
+.homeModal .passwordRemember {
+  text-align: left;
+  width: 72.5%;
+  font-size: var(--mediumText);
+  font-family: var(--policeText);
+}
+
+.homeModal .passwordRemember label {
+  margin-left: 10px;
+}
+
+#passwordRemember {
+  accent-color: #00bbce !important;
+}
+
+/*************************************
+        Erreur dans les formulaires
+    **************************************/
+.errorContainer {
+  width: 75%;
+  border: var(--purple) 3px solid;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  text-align: initial;
+}
+
+/************* Les erreurs *************/
+.errorContainer .error {
+  width: 68%;
+}
+
+.errorContainer .error .errorTitle {
+  color: var(--purple);
+  font-size: var(--mediumText);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.errorContainer .error div ul {
+  list-style-type: none;
+}
+
+.errorContainer .error div ul li:before {
+  content: " - ";
+}
+
+.errorContainer .error div {
+  font-size: var(--mediumText);
+}
+
+/************* L'icon danger *************/
+.errorContainer .iconDanger {
+  width: 10%;
+}
+
+.errorContainer .iconDanger i {
+  color: var(--purple);
+  font-size: var(--largeMain);
+  font-weight: 700;
+}
+
+/*******************************************
+                Mot de passe oublié
+    ********************************************/
+
+.resetPassword {
+  font-size: var(--mediumText);
+  margin: auto;
+  width: 75%;
+  color: var(--black);
+  font-family: var(--policeText);
+}
+
+/* Loading */
+@property --start {
+  initial-value: 0%;
+  syntax: "<percentage>";
+  inherits: false;
+}
+
+@property --end {
+  initial-value: 0%;
+  syntax: "<percentage>";
+  inherits: false;
+}
+
+@-ms-keyframes spin {
+  0% {
+    --start: 0%;
+    --end: 10%;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+
+  50% {
+    --start: 10%;
+    --end: 90%;
+  }
+
+  100% {
+    --start: 90%;
+    --end: 100%;
+    transform: rotate(0.1turn);
+    -moz-transform: rotate(0.1turn);
+    -webkit-transform: rotate(0.1turn);
+    -ms-transform: rotate(0.1turn);
+  }
+}
+
+@-moz-keyframes spin {
+  0% {
+    --start: 0%;
+    --end: 10%;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+
+  50% {
+    --start: 10%;
+    --end: 90%;
+  }
+
+  100% {
+    --start: 90%;
+    --end: 100%;
+    transform: rotate(0.1turn);
+    -moz-transform: rotate(0.1turn);
+    -webkit-transform: rotate(0.1turn);
+    -ms-transform: rotate(0.1turn);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    --start: 0%;
+    --end: 10%;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+
+  50% {
+    --start: 10%;
+    --end: 90%;
+  }
+
+  100% {
+    --start: 90%;
+    --end: 100%;
+    transform: rotate(0.1turn);
+    -moz-transform: rotate(0.1turn);
+    -webkit-transform: rotate(0.1turn);
+    -ms-transform: rotate(0.1turn);
+  }
+}
+
+@keyframes spin {
+  0% {
+    --start: 0%;
+    --end: 10%;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+
+  50% {
+    --start: 10%;
+    --end: 90%;
+  }
+
+  100% {
+    --start: 90%;
+    --end: 100%;
+    transform: rotate(0.1turn);
+    -moz-transform: rotate(0.1turn);
+    -webkit-transform: rotate(0.1turn);
+    -ms-transform: rotate(0.1turn);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0turn);
+    -moz-transform: rotate(0.1turn);
+    -webkit-transform: rotate(0.1turn);
+    -ms-transform: rotate(0.1turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -webkit-transform: rotate(1turn);
+    -ms-transform: rotate(1turn);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0turn);
+    -moz-transform: rotate(0turn);
+    -webkit-transform: rotate(0turn);
+    -ms-transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -webkit-transform: rotate(1turn);
+    -ms-transform: rotate(1turn);
+  }
+}
+
+.loadingPassword,
+.loadingResearch {
+  margin: auto;
+  --thickness: 20%;
+  position: relative;
+  top: 34px;
+  width: 80px;
+  height: 80px;
+  color: #5485ec;
+  -webkit-animation: rotate 2.6s linear infinite;
+  -moz-animation: rotate 2.6s linear infinite;
+  -ms-animation: rotate 2.6s linear infinite;
+  /*-webkit-animation: rotate 2.6s linear infinite;*/
+  animation: rotate 2.6s linear infinite;
+  margin-bottom: 50px;
+}
+
+.loadingPassword::after,
+.loadingResearch::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 20, 80, 0.05);
+  background-image: conic-gradient(transparent, transparent var(--start), currentcolor var(--start), currentcolor var(--end), transparent var(--end), transparent);
+  mask-image: radial-gradient(closest-side at center, transparent, transparent calc(100% - var(--thickness)), white calc(100% - var(--thickness) + 1px));
+  -webkit-mask-image: radial-gradient(closest-side at center, transparent, transparent calc(100% - var(--thickness)), white calc(100% - var(--thickness) + 1px));
+  border-radius: 20rem;
+  -webkit-animation: spin 1.5s both linear infinite;
+  -moz-animation: spin 1.5s both linear infinite;
+  -ms-animation: spin 1.5s both linear infinite;
+  /*-webkit-animation: spin 1.5s both linear infinite;*/
+  -moz-animation: spin 1.5s both linear infinite;
+  animation: spin 1.5s both linear infinite;
+}
+
+.loadingResearch {
+  color: var(--purple);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dashboardResearchBar .icon-container {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px);
+}
+
+/* Success */
+.emailSuccess .message {
+  color: var(--black);
+  font-size: var(--largeText);
+  width: 75%;
+  margin: 0 auto 20px auto;
+  font-family: var(--policeText);
+}
+
+.emailSuccess .success-checkmark {
+  width: 80px;
+  height: 115px;
+  margin: 50px auto 20px auto;
+}
+
+.emailSuccess .success-checkmark .check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid #4CAF50;
+}
+
+.emailSuccess .success-checkmark .check-icon::before {
+  top: 3px;
+  left: -2px;
+  width: 30px;
+  transform-origin: 100% 50%;
+  border-radius: 100px 0 0 100px;
+}
+
+.emailSuccess .success-checkmark .check-icon::after {
+  top: 0;
+  left: 30px;
+  width: 60px;
+  transform-origin: 0 50%;
+  border-radius: 0 100px 100px 0;
+  animation: rotate-circle 4.25s ease-in;
+}
+
+.emailSuccess .success-checkmark .check-icon::before,
+.success-checkmark .check-icon::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  background: #FFFFFF;
+  transform: rotate(-45deg);
+}
+
+.emailSuccess .success-checkmark .check-icon .icon-line {
+  height: 5px;
+  background-color: #4CAF50;
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+
+.emailSuccess .success-checkmark .check-icon .icon-line.line-tip {
+  top: 46px;
+  left: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+  animation: icon-line-tip 0.75s;
+}
+
+.emailSuccess .success-checkmark .check-icon .icon-line.line-long {
+  top: 38px;
+  right: 8px;
+  width: 47px;
+  transform: rotate(-45deg);
+  animation: icon-line-long 0.75s;
+}
+
+.emailSuccess .success-checkmark .check-icon .icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: content-box;
+  border: 4px solid rgb(76, 175, 80);
+}
+
+.emailSuccess .success-checkmark .check-icon .icon-fix {
+  top: 8px;
+  width: 5px;
+  left: 26px;
+  z-index: 1;
+  height: 85px;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: #FFFFFF;
+}
+
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  5% {
+    transform: rotate(-45deg);
+  }
+
+  12% {
+    transform: rotate(-405deg);
+  }
+
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes icon-line-tip {
+  0% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
+
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 45px;
+  }
+}
+
+@keyframes icon-line-long {
+  0% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+
+  84% {
+    width: 55px;
+    right: 0px;
+    top: 35px;
+  }
+
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+
+#connectingResetPassword,
+#connectingAccount,
+#connectionVerifyPassword,
+#createAccount {
+  font-size: var(--largeText);
+  color: var(--black);
+  margin-bottom: 40px;
+  font-family: var(--policeText);
+}
+
+/*******************************************
+            Popup de notification
+********************************************/
+.notification {
+  background: #00B362;
+  position: fixed;
+  bottom: -100px;
+  right: 0;
+  /* Valeur à remettre à 0 pour le design de base */
+  width: 25%;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  animation: showPopup ease-in-out 2s;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+.notification .content {
+  display: flex;
+  align-items: center;
+}
+
+.notification .icon {
+  font-size: 40px;
+  color: white;
+}
+
+.notification .passwordSend {
+  text-align: left;
+  color: white;
+  font-family: var(--policeText);
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+
+@keyframes showPopup {
+
+  0% {
+    bottom: -50px;
+    opacity: 0
+  }
+
+  50% {
+    bottom: 8px;
+    opacity: 1
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+/********************************************************************
+********************************************************************
+                            DASHBOARD
+*********************************************************************
+*********************************************************************/
+
+/**************
+          Menu
+     *************/
+.dashboardMenu {
+  background: var(--purple);
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  width: 250px;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+  text-align: center;
+}
+
+.dashboardMenu::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+
+.dashboardMenu img {
+  width: 225px;
+  padding: 10px;
+}
+
+
+.dashboardDisplayMenu div {
+  display: none;
+}
+
+/*******************
+        Navigations
+     *******************/
+
+main {
+  min-width: 200px;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 10px;
+}
+
+main .wrap {
+  padding: 40px 20px;
+  background-color: var(--white);
+}
+
+main .title {
+  font-size: 2em;
+  text-align: center;
+  margin: 20px auto 40px;
+  text-transform: uppercase;
+}
+
+header {
+  display: none;
+}
+
+header nav {
+  background-color: var(--purple);
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  height: calc(100vh - 126px);
+  overflow-y: scroll;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 75%;
+  left: 50%;
+  top: 170px;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+header nav ul li {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+header nav ul li a {
+  display: block;
+  font-size: var(--mediumText);
+  text-decoration: none;
+  padding: 10px 0;
+  margin-right: 10px;
+  text-align: center;
+  color: var(--white) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+header nav ul li .dashboardMenuIcon {
+  margin-right: 20px;
+}
+
+header nav ul li a:hover {
+  color: var(--white);
+}
+
+header .dashboardResearchBar {
+  border-radius: 10px;
+}
+
+.toggle-btn {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 30px;
+  top: 25px;
+  cursor: pointer;
+}
+
+.toggle-btn .bar {
+  width: 30px;
+  height: 2px;
+  margin: 7px auto;
+  background-color: var(--purple);
+  transition: all 0.3s ease-in-out;
+}
+
+#toggle::-webkit-scrollbar {
+  display: none;
+}
+
+#toggle:checked~nav {
+  opacity: 1;
+  visibility: visible;
+  scrollbar-width: none;
+}
+
+#toggle:checked~nav ul {
+  top: 70px;
+}
+
+#toggle:checked~nav ul li {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+#toggle:checked~nav ul li:nth-child(1) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+
+#toggle:checked~nav ul li:nth-child(2) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+}
+
+#toggle:checked~nav ul li:nth-child(3) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+}
+
+#toggle:checked~nav ul li:nth-child(4) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+}
+
+#toggle:checked+label.toggle-btn .bar:nth-child(2) {
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+#toggle:checked+label.toggle-btn .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#toggle:checked+label.toggle-btn .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.dashboardMenuFilters {
+  width: 90%;
+  margin: auto;
+}
+
+/* Menu de naviguation */
+.dashboardMenuIconSet {
+  font-size: var(--mediumText);
+  margin-top: 20px !important;
+  vertical-align: initial !important;
+  margin-bottom: 50px;
+  font-family: var(--policeText);
+  text-align: left;
+}
+
+.dashboardMenuIcon {
+  padding-top: 16px;
+}
+
+.dashboardMenuLink {
+  color: var(--white) !important;
+  display: block;
+  text-decoration: none !important;
+}
+
+.hoverTitle {
+  padding-left: 5px;
+}
+
+.hoverTitle:hover {
+  border-bottom: 2px solid white;
+}
+
+/* Filtres */
+.filterContainer {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 50px;
+  font-family: var(--policeText);
+}
+
+.filterContainer p {
+  font-size: var(--mediumText);
+  text-align: center;
+  margin: 0;
+}
+
+.filterContainer .filterContent {
+  width: 100%;
+  margin: auto;
+}
+
+.filterContainer .filter {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7.5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterContainer .filterTitle:hover {
+  background: var(--purple);
+  color: white;
+}
+
+
+
+/** Zoom Filter **/
+.filterContainer .mat-slider-horizontal {
+  width: 100%;
+}
+
+.filterContainer .zoomUserInformation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.filterContainer .zoomUserInformation span {
+  width: 75%;
+  color: black;
+  padding-right: 10px;
+}
+
+.filterContainer .zoomUserInformation .mat-button-wrapper {
+  color: var(--purple);
+}
+
+.filterContainer .zoomUserInformation button {
+  width: 25%;
+  background: var(--white);
+  border-radius: initial;
+}
+
+/** Date Picker */
+.filterContainer .datePicker {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+  padding: 10px;
+  padding-bottom: 0px;
+  border-radius: 7.5px;
+}
+
+.filterContainer .mat-form-field {
+  width: 100%;
+}
+
+.filterContainer .datePicker .mat-form-field-infix {
+  width: 100%;
+}
+
+.filterContainer .filter p {
+  font-size: var(--smallText);
+  margin: 0;
+  flex-grow: 2;
+  text-align: right;
+}
+
+.filterContainer .filter p:first-child {
+  text-align: left;
+}
+
+/** Animation Filter **/
+.filterContainer .example-ripple-container {
+  cursor: pointer;
+  text-align: center;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/** Styles to make the demo look better. */
+.filterContainer .example-ripple-checkbox {
+  margin: 6px 12px 6px 0;
+}
+
+.filterContainer .example-ripple-form-field {
+  margin: 0 12px 0 0;
+}
+
+/**
+    Checkbox angular material
+    */
+
+.filterOrganisationsALL .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+.filterOrganisationsALL .mat-checkbox-checked.mat-primary .mat-checkbox-background,
+
+.listFormations .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+.listFormations .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--purple);
+}
+
+
+/* Flèche */
+.filterMatrixContent .mat-checkbox-checkmark-path,
+.filterThemeContent .mat-checkbox-checkmark-path,
+.filterAcquisitionsContent .mat-checkbox-checkmark-path,
+.filterContentsContent .mat-checkbox-checkmark-path,
+.filterContentContainer .mat-checkbox-checkmark-path {
+  stroke: var(--black) !important;
+}
+
+.filterMatrixContent .mat-checkbox-mixedmark,
+.filterThemeContent .mat-checkbox-mixedmark,
+.filterAcquisitionsContent .mat-checkbox-mixedmark,
+.filterContentsContent .mat-checkbox-mixedmark,
+.filterContentContainer .mat-checkbox-mixedmark {
+  background-color: var(--black) !important;
+}
+
+.filterDomainContent .mat-checkbox-checkmark-path,
+.filterSkillContent .mat-checkbox-checkmark-path {
+  stroke: var(--white) !important;
+}
+
+/** Background quand coché **/
+.filterMatrixContent.mat-checkbox-checked.mat-primary .mat-checkbox-background,
+.filterContentContainer .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--white) !important;
+}
+
+.filterDomainContent .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--domain) !important;
+}
+
+.filterSkillContent .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--skill) !important;
+}
+
+.filterThemeContent .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--theme) !important;
+}
+
+.filterAcquisitionsContent .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background: var(--acquis) !important;
+}
+
+/****************/
+
+.filterBtn {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.filterContainer .filterBtn:hover {
+  background: var(--blueGreen);
+}
+
+.filterReverseBtn {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.filterReverseBtn:hover {
+  background: var(--blueGreen);
+  color: var(--white);
+}
+
+.filterBtn p,
+.filterReverseBtn p {
+  text-align: center !important;
+}
+
+/** Création du modal filtre **/
+
+/* Formations */
+
+.filterFormationsALL .filterFormationsContainer::-webkit-scrollbar {
+  display: none;
+  ;
+}
+
+.filterFormationsALL .filterFormationsContainer .filterFormationsContent {
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+.filterFormationsALL,
+.filterOrganisationsALL {
+  height: 480px;
+  text-align: left;
+}
+
+.filterOrganisationsALL::-webkit-scrollbar,
+.filterOrganisationsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.filterFormationsContainer,
+.filterOrganisationsContainer {
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.filterFormationsALL .filterFormationsContainer .smallSpinner {
+  margin: auto;
+}
+
+.filterMatrixContainer,
+.filterDomainContainer,
+.filterSkillContainer,
+.filterThemeContainer,
+.filterAcquisitionContainer,
+.filterContentContainer,
+.filterParentCompany {
+  list-style-type: none;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  justify-content: space-between;
+}
+
+.filterDomainContainer,
+.filterSkillContainer,
+.filterThemeContainer,
+.filterAcquisitionContainer,
+.filterContentContainer {
+  color: white;
+  display: block;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100%;
+  box-shadow: none;
+}
+
+.filterMatrixContainer,
+.filterAcquisitionContainer,
+.filterContentContainer {
+  background-color: var(--matrix);
+  color: black;
+}
+
+.filterDomainContent,
+.filterSkillContent,
+.filterThemeContent,
+.filterAcquisitionsContent,
+.filterContentContent {
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+
+.filterDomainContent {
+  background-color: var(--domain);
+}
+
+.filterSkillContent {
+  background-color: var(--skill);
+}
+
+.filterThemeContent {
+  background-color: var(--theme);
+}
+
+.filterAcquisitionsContent {
+  background-color: var(--acquis);
+}
+
+.filterContentsContent {
+  background-color: var(--content);
+}
+
+/** Limiter la taille du texte */
+.filterFormationsALL .mat-checkbox-label {
+  width: 500px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/** Scrollbar pour afficher tous le contenus */
+.filterFormationsContainer .mat-checkbox-label::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.filterFormationsContainer .mat-checkbox-label::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+}
+
+/* Handle */
+.filterFormationsContainer .mat-checkbox-label::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--purple);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.filterFormationsContainer .mat-checkbox-label::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--purple);
+}
+
+
+
+/* Tous les contenus des filtres */
+/* Orgnisations */
+.filterOrganisationContent {
+  list-style-type: none;
+  background: var(--white);
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterChildsCompany {
+  list-style-type: none;
+  background-color: var(--white);
+  display: flex;
+  margin-bottom: 15px;
+  padding: 20px;
+  margin-left: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  justify-content: space-between;
+}
+
+/* Bordure du checbox */
+.filterDomainContent .mat-checkbox-frame,
+.filterSkillContent .mat-checkbox-frame {
+  border: white 2px solid;
+}
+
+.filterFormationsALL .filterFormationsContainer .mat-checkbox-layout,
+.filterOrganisationsALL .filterOrganisationsContainer .filterOrganisationContent .mat-checkbox-layout {
+  margin-bottom: 0;
+  display: initial;
+  white-space: initial;
+  vertical-align: initial;
+  text-align: left;
+}
+
+.filterFormationsALL .filterFormationsContainer .mat-checkbox-inner-container,
+.filterOrganisationsALL .filterOrganisationsContainer .filterOrganisationContent .mat-checkbox-inner-container {
+  height: 24px;
+  width: 24px;
+}
+
+.filterFormationsALL .filterFormationsContainer .mat-checkbox-label,
+.filterOrganisationsALL .filterOrganisationsContainer .filterOrganisationContent .mat-checkbox-label {
+  font-size: 20px;
+}
+
+.box {
+  display: flex;
+  position: fixed;
+  z-index: 10000 !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  max-height: 500px;
+  padding: 0 4rem 2rem;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: initial;
+  display: initial;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--m-background);
+}
+
+.modal-container {
+  display: flex;
+}
+
+.modal {
+  width: 60rem;
+  margin: auto 0;
+  max-height: 750px;
+  padding: 1rem;
+  border-radius: .8rem;
+  color: var(--black);
+  background: var(--white);
+  display: initial;
+  overflow: auto;
+  scrollbar-width: none;
+  width: calc(90% - 250px);
+  left: calc(250px + 5%);
+}
+
+
+
+.modalCloseIcon {
+  color: var(--grey);
+  font-weight: bolder;
+  font-size: 30px;
+  margin-left: 95%;
+  cursor: pointer;
+}
+
+.modalCloseIcon:hover {
+  color: var(--purple);
+}
+
+
+.modal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+.modal::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--purple);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.modal::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--purple);
+}
+
+.modal__title {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--purple) !important;
+}
+
+.link-2 {
+  width: 4rem;
+  height: 4rem;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+  border-radius: 100rem;
+  font-size: 3rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+}
+
+.link-2::before {
+  content: '×';
+}
+
+.link-2:hover,
+.link-2:focus {
+  background: var(--purple);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.filter ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/**************
+     Main Content
+    *************/
+.dashboardMainContent,
+.companiesMainContent,
+.graphZoomMainContent {
+  margin-left: 250px;
+  color: var(--black);
+}
+
+.dashboardMainContent::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboardUserInformation {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.graphZoomMainContent .dashboardUserInformation {
+  padding: 25px !important;
+}
+
+/* Icon pour afficher et cacher le menu */
+.dashboardIcon {
+  color: var(--purple);
+  font-size: 40px;
+  padding: 0 20px;
+  margin-top: 20px !important;
+  vertical-align: initial !important;
+}
+
+.mat-badge-content {
+  background: var(--red);
+}
+
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  right: -18px !important;
+  top: -5px !important
+}
+
+
+.dashboardDisplayMenu:hover,
+.dashboardSettings .dashboardIcon:hover {
+  cursor: pointer;
+}
+
+
+/* Les informations de l'utilisateur */
+.dashboardUser p {
+  color: var(--purple);
+  font-size: var(--largeMain);
+  font-family: var(--policeText);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Afficher les notifications */
+.notificationMenu {
+  user-select: none;
+}
+
+
+.notificationContent {
+  padding: 10px 20px;
+  color: var(--black);
+  font-size: var(--smallText);
+  font-family: var(--policeText);
+  max-width: 500px;
+  display: flex;
+  border-bottom: solid .5px var(--grey);
+  cursor: pointer;
+}
+
+.notificationContent:hover {
+  background: #F4F6F8;
+}
+
+.notificationMenu p {
+  margin: 0 !important;
+}
+
+.notificationTime {
+  font-size: 12px;
+  color: var(--grey);
+  margin: 0 20px;
+  width: 50%;
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+.notificationClose {
+  font-size: 16px;
+  color: var(--purple);
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+.notificationHeader {
+  background: var(--purple);
+  color: white;
+  font-size: var(--mediumText);
+  text-align: center;
+  padding: 15px 40px;
+  font-family: var(--policeText);
+}
+
+.cdk-overlay-pane {
+  margin-top: 10px;
+}
+
+/* Container des notifications */
+.mat-menu-panel {
+  max-width: initial !important;
+  min-height: initial !important;
+}
+
+/* Content des notifications */
+.mat-menu-content:not(:empty) {
+  padding: 0 !important;
+}
+
+.dashboardSettingsContent ul {
+  margin: 0 !important;
+}
+
+.dashboardSettingsContent ul li {
+  list-style-type: none;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #8c8c8c;
+}
+
+.dashboardSettingsContent ul li:hover {
+  background: #C8D6D4;
+  color: black;
+  text-decoration: underline #C8D6D4;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  height: calc(100vh - 126px);
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.wrapperInitial {
+  position: initial;
+  min-height: 100vh;
+  height: calc(100vh - 126px);
+  overflow-y: scroll;
+}
+
+.wrapperInitial::-webkit-scrollbar {
+  display: none;
+}
+
+/***************************************************
+              Tous le contenus de la page dashboard
+    ***************************************************/
+.dashboardSection {
+  width: 85%;
+  margin: auto;
+}
+
+/*************************
+        Barre de recherche
+     ************************/
+.dashboardResearchBar {
+  text-align: center;
+}
+
+.dashboardSearch {
+  width: 75%;
+}
+
+.dashboardSearch input::placeholder {
+  color: var(--red);
+}
+
+.dashboardSearchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid var(--purple);
+  background: var(--purple);
+  text-align: center;
+  color: var(--backgroundColor);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.dashboardSearchButton:disabled {
+  opacity: 0.5;
+  cursor: initial;
+}
+
+/* Modification de la barre de recherche */
+.researchOptions {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: var(--purple) !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: var(--purple) !important;
+}
+
+.matAutocomplete mat-option i {
+  color: var(--purple) !important;
+  margin-right: 5px;
+  font-family: var(--policeText);
+}
+
+/* Change la taille de la barre de recherche */
+.dashboardResearchBar .mat-form-field {
+  width: 75%;
+}
+
+/* Changer la couleur du cercle qui recherche */
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--purple) !important;
+  text-align: center !important;
+  margin: auto;
+}
+
+.errorResearchBar {
+  color: var(--purple);
+  font-size: var(--smallText);
+  font-family: var(--policeText);
+}
+
+.mat-option-text {
+  flex-grow: initial !important;
+  display: inline-block;
+  width: 90%;
+}
+
+.mat-autocomplete-panel {
+  max-height: 356px !important;
+}
+
+.mat-button {
+  min-width: initial !important;
+  padding: 0px !important;
+}
+
+/****************************************
+              Dashboard content
+     ***************************************/
+.contentPage {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+/** Affichage des trois premieres données **/
+.containerAloneData {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.contentAloneData {
+  background: white;
+  padding: 30px 33px;
+  height: 100%;
+  border-radius: 20px;
+  width: 100%;
+}
+
+/* Titre */
+.titleAloneData {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: black;
+  font-family: 'Montserrat-Bold', 'Montserrat', 'Montserrat-Light', sans-serif;
+}
+
+/* Valeurs */
+.valueAloneData {
+  font-weight: 900;
+  color: #9229ff !important;
+  font-size: 3em;
+  font-family: var(--policeText);
+  margin-bottom: 0 !important;
+  line-height: 50px;
+}
+
+.valueAloneData span {
+  font-size: 16px !important;
+  color: rgba(146, 41, 255, 0.6);
+}
+
+/** Espacement pourles trois premiers éléments */
+.marginStaticData {
+  margin-right: 15px;
+}
+
+/* Tous les pictos, sauf le sablier */
+.pictoStaticData {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.containerAloneData .contentAloneData .titleAloneData,
+.containerAloneData .contentAloneData .valueAloneData {
+  text-align: left;
+}
+
+/*********************************************************/
+
+
+
+.specialBoxContentLeft {
+  display: flex;
+  width: 32.5%;
+  margin-bottom: 50px;
+  flex-flow: row wrap;
+}
+
+.specialBoxContentRight {
+  display: flex;
+  width: 65%;
+  margin-bottom: 50px;
+  flex-flow: row wrap;
+}
+
+.contentPage .boxContent {
+  display: flex;
+  width: 47%;
+  margin-bottom: 50px;
+
+  background: white;
+  box-shadow: rgb(0 0 0 / 10%) 0 3px 8px !important;
+  border-radius: 20px;
+  flex-flow: row wrap;
+}
+
+.specialBoxContentRight {
+  width: 66.1% !important;
+}
+
+/** Le premier prend toute la largeur **/
+.fullBoxContent {
+  width: 100% !important;
+}
+
+/** Contenus des boxs **/
+.boxContent .titleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 30px 10px 30px;
+}
+
+.boxContent .titleWrapper .title {
+  font-size: var(--mediumText);
+  text-align: center;
+  font-family: 'Montserrat-Bold', 'Montserrat', 'Montserrat-Light', sans-serif;
+  width: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.boxContent .right,
+.boxContent .left {
+  width: 50%;
+  flex-direction: row;
+  position: relative;
+  padding: 5px 0px;
+}
+
+.boxContent .fullDiv {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+/* .boxContent .fullDiv .graphChecker{
+      display: none;
+    } */
+
+/** Attente avant que les boxs chargent **/
+.boxContent .graphic {
+  width: 90%;
+  max-width: initial;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.boxContent .inProgress {
+  color: var(--grey);
+  font-size: var(--mediumMain);
+  opacity: 0.5;
+}
+
+.boxContent .addGraphics {
+  margin-top: 10px;
+  font-size: var(--mediumMain);
+}
+
+.boxContent .graphicLoading,
+.graphDetails .graphicLoading {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.boxAddGraphics:hover {
+  background: var(--purple);
+  color: white;
+  cursor: pointer;
+}
+
+.graphDetails .graphic {
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+/**
+      Changement de design pour le graphique : CONTENUS VALIDÉS
+    **/
+/* Container du graphique */
+.appContentValid {
+  flex-direction: column !important;
+  display: flex !important;
+}
+
+/*** Bouton de retour pour les formations **/
+.previousFormationBtn {
+  /*  background-color: var(--purple);
+      border-bottom: solid 3px var(--purple);*/
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  margin-top: 20px;
+  color: var(--black);
+  margin-left: 10px;
+  display: inline-flex;
+}
+
+.previousFormationBtn:hover {
+  background-color: var(--blueGreen);
+  color: var(--white);
+}
+
+
+.arrowPreviousFormationBtn {
+  font-size: 30px;
+  margin-right: 20px;
+  margin-top: -4px;
+}
+
+/****************************************
+            Raccourci navigateurs
+     ***************************************/
+.dashboardContent,
+.companiesContent {
+  width: 90%;
+  margin: auto;
+  font-family: var(--policeText);
+}
+
+.dashboardContent .shortcutPhone {
+  width: 100%;
+}
+
+/* Tablettes / Ordinateurs */
+.dashboardContent .shortcutBrowser,
+.dashboardContent .shortcutPhone {
+  text-align: center;
+  font-size: var(--largeText);
+  color: var(--purple);
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.dashboardContent .shortcutLogoNavigateur {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.dashboardContent i {
+  margin: 0 20px;
+  /* font-size: var(--largeMain); */
+}
+
+
+.dashboardContent .shortcutVideoContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dashboardContent .shortcutVideoContent {
+  padding: 5px;
+  width: 17em;
+  height: 300px;
+  margin: 50px 0 30px 0;
+  color: var(--purple);
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboardContent .shortcutVideoContent video {
+  width: 100%;
+  height: 246px;
+}
+
+.filterZoomEntreprise {
+  cursor: pointer;
+}
+
+.filterZoomEntreprise:hover {
+  cursor: pointer;
+  color: var(--purple);
+}
+
+
+/****************************************
+         PRESENTATION DE L'ENTREPRISE
+    ***************************************/
+.companiesContent {
+  width: 90%;
+  margin: auto;
+  font-family: var(--policeText);
+}
+
+/* Setup du texte dans les divs */
+.companiesContent p.title {
+  font-size: var(--mediumText);
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.companiesContent p.titleCenter {
+  text-align: center;
+}
+
+.companiesContractAndCourses {
+  display: flex;
+  order: 1;
+  width: 100%;
+  flex-direction: row;
+}
+
+.companiesContract {
+  order: 1;
+  width: 100%;
+  max-height: 450px;
+}
+
+.UsersActifs {
+  color: var(--purple);
+  border-bottom: var(--purple) 2px solid;
+  cursor: pointer;
+}
+
+.companiesCourses {
+  order: 2;
+  width: 75%;
+  max-height: 450px;
+}
+
+.companiesPro {
+  order: 2;
+  margin-bottom: 10px;
+  max-height: 300px;
+}
+
+.companiesBox {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+  padding: 10px;
+  background: white;
+  overflow: auto;
+  width: 100%;
+}
+
+/** Barre de recherche dans les modals **/
+.cdk-overlay-container {
+  z-index: 10000;
+}
+
+footer {
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 16px;
+}
+
+
+
+/*******************************.homeModal*************************************
+********************************************************************
+                        PARAMETRES
+*********************************************************************
+*********************************************************************/
+
+/* Menu dans les settings (Différent du menu habituel) */
+.showSettingsMenu {
+  margin-left: -400px;
+}
+
+.hideSettingsMenu {
+  margin-left: 0;
+}
+
+.settingsNavBar .dashboardMenu {
+  width: 400px;
+  scrollbar-width: none;
+}
+
+.settingsNavBar .dashboardMenuIconSet {
+  text-align: center;
+}
+
+.iconContainer {
+  font-size: 20px;
+  color: var(--white);
+  background-color: var(--purple);
+  padding: 7.5px 15px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px #0000003d;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5px;
+}
+
+
+.iconContainer:hover {
+  background-color: var(--blueGreen);
+  cursor: pointer;
+}
+
+.settingsAll {
+  padding: 0px 1em;
+  margin: auto;
+}
+
+.settingsAll p {
+  margin-bottom: 0;
+}
+
+.settingsLogo {
+  margin: auto;
+  padding: 10px;
+}
+
+.settingsLogo img {
+  width: 250px;
+}
+
+.settingsHeader {
+  display: flex;
+  text-align: center;
+  color: var(--purple);
+  font-family: var(--policeText);
+  font-size: var(--largeMain);
+  padding: 10px 50px 20px 0px;
+  align-items: center;
+  justify-content: start;
+  flex-flow: row;
+
+
+}
+
+.settingsHeader .settingsBar {
+  width: 40px;
+  height: 4px;
+  margin: 7px auto;
+  background-color: var(--black);
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsHeader label {
+  margin-bottom: 0;
+}
+
+/*Bootstrap problème*/
+
+
+
+.settingsBarContainer .settings-toggle-btn {
+  cursor: pointer;
+}
+
+.settingsBarContainer #toggleSettings::-webkit-scrollbar {
+  display: none;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul {
+  top: 70px;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul li {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul li:nth-child(1) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul li:nth-child(2) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul li:nth-child(3) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+}
+
+.settingsBarContainer #toggleSettings:checked~nav ul li:nth-child(4) {
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+}
+
+.settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn {
+  position: absolute;
+  top: 10px;
+  left: 350px;
+}
+
+.settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn .settingsBar {
+  background-color: var(--white);
+}
+
+.settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn .settingsBar:nth-child(2) {
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn .settingsBar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn .settingsBar:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+
+.settingsHeader .title {
+  flex-grow: 2;
+}
+
+.settingsBarContainer {
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsContainer {
+  display: flex;
+  overflow: auto;
+  flex-direction: row;
+}
+
+
+.settingsMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.settingsMenu {
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 40%;
+  background-color: var(--white);
+  scrollbar-width: none;
+}
+
+.settingsMenuContainer {
+  padding: 25px 25px;
+  height: 100%;
+  max-height: 70vh;
+}
+
+.settingsMenuSection {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  position: initial;
+  transition: all 0.3s ease-in-out;
+  transform: none;
+  border-radius: 7.5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settingsMenuSection.mat-ripple:not(:empty) {
+  transform: none;
+}
+
+.settingsHideArrows {
+  display: none;
+}
+
+.settingsMenuSection:hover {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  background: var(--purple) !important;
+  box-shadow: 12px 5px 10px 0 rgba(0, 0, 0, 0.10);
+  color: white;
+}
+
+.settingsContent {
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-left: 30px;
+  width: 100%;
+  scrollbar-width: none !important;
+}
+
+.settingsContentTitle {
+  color: var(--purple);
+  font-size: var(--mediumMain);
+  text-align: center;
+  background: white;
+  margin-bottom: 30px;
+  font-family: var(--policeText);
+  padding: 15px;
+  border-radius: 10PX;
+}
+
+/* Première page des paramètres */
+.settingsContentPreContent p {
+  color: grey;
+  opacity: 0.3;
+}
+
+.settingsContentAll {
+  overflow-y: auto;
+}
+
+.settingsContentText {
+  background: white;
+  padding: 25px;
+}
+
+
+/* Première page des paramètres */
+.settingsContentPreContent p {
+  color: grey;
+  opacity: 0.3;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 30px;
+  height: 100%
+}
+
+.settingsContentText::-webkit-scrollbar {
+  width: 5px;
+}
+
+.settingsSaveModification::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.settingsContentText::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: var(--purple);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.settingsContentText::-webkit-scrollbar-thumb:window-inactive {
+  background: var(--purple);
+}
+
+.mobileSettingsContainer {
+  display: none;
+}
+
+/***********************************
+    Design du contenu des settings
+  ************************************/
+
+/* Toutes les sections */
+.settingsFieldContainer {
+  margin: auto;
+}
+
+
+.settingsField.marginless {
+  margin: 0 !important;
+}
+
+.settingsField.paddingless {
+  padding: 0 !important;
+}
+
+.settingsField.borderless,
+.settingsField.borderless .mat-form-field-infix {
+  border: 0 !important;
+}
+
+/* Tous les éléments de la section */
+.settingsField,
+.checkboxField {
+  width: 85%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* Tous les inputs de la section */
+.settingsField input {
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  font-family: var(--policeLight);
+  color: var(--black);
+  font-size: var(--mediumText);
+  border: rgba(119, 119, 119, 0.4) solid 2px;
+}
+
+.settingsField .settingsInputContainer {
+  border-radius: 10px;
+  width: 100%;
+  font-family: var(--policeLight);
+  font-size: var(--mediumText);
+  border: rgba(119, 119, 119, 0.4) solid 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settingsField .settingsOrganisation,
+.settingsField .settingsRole {
+  width: 100%;
+}
+
+.settingsField .settingsOrganisation span,
+.settingsField .settingsRole span {
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+  border-radius: initial !important;
+  text-decoration: none !important;
+  box-shadow: initial !important;
+  padding: 10px 5px;
+  font-size: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsField .settingsOrganisation span:hover,
+.settingsField .settingsRole span:hover {
+  background: none;
+  color: var(--black);
+}
+
+.settingsField .mat-form-field.mat-focused .mat-form-field-ripple {
+  display: none;
+}
+
+.settingsField #rolePersonalInformations {
+  border: 0;
+}
+
+.settingsField .settingsInputContainer input {
+  flex-grow: 3;
+}
+
+.settingsField .settingsInputContainer .settingsFieldStatut {
+  flex-grow: 2;
+  text-align: center;
+}
+
+/* Tous les boutons de validation */
+.settingsField .createAccount {
+  background: var(--purple);
+  width: 100%;
+  color: var(--white);
+  padding: 10px 30px;
+  font-size: var(--mediumText);
+  cursor: pointer;
+  font-family: var(--policeText);
+  border: none;
+  border-radius: 40px;
+}
+
+.settingsField .createAccount:hover {
+  background: var(--blueGreen);
+}
+
+.settingsField .settingsDeleteAccount {
+  background-color: var(--pink);
+  width: 100%;
+  color: var(--white);
+  padding: 10px 30px;
+  font-size: var(--mediumText);
+  cursor: pointer;
+  font-family: var(--policeText);
+  border: none;
+  margin-top: 15px;
+  border-radius: 40px;
+}
+
+.settingsField .settingsDeleteAccount:hover {
+  background-color: var(--blueGreen);
+}
+
+.settingsField .cancelNewAccount {
+  color: var(--blueGreen);
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.settingsField .cancelNewAccount:hover {
+  color: var(--purple);
+}
+
+/* Tous les labels de la section */
+.settingsField label {
+  text-align: left;
+  font-size: var(--mediumText);
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+}
+
+/* Tous les boutons 'modifier' de la section */
+.settingsField .settingsButtonModificationContainer {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.settingsField span {
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  padding: 10px 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsField .title {
+  text-align: left;
+  font-size: var(--mediumText);
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+  margin-bottom: 0;
+}
+
+.settingsField .button {
+  background-color: var(--purple);
+  width: 100%;
+  font-size: var(--mediumText);
+  border-radius: 15px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/** Input password **/
+.settingsField .settingsFieldContent {
+  position: relative;
+}
+
+.settingsField .settingsFieldContent .iconPassword {
+  position: absolute;
+  right: 20px;
+  top: 48%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/** Erreur **/
+.settingsField .errorContainer {
+  margin-bottom: 30px;
+}
+
+/** Bouton annuler **/
+.settingsDeleteModification {
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px !important;
+  margin-left: 10px;
+}
+
+/* Toutes les icônes du bouton 'modifier' de la section */
+.settingsField span i {
+  color: var(--purple);
+  font-weight: 900;
+  transition: all 0.3s ease-in-out;
+}
+
+/** Bouton annuler **/
+.settingsDeleteModification i {
+  color: var(--pink) !important;
+}
+
+/* Champs obligatoires de la section */
+.settingsFieldRequired {
+  text-align: center;
+  font-family: 'Montserrat-Regular', 'Montserrat-Light', sans-serif;
+}
+
+/* Bouton pour valider les modifications de la section */
+.settingsSaveModification {
+  text-align: center;
+}
+
+.settingsSaveModification button {
+  background-color: var(--purple);
+  color: white;
+  padding: 20px 50px;
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 50px;
+  width: 85%;
+  cursor: pointer;
+  font-size: var(--mediumText);
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+.settingsField .loading {
+  --thickness: 20%;
+  margin: auto;
+  -webkit-animation: rotate 2.6s linear infinite;
+  -moz-animation: rotate 2.6s linear infinite;
+  -ms-animation: rotate 2.6s linear infinite;
+  /*-webkit-animation: rotate 2.6s linear infinite;*/
+  animation: rotate 2.6s linear infinite;
+  color: var(--purple);
+  width: 100px;
+  height: 100px;
+  right: 0;
+}
+
+.settingsField .loading::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 20, 80, 0.05);
+  background-image: conic-gradient(transparent, transparent var(--start), currentcolor var(--start), currentcolor var(--end), transparent var(--end), transparent);
+  mask-image: radial-gradient(closest-side at center, transparent, transparent calc(100% - var(--thickness)), white calc(100% - var(--thickness) + 1px));
+  -webkit-mask-image: radial-gradient(closest-side at center, transparent, transparent calc(100% - var(--thickness)), white calc(100% - var(--thickness) + 1px));
+  border-radius: 20rem;
+  -webkit-animation: spin 1.5s both linear infinite;
+  -moz-animation: spin 1.5s both linear infinite;
+  -ms-animation: spin 1.5s both linear infinite;
+  /*-webkit-animation: spin 1.5s both linear infinite;*/
+  -moz-animation: spin 1.5s both linear infinite;
+  animation: spin 1.5s both linear infinite;
+}
+
+/* Bouton reset de la section */
+.settingsReset {
+  color: var(--blue);
+  text-align: center;
+  text-decoration: underline var(--blueGreen);
+  cursor: pointer;
+}
+
+/************** Hover *************/
+.settingsField span:hover {
+  background-color: var(--purple);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.settingsField span:hover i {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsSaveModification button:hover {
+  background-color: var(--blueGreen);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsField .button:hover {
+  background-color: var(--blueGreen);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input Password */
+.settingsField .settingsFieldContent .iconPassword:hover {
+  color: var(--purple);
+}
+
+/***********************************
+
+  /** Bouton annuler **/
+.settingsDeleteModification:hover {
+  background-color: var(--pink) !important;
+  color: white;
+}
+
+/** Bouton annuler **/
+.settingsDeleteModification:hover i {
+  color: white !important;
+}
+
+/*************************************/
+
+.settingsContentText .settingsAccessibilitySection,
+.settingsContentText .settingsAccessibilityTitle,
+.settingsContentText .settingsAccessibilityStatut {
+  font-size: var(--mediumText);
+}
+
+.settingsContentText #settingsAccessibilitySection {
+  margin-top: 50px;
+}
+
+.settingsContentText .settingsAccessibilityContent {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  width: 95%;
+  margin: auto;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.settingsAccessibilityCheckbox {
+  margin-top: 0.8em;
+}
+
+.settingsContentText .mat-slide-toggle-label {
+  margin-top: 7.5px;
+  margin-left: 10px;
+}
+
+.settingsContentText .settingsAccessibilityTitle {
+  flex-grow: 1;
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--purple);
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
+  background-color: #a24bfe80;
+}
+
+.cguMargin {
+  margin-bottom: 50px;
+}
+
+.mat-accordion .mat-expansion-panel:last-of-type {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.settingsCGU ul li,
+.dataProtectionContent ul li {
+  margin-left: 2em;
+}
+
+.downloadCGU {
+  color: var(--blueGreen);
+  font-size: 20px;
+}
+
+.settingsCGU .mat-expansion-panel-header-description,
+.mat-expansion-indicator::after {
+  color: var(--purple);
+}
+
+.dataProtectionSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dataProtectionSection p {
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.dataProtectionSection div {
+  flex: 1 0;
+  padding: 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.dataProtectionSection div:hover {
+  background: var(--blueGreen);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsContentText .mat-expansion-panel-header,
+.settingsContentText .mat-expansion-panel-header.mat-expanded {
+  height: initial;
+  font-size: 24px;
+}
+
+/************************
+      RGPD - Page settings
+  *************************/
+.dataSecurityContent {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.dataSecurityContent .dataSecurity,
+.dataSecurityContent .sendAlert {
+  flex: 1 1 100%;
+  display: flex;
+  margin-top: 40px;
+  flex-direction: row;
+}
+
+/** Image de la RGPD **/
+.dataSecurityContent .dataSecurity .left,
+.dataSecurityContent .sendAlert .left {
+  flex: 1 1 35%;
+}
+
+.dataSecurityContent .dataSecurity .left img,
+.dataSecurityContent .sendAlert .left img {
+  width: 300px;
+  height: 300px;
+}
+
+/** Texte RGPD **/
+.dataSecurityContent .dataSecurity .right,
+.dataSecurityContent .sendAlert .right {
+  flex: 1 1 65%;
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+
+}
+
+.dataSecurityContent .dataSecurity .right .title,
+.dataSecurityContent .sendAlert .right .title {
+  color: var(--purple);
+  font-size: var(--mediumText);
+  font-family: var(--policeLight);
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.dataSecurityContent .dataSecurity .right .text,
+.dataSecurityContent .sendAlert .right .text {
+  font-size: var(--mediumText);
+  font-family: var(--policeLight);
+}
+
+.dataSecurityContent .showDataProtection {
+  background: var(--purple);
+  color: var(--white);
+  font-size: var(--mediumText);
+  font-family: var(--policeLight);
+  padding: 15px 25px;
+  margin-top: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+}
+
+.dataSecurityContent .showDataProtection p {
+  margin-bottom: 0;
+}
+
+.dataSecurityContent .showDataProtection:hover {
+  background-color: var(--blueGreen);
+  transition: all 0.3s ease-in-out;
+}
+
+/*******************************************************************
+                              ADMINISTRATEUR
+ *****************************************************************/
+
+/**********************************************/
+/* Création du tableau pour tous les éléments */
+/**********************************************/
+
+.shortcutTitle,
+.shortcutTable,
+.accountTitle,
+.accountTable {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.shortcutTitle p,
+.accountTitle p {
+  margin-bottom: 0;
+  color: var(--purple);
+  font-size: var(--mediumText);
+  font-weight: 500;
+  font-family: var(--policeText);
+}
+
+.shortcutTable input {
+  font-size: var(--smallText);
+  font-family: var(--policeText);
+}
+
+.shortcutContent,
+.shortcutTitle p {
+  width: 20%;
+  text-align: center;
+}
+
+.accountContent {
+  text-align: center;
+}
+
+.shortcutTable input:disabled {
+  background-color: white;
+  border: none;
+}
+
+.shortcutTable input {
+  padding: 5px 10px;
+  border: var(--purple) solid 1px;
+  border-radius: 7.5px;
+}
+
+.shortcutTable i,
+.accountTable i {
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.shortcutTable span,
+.accountTable span {
+  border-radius: 100%;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/** Button **/
+.accountAdd {
+  position: fixed;
+  right: 20px;
+  top: 32.5px;
+}
+
+/********************/
+/* Tous les comptes */
+/********************/
+.settingsTable {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.settingsTable tr {
+  padding: .35em;
+  border-spacing: 5px 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+tr:nth-child(even) {
+  background: #EEE
+}
+
+tr:nth-child(odd) {
+  background: #FFF
+}
+
+.settingsTable .accountList:hover,
+.settingsTable .roleList:hover {
+  background-color: var(--purple);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.settingsTable th,
+.settingsTable td {
+  padding: 20px;
+  text-align: center;
+  overflow: auto;
+}
+
+.settingsTable th {
+  font-size: var(--mediumText);
+  color: var(--purple);
+  font-family: var(--policeText);
+  font-weight: initial !important;
+}
+
+@media screen and (max-width: 600px) {
+
+  .deleteOverflow {
+    overflow-y: initial !important;
+    height: initial !important;
+    margin-bottom: 20px;
+  }
+
+  .settingsTable {
+    border: 0;
+  }
+
+  .settingsTable caption {
+    font-size: 1.3em;
+  }
+
+  .settingsTable thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .settingsTable tr {
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  .settingsTable td {
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  .settingsTable td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .boxContent .titleWrapper {
+    margin: 15px 5px;
+  }
+}
+
+
+
+
+
+
+
+/************************/
+/* Création d'un compte */
+/************************/
+
+/*** Fin création d'un comptes ***/
+
+/*********************/
+/* Gestion des rôles */
+/*********************/
+
+/*** Fin Gestion des rôles  ***/
+
+/**********************/
+/* Création d'un rôle */
+/**********************/
+
+/* Couleur des checkbox */
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background: var(--purple) !important;
+}
+
+/* Organisation parent */
+.organisationParent {
+  color: #212529 !important;
+}
+
+.organisationContainer {
+  position: relative;
+}
+
+#parentOrganisationTitle {
+  font-weight: 800;
+}
+
+.titleRoleOrganisation {
+  font-family: var(--policeLight);
+}
+
+.typeOrganisation {
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+/*** Fin Création d'un rôle ***/
+
+.legend {
+  font-size: 16px;
+  color: var(--black);
+  font-family: var(--policeLight) !important;
+  /* margin-left:50px; */
+}
+
+.legend li{
+  margin-left: 50px;
+}
+
+
+/**************************************************************************************************/
+/***************************** LAPTOP | 1400px -> 900px *******************************************/
+/**************************************************************************************************/
+@media all and (max-width: 1400px) {
+
+
+  /********************************************************************
+                            HOME PAGE
+    *********************************************************************/
+
+  /* Content */
+  .homeContent {
+    margin-top: 15px;
+  }
+
+  .homeContent .right {
+    padding: 12px 0;
+  }
+
+  .homeContent .right .accountButton {
+    font-size: var(--mediumText);
+    margin-top: 50px;
+  }
+
+  .homeContent .right .accountButton a:nth-child(1n) {
+    margin: 0 12px;
+  }
+
+  .homeContent .right .accountButton #showLoginModal {
+    padding: 12px 25px;
+  }
+
+  /* Modal */
+  .homeModal {
+    width: 75%;
+  }
+
+  /* Taille du modal */
+  .homeModal .title {
+    font-size: var(--mediumMain);
+  }
+
+  .homeModal div .field {
+    font-size: var(--mediumText);
+    padding: 10px 35px;
+    width: 75%;
+  }
+
+  .homeModal button {
+    font-size: var(--mediumText);
+  }
+
+  .homeModal a:not([href]):not([tabindex]) {
+    font-size: var(--smallText);
+  }
+
+  .notification {
+    width: 35%;
+  }
+
+  /********************************************************************
+                           DASHBOARD
+   *********************************************************************/
+  .dashboardUser p {
+    font-size: var(--mediumMain);
+    padding-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  .dashboardIcon {
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+
+  /** Static data **/
+  /* Valeurs */
+  .valueAloneData {
+    font-size: 2em;
+    line-height: 40px;
+  }
+
+  .valueAloneData span {
+    font-size: 12px !important;
+  }
+
+  /* Titre */
+  .titleAloneData {
+    font-size: 1em;
+  }
+
+  .containerAloneData {
+    word-break: break-word;
+  }
+
+  .specialBoxContentLeft {
+    display: flex;
+    margin: initial;
+    margin-bottom: 50px;
+    text-align: left;
+    flex-direction: initial;
+  }
+
+
+
+  /********************************************************************
+                           SETTINGS
+   *********************************************************************/
+  .settingsMenu {
+    width: 65%;
+  }
+}
+
+@media all and (max-width: 1250px) {
+  .valueAloneData {
+    font-size: 1.5em;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .valueAloneData {
+    font-size: 1.25em;
+  }
+}
+
+/**************************************************************************************************/
+/***************************** TABLETTE | 900px -> 502px ******************************************/
+/**************************************************************************************************/
+@media all and (max-width: 900px) {
+
+  /********************************************************************
+                           HOME PAGE
+   *********************************************************************/
+
+  /* Header */
+  .homeHeader .logo img {
+    width: 288px;
+  }
+
+  .homeHeader .title h1 {
+    text-align: left;
+    padding: 0 10px;
+    line-height: 50px;
+  }
+
+  /* Content */
+  .homeContent .left {
+    bottom: 0px;
+  }
+
+  .homeContent .right .accountButton {
+    font-size: var(--mediumText);
+  }
+
+  /* Les gros titres */
+  .homeContent .right .text p,
+  .homeHeader .title h1 {
+    font-size: var(--mediumMain);
+  }
+
+  .homeHeader .title,
+  .homeContent .left {
+    order: 2;
+  }
+
+  .homeHeader div,
+  .homeContent .right,
+  .homeContent .left {
+    width: 100%;
+  }
+
+  /* Modal */
+  .homeModal {
+    width: 85%;
+  }
+
+  /* Taille du modal */
+  .homeModal .modal-cgu {
+    font-size: var(--smallText);
+  }
+
+  .form-check-input {
+    bottom: 19px;
+  }
+
+  /* Mot de passe oublié */
+  .resetPassword {
+    font-size: var(--smallText);
+  }
+
+  .emailSuccess .message {
+    font-size: var(--mediumText);
+  }
+
+  /* Erreur */
+  .errorContainer .error .errorTitle {
+    font-size: var(--mediumText);
+  }
+
+  .errorContainer .error div {
+    font-size: var(--smallText);
+  }
+
+  .errorContainer .iconDanger i {
+    font-size: var(--smallMain);
+  }
+
+  .errorContainer .iconDanger {
+    padding-top: 10px;
+  }
+
+  .notification {
+    width: 90%;
+  }
+
+  #connectingResetPassword {
+    font-size: var(--smallText);
+  }
+
+
+  /********************************************************************
+                           DASHBOARD
+   *********************************************************************/
+  .dashboardDisplayMenu div {
+    display: initial;
+  }
+
+  .dashboardUserInformation {
+    padding: 10px;
+  }
+
+  .dashboardUser p {
+    font-size: var(--mediumText);
+    padding-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  .mat-badge-medium .mat-badge-content {
+    right: -18px !important;
+  }
+
+  .dashboardIcon {
+    font-size: 35px;
+    padding: 0 5px;
+    margin-top: 5px;
+  }
+
+
+  .dashboardMainContent,
+  .companiesMainContent,
+  .graphZoomMainContent {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+  }
+
+  .wrapper,
+  .sidebar {
+    transform: translateX(0) translateZ(0);
+    transition: transform .2s;
+    will-change: transform;
+  }
+
+  .boxContent .titleWrapper .title {
+    font-size: var(--smallMain);
+  }
+
+  .nav-button-close,
+  body:target .nav-button-open,
+  .sidebar {
+    z-index: 9999999;
+    left: -250px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  #toggle:checked~.sidebar {
+    left: 0px;
+  }
+
+  #toggle:checked~.toggle-btn {
+    left: 280px;
+    transition: 0.5s ease-in-out;
+  }
+
+  #toggle~.toggle-btn {
+    left: 30px;
+    transition: 0.5s ease-in-out;
+  }
+
+  .exportButton {
+    display: none !important;
+  }
+
+  header {
+    display: initial;
+  }
+
+  .dashboardEmptyDiv {
+    display: none;
+  }
+
+
+  /** Barre de recherche DASHBOARD **/
+  .mat-option-text {
+    font-size: 10px;
+  }
+
+  .mat-option-text span {
+    display: none;
+  }
+
+  /** Barre dans recherche dans le menu hamburger **/
+  header nav ul .burgerResearchBar .cdk-text-field-autofill-monitored:not(:-webkit-autofill),
+  /* Texte rentré dans la barre */
+  header nav ul .burgerResearchBar .mat-form-field-appearance-legacy .mat-form-field-label,
+  /* Label de la barre de recherche */
+  header nav ul .burgerResearchBar .mat-form-field.mat-focused .mat-form-field-label
+
+  /*  Focus label */
+    {
+    color: white;
+  }
+
+  header nav ul .burgerResearchBar .mat-form-field-appearance-legacy .mat-form-field-underline,
+  /* Barre sous la recherche */
+  header nav ul .burgerResearchBar .dashboardSearchButton,
+  /* Background de l'icon de rechercher */
+  header nav ul .burgerResearchBar .mat-form-field.mat-focused .mat-form-field-ripple
+
+  /* Focus sur la barre sous la recherche */
+    {
+    background: white;
+  }
+
+  header nav ul .burgerResearchBar .mat-input-element {
+    /* Cursor qui clignote blanc */
+    caret-color: white;
+  }
+
+  header nav ul .burgerResearchBar .dashboardSearchButton i {
+    color: var(--purple);
+  }
+
+  /* Couleur de l'icon de recherche */
+
+  /** Dashboard - Affichage des différents contenus **/
+  .contentPage .boxContent {
+    flex: 0 0 100%;
+  }
+
+  /** Séparation des contenus **/
+  .contentPage .boxContent:nth-last-child(-n+1) {
+    flex: 0 0 100%;
+  }
+
+  /** DASHBOARD - Navigation dans le menu burger **/
+  header nav ul .listNavigation {
+    display: flex;
+    width: 200px;
+    margin: auto;
+    justify-content: flex-start;
+  }
+
+  .menuTitle:hover {
+    text-decoration: underline;
+  }
+
+  header nav ul li p i {
+    display: block;
+    font-size: var(--mediumText);
+    text-decoration: none;
+    padding: 10px 0;
+    margin-right: 10px;
+    text-align: center;
+    color: var(--white);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .filter .listFormations {
+    position: initial;
+    transform: initial;
+  }
+
+  /********************
+             Modal
+     *******************/
+  .modal {
+    width: initial;
+    left: 0;
+    border-radius: initial;
+    max-height: initial;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+
+  .filterFormationsALL .filterFormationsContainer .filterFormationsContent .mat-checkbox-label {
+    font-size: 12px;
+    width: 200px;
+    overflow: hidden;
+    font-family: var(--policeText) !important;
+  }
+
+
+
+  .filterOrganisationContent {
+    list-style-type: none;
+    background: var(--white);
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header nav ul {
+    width: 95%;
+  }
+
+  .filterFormationsContainer {
+    top: 12em !important;
+  }
+
+  .modal .dashboardSection {
+    width: 100%;
+  }
+
+  .modal .modal__title {
+    font-size: var(--mediumMain);
+    font-family: var(--policeText);
+  }
+
+  .box {
+    height: initial;
+  }
+
+  /****
+      Formations
+     *****/
+
+  .filterFormationsALL .filterFormationsContainer .mat-checkbox-label {
+    font-size: 16px;
+  }
+
+  ul.filterOrganisationContentMobile {
+    margin-top: 130px;
+  }
+
+  /** Limiter la taille du texte */
+  .filterFormationsALL .mat-checkbox-label {
+    width: 300px;
+  }
+
+  .filterModal .closeButtonDiv {
+    bottom: initial !important;
+  }
+
+  .filterFormationsALL,
+  .filterOrganisationsALL {
+    height: 100%;
+  }
+
+
+  /** Graphiques **/
+
+  .boxContent .right,
+  .boxContent .left {
+    width: 100%;
+    flex-direction: column;
+  }
+
+
+  .containerAloneData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+  }
+
+  .marginStaticData {
+    margin-right: 0px;
+  }
+
+    .containerStaticData{
+      margin-bottom: 25px;
+      box-shadow: initial;
+      width: 100%;
+      position: relative;
+    }
+
+  .containerAloneData .contentAloneData .titleAloneData,
+  .containerAloneData .contentAloneData .valueAloneData {
+    text-align: center;
+  }
+
+  .specialBoxContentLeft {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .specialBoxContentLeft .titleAloneData {
+    margin-top: initial !important;
+  }
+
+
+
+  /****************
+        PRESENTATION DES ENTREPRISES
+     ****************/
+  .companiesContract,
+  .companiesCourses {
+    width: initial;
+  }
+
+  .companiesContractAndCourses {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Trois valeurs en haut de dashboard*/
+
+  /********************************************************************
+                           SETTINGS
+   *********************************************************************/
+
+  /** Header **/
+  .settingsNavBar .dashboardMenu {
+    width: 350px;
+  }
+
+  .settingsNavBar .nav-button-close,
+  .settingsNavBar body:target .nav-button-open,
+  .settingsNavBar .sidebar {
+    display: initial;
+  }
+
+  .settingsBarContainer #toggleSettings:checked+label.settings-toggle-btn {
+    left: 290px;
+    overflow: hidden;
+  }
+
+  .settingsLogo {
+    text-align: center;
+  }
+
+  .settingsLogo img {
+    width: 200px;
+  }
+
+  .settingsHeader {
+    font-size: var(--smallMain);
+    padding: 10px 20px;
+    margin: auto;
+  }
+
+  .titlePage {
+    display: none;
+  }
+
+  .settingsHeader .title {
+    font-size: 2em;
+  }
+
+  .settingsHeader .settingsBar {
+    width: 30px;
+    height: 2px;
+    margin: 7px auto 1px auto;
+  }
+
+  .settingsMenuContainer {
+    padding: 0;
+    height: initial;
+  }
+
+  /********** Admin ************/
+  .settingsMenuContainer .settingsAdmin .mat-expansion-indicator::after {
+    content: " ";
+  }
+
+  /******* Fin admin ***********/
+
+  .settingsMenu {
+    width: 100%;
+    margin-right: 0;
+    background-color: initial;
+  }
+
+
+  .settingsContentTitle .title {
+    font-size: 40px;
+  }
+
+  .settingsContent {
+    display: none;
+  }
+
+  .settingsField .button {
+    font-size: var(--smallText);
+  }
+
+  .settingsHideArrows {
+    display: initial
+  }
+
+  /**
+    Version mobile
+   **/
+
+  .mobileSettingsContainer {
+    display: initial;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+  }
+
+  .settingsBack {
+    background-color: var(--white);
+    font-size: var(--smallText);
+    padding: 25px 0 0 25px;
+  }
+
+  .settingsBack:hover {
+    cursor: pointer;
+  }
+
+  .mobileSettingsContainer .settingsContentTitle {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    font-size: var(--smallMain);
+  }
+
+  .mobileSettingsContainer .settingsContentText {
+
+    height: 90%;
+    overflow-y: auto;
+    min-height: 80vh;
+  }
+
+  .mobileSettingsContainer .settingsCGU {
+    overflow-y: auto;
+  }
+
+  /** Night vision **/
+  .settingsMenu.nightBackground {
+    background-color: initial !important;
+  }
+
+  .dataProtectionSection {
+    flex-direction: column;
+  }
+
+  .dataSecurityContent .dataSecurity,
+  .dataSecurityContent .sendAlert {
+    flex-direction: column;
+  }
+
+}
+
+/**************************************************************************************************/
+/***************************** TELEPHONE | 502px -> 0px ******************************************/
+/**************************************************************************************************/
+@media all and (max-width: 502px) {
+
+  /* Content */
+  .login {
+    order: 2;
+  }
+
+  .homeContent .right .accountButton {
+    font-size: var(--smallText);
+    margin-top: 50px;
+  }
+
+  .homeContent .left img {
+    height: 250px;
+    width: 250px;
+  }
+
+  /* Les gros titres */
+  .homeContent .right .text p,
+  .homeHeader .title h1 {
+    font-size: var(--smallMain);
+  }
+
+  .homeHeader {
+    text-align: center;
+  }
+
+  .homeHeader .logo img {
+    width: 220px;
+  }
+
+  .homeHeader .title h1 {
+    padding: 0;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  /* Modal */
+  .homeModal {
+    width: 90%;
+  }
+
+  /* Taille du modal */
+  .homeModal .title {
+    font-size: var(--smallMain);
+  }
+
+  .homeModal div .field {
+    font-size: var(--smallText);
+  }
+
+  .homeModal div label .password-icon {
+    right: 18%;
+    font-size: 14px
+  }
+
+  .homeModal button {
+    font-size: var(--smallText);
+  }
+
+  .homeModal .passwordRemember {
+    font-size: var(--smallText);
+  }
+
+  .homeModal .modal-cgu {
+    font-size: 13px;
+    width: 75%;
+  }
+
+  .form-check-input {
+    bottom: 10px;
+  }
+
+  /* Mot de passe oublié */
+  .resetPassword {
+    font-size: var(--smallText)
+  }
+
+  .resetPassword {
+    width: 95%;
+  }
+
+  .emailSuccess .message {
+    font-size: var(--smallText);
+  }
+
+
+  /* Erreur */
+  .errorContainer .error .errorTitle {
+    font-size: var(--smallText);
+  }
+
+  .errorContainer .error {
+    width: 70%;
+  }
+
+  /* L'icon danger */
+  .errorContainer .iconDanger {
+    width: 15%;
+    padding-top: 5px;
+  }
+
+  .notification {
+    width: 90%;
+  }
+
+  .dashboardUser p {
+    padding-top: 0px;
+    margin-bottom: 0;
+    margin-left: 25%;
+  }
+
+  /**
+      Modal
+     */
+  .link-2 {
+    border: initial;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+
+
+  /**
+      Modal - Filter Formation
+     */
+
+  /** Limiter la taille du texte */
+  .filterFormationsALL .mat-checkbox-label {
+    width: 170px;
+  }
+
+  .filterOrganisationsALL .mat-checkbox-label {
+    width: 170px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .filterOrganisationsALL .mat-checkbox-label::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .filterOrganisationsALL .mat-checkbox-label::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .filterOrganisationsALL .mat-checkbox-label::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--purple);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .filterOrganisationsALL .mat-checkbox-label::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--purple);
+  }
+
+
+  /*****************************************************************
+                              SETTINGS
+     ****************************************************************/
+
+  .settingsField label {
+    font-size: var(--smallText);
+  }
+
+  .settingsField input {
+    font-size: var(--smallText);
+  }
+
+  .settingsField .settingsButtonModificationContainer span {
+    font-size: var(--smallText);
+  }
+
+
+
+  #settingsModifyCompany {
+    margin-top: 20px;
+  }
+
+  .settingsField span {
+    padding: 5px 15px;
+  }
+
+  .settingsInputContainer .settingsFieldStatut {
+    font-size: 10px;
+  }
+
+  .settingsContentText .settingsAccessibilitySection,
+  .settingsContentText .settingsAccessibilityTitle,
+  .settingsContentText .settingsAccessibilityStatut {
+    font-size: var(--smallText);
+  }
+
+  .settingsContentText .settingsAccessibilityStatut {
+    display: none;
+  }
+
+  .dashboardContent .shortcutVideoContent {
+    width: initial;
+  }
+
+}

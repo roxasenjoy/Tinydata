@@ -1,0 +1,18 @@
+<div [hidden]="canShowGraphicsTotalTimeSpentInLearningComponent" class="graphicLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="!canShowGraphicsTotalTimeSpentInLearningComponent" class="graphic" id="totalTimeSpentInLearningComponent"
+  style="max-width: initial !important; height: 400px;"></div>
+
+<div [hidden]="!canShowGraphicsTotalTimeSpentInLearningComponent">
+  <div class="dataTable legend" style="color: var(--black); padding: 2.5px 0;">
+    <h5 style="margin-left:15px; font-weight: bold;;">Légende :</h5>
+    <ul>
+      <li>Temps = Temps d’activité entre chaque réponse entre l’utilisateur et Tiny</li>
+      <li>Fin d’une session = Au-delà de 5 minutes d’inaction entre l’utilisateur et Tiny ou 20 minutes pour le temps
+        de lecture d'un contenu</li>
+      <li>Avant le 15/06/2022 : Données estimées</li>
+    </ul>
+  <!-- </div> -->
+</div>

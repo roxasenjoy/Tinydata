@@ -1,0 +1,496 @@
+
+
+
+<div class="settingsContentText settingsCGU"
+     [ngClass]="{ 'nightBackground': this.settingsStorageService.nightStorage === 'true',
+                  'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+
+  <div >
+    <a href="" class="downloadCGU"  [ngClass]="{ 'nightText': this.settingsStorageService.nightStorage === 'true',
+                  'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">Télécharger les CGU</a>
+  </div>
+
+  <div >
+    <mat-accordion >
+      <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+        <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+          <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+            Description du service
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                        'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+
+          <div><strong style="font-size: 20px;">Tinycoaching</strong></div>
+          <p>Tinycoaching est une plateforme multi-savoirs, multicanal et multimédia.</p>
+          <p>
+            Le Service tinycoaching est un service web et mobile qui permet d’apprendre et de progresser dans tous types de savoir sous forme de micro-contenu et de rappels mémoriels envoyés quotidiennement à l’Abonné.Chaque formation est structurée par : domaine, compétence, thème, acquis, contenu (article, vidéo, podcast, rich media).Tinycoaching permet aussi une adaptation aux fichiers pédagogiques SCORM qui peuvent être envoyé via son système sur sa Progressive Web App et sur son API (Messenger, Teams).
+          </p>
+          <p>Les formations proposées peuvent être :</p>
+          <ul>
+            <li>Sur étagère (Management, Soft Skills, High Tech, Réseaux sociaux, Algorithme, Machine Learning etc.)</li>
+            <li>Sur étagère et indexé sur le référentiel d’Etat Pix</li>
+            <li>Sur-mesure (en fonction des entreprises clientes)</li>
+          </ul>
+
+          <p>
+            Les contenus de la formation “DIGITAL” sont tous indexés sur le référentiel de compétences numériques Européens DIGICOMP et créé par PIX. La plateforme tinycoaching peut être interfacée avec le service public de mesure des compétences digitales PIX et permet à l’utilisateur de recevoir des contenus éducatifs l’aidant à répondre aux questions auxquelles il a échoué ou aux questions de niveau supérieure direct à celles auxquelles il a correctement répondu.
+          </p>
+
+          <p>Tinycoaching permet de créer des objectifs de formation liés aux attentes de résultats au sein de la plateforme d’Etat PIX et à la certification proposée.</p>
+          <p>De manière ludique, le Service permet de mesurer et analyser les progrès de l’Abonné pour lui proposer un accompagnement et des Outils personnalisés et contextualisés, afin de l’aider à progresser dans son savoir digital et lui permettre d’obtenir un meilleur score lors de son passage ou re passage de PIX.</p>
+          <p>C’est dans ce contexte que tinycoaching propose à l’Abonné, depuis son Espace Personnel, d’utiliser un certain nombre d’Outils en fonction de ses domaines et compétences tels que : l’Outil “Evolutions” dans lequel l’Abonné peut retrouver les pages “Compétences” “Progression” et “Toile” et  l’Outil “Objectifs” dans lequel l’Abonné peut analyser son évolutions par rapport à ses objectifs professionnels liés à la formation indexée sur le référentiel de Pix.</p>
+        </div>
+
+        <div><strong style="font-size: 20px;">Tinydata</strong></div>
+
+        <p>Tinydata est la plateforme de datavisualiation des données d’apprentissage des apprenants de l’application tinycoaching.
+          Cette plateforme de datavisualisation a pour objectif de rendre les données collectées par tinycoaching les plus claires possibles pour les clients et apprenants de tinycoaching.
+        </p>
+
+        <p>Le service Tinydata complète l’offre de formation tinycoaching afin :
+        </p>
+
+        <ul>
+          <li>De mesurer en continue la progression des apprenants </li>
+          <li>De transmettre des données mise à jour en temps réel </li>
+          <li>D’exporter les graphiques afin de pouvoir créer des rapports de performances adaptés aux besoins des clients</li>
+          <li>D’avoir accès à l’ensemble des vues granulaires disponibles via tinycoaching sous forme de : domaines, compétences, thèmes, acquis, contenus</li>
+          <li>De paramétrer l’ensemble de la visualisation des données en fonction de chaque besoin client</li>
+          <li>D’analyser l’impact des langages et réponses automatisées tinycoaching</li>
+          <li>D’analyser l’impact des rappels mémoriels en fonction du temps d’apprentissage des apprenants et de la courbe de l’oubli d’Ebbinghaus</li>
+        </ul>
+
+       </mat-expansion-panel>
+    </mat-accordion >
+  </div>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Définitions
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                        'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <p>Les mots et expressions ci-après commençant par une lettre majuscule, au singulier ou au pluriel, sont employés dans les présentes avec la signification suivante, et viennent s’ajouter à celles prévues dans les Conditions Générales d’Utilisation : </p>
+        <p><strong>Abonné</strong> désigne l’Utilisateur ayant souscrit au Service par l’acceptation sans réserves des Conditions Générales d’Abonnement.</p>
+        <p><strong>L’Abonné Bénéficiaire</strong>  désigne l’Abonné qui s’est vu proposer l’Abonnement par une personne physique, ou l’entreprise, l’association, la collectivité ou toute autre entité juridique dont il dépend (par contrat de travail ou par contrat d’adhésion par exemple) désignée « le Licencié» aux termes des présentes.</p>
+        <p><strong>Le Licencié</strong> désigne en effet la personne morale cliente de tinycoaching contractuellement liée à elle par acte distinct (ci-après la « Licence »), au titre duquel Le Licencié a souscrit un nombre d’abonnements déterminés pour le compte de ses Abonnés Bénéficiaires qu’il a désignés et auquel il réserve un droit d’accès et d’utilisation du Service qui leur est propre.</p>
+        <p>Par conséquent :</p>
+        <ul>
+          <li>Les dispositions ci-après relatives aux « Conditions Tarifaires » du Service sont inapplicables à l’Abonné Bénéficiaire ;</li>
+          <li>Les droits de l’Abonné Bénéficiaire dépendent intégralement du respect de la Licence par le Licencié, dont tinycoaching n’est en aucun cas responsable. Ainsi, le terme de la Licence entraîne automatiquement le terme du présent Contrat, sans aucun droit à réclamation de l’Abonné Bénéficiaire à l’encontre de tinycoaching.</li>
+        </ul>
+
+        <p><strong>Conditions Générales d’Abonnement ou CGA </strong> désigne le présent contrat d’Abonnement entre l’Abonné et tinycoaching régissant les conditions d’utilisation du Service.<br>
+          <strong>Données</strong> désigne toutes les données des Abonnés communiquées à tinycoaching via la Plateforme, au moment de son inscription au Service et en cours d’Abonnement, et qui seront utilisées par cette dernière pour les besoins de la fourniture du Service.<br>
+          Les Données sont collectées et traitées par tinycoaching dans les conditions prévues à l’article « Charte de confidentialité – données personnelles » ci-après.<br>
+          <strong>Espace ou Compte Personnel</strong> désigne l’interface en ligne réservé à chaque Abonné pour utiliser le Service, accessible sur le Site Internet ou sur son application mobile par la saisie de ses Identifiants.<br>
+          L’Abonné peut, depuis son Espace Personnel, mettre à jour ses Données, utiliser les Outils, et de manière générale, gérer son Abonnement.<br>
+          Le Compte Personnel constitue un « Contenu » dont tinycoaching est propriétaire à l’exception des Données, tel que défini dans les Conditions Générales d’Utilisation de la Plateforme.<br>
+          <strong>Identifiants ou Codes d’accès</strong> désigne ensemble tant l’identifiant propre de l’Abonné (« Login ») que le mot de passe de connexion choisi par l’Abonné pour accéder au Service, placés sous la responsabilité exclusive de l’Abonné.<br>
+          Le Login est composé de l’adresse e-mail renseignée par l’Utilisateur au moment de l’inscription au Service ou préalablement communiquée au Licencié qui l’a transmise à tinycoaching au titre de la Licence.<br>
+          Si la fonctionnalité est proposée à l’abonné, les Identifiants peuvent également correspondre aux identifiants « FACEBOOK » ou « GOOGLE + » de l’Abonné s’il souhaite s’inscrire au Service selon cette modalité proposée au moment de l’inscription.<br>
+          En toutes hypothèses, les Identifiants sont strictement personnels et confidentiels à chaque Abonné.<br>
+          <strong>Licence</strong> désigne le contrat distinct passé en tinycoaching et le Licencié permettant à l’Abonné Bénéficiaire d’utiliser le service compte tenu du prépaiement des Abonnements par Le Licencié.<br>
+          <strong>Outils</strong> désigne les fonctionnalités proposées à l’Abonné depuis son Espace Personnel, dans le cadre du Service.<br>
+          <strong>Service</strong> désigne le service d’accompagnement personnalisé proposé par tinycoaching sur la Plateforme, permettant à l’Utilisateur d’utiliser un certain nombre d’Outils sur les thèmes du DIGITAL, selon une formule d’Abonnement décrite dans les présentes Conditions Générales d’Abonnement.<br>
+          <b>Domain</b>désigne le type de grain pédagogique le plus vaste proposé par tinycoaching dans ses formations pédagogiques que peut sélectionner l’apprenant durant son parcours pédagogique.
+          <b>Compétences</b>&nbsp;désigne les types de contenus pédagogiques préférés choisis par l’Utilisateur ou par le licencié pour l’utilisateur parmi la liste proposée par tinycoaching au moment de son inscription au Service.</p>
+        <b>Thème</b> désigne le type de grain pédagogique, au sein des compétences, qui compose les formations tinycoaching.
+        <b>Acquis</b> désigne le type de grain pédagogique, au sein des thèmes, qui compose les formations tinycoaching.
+        <b>Contenu</b> désigne le plus petit grain pédagogique au sein des acquis qui compose les formations tinycoaching. Ces contenus peuvent être de plusieurs types :
+        <ul>
+          <li>Article</li>
+          <li>Vidéo (actuellement seules les vidéos YouTube et Viméo sont acceptées par tinycoaching)</li>
+          <li>Podcast</li>
+          <li>Multimédia / Rich media / SCORM 2004</li>
+        </ul>
+        <p>Les contenus tinycoaching ne peuvent être envoyés uniquement que sous la forme de lien URL. </p>
+
+      </div>
+
+   </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Objet et champ d'application
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>Les présentes Conditions Générales d’Abonnement régissent les conditions d’utilisation du Service tinycoaching fourni par :<br>
+        <strong>La Société DIGITAL FAST FORWARD</strong><br>
+        Société par actions simplifiée au capital social de 204 000 euros dont le siège social est si 12 sente des Larris – 92400 Courbevoie Représentée par son Président, Monsieur Hubert Gervais Immatriculée au RCS de Nanterre sous le n° 823 067 509<br>
+        Numéro SIRET : 823 067 509 00013<br>
+        e-mail : contact@fastforward.com<br>
+        Ci- après dénommée tinycoaching ou DIGITAL FAST FORWARD.<br>
+        L’acceptation expresse des présentes Conditions Générales
+        d’Abonnement par l’Abonné, en cochant la case prévue à cet effet, emporte automatiquement acceptation expresse des Conditions Générales d’Utilisation par référence, le tout formant un Contrat entre tinycoaching et l’Abonné concernant la fourniture des services tinycoaching et tinydata que chaque partie s’engage à respecter.
+        Les présentes Conditions Générales d’Abonnement restent à tout moment consultables et téléchargeables sur tous supports durables depuis la Plateforme internet www.tiny-coaching.com.
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Exigences préalables à la souscription au Service
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="mb-0"><u>4.01 Prérequis techniques</u><br>
+        En plus des prérequis techniques précisés dans les Conditions Générales d’Utilisation, l’Utilisateur qui souhaite souscrire au Service doit impérativement disposer des Equipements suivants:</p>
+      <ul>
+        <li>Un ordinateur (PC ou Mac) récent (moins de deux ans depuis la date d’achat), permettant l’accès à tinycoaching depuis un navigateur récent (moins de deux ans) et dont la dernière mise à jour remonte, le cas échéant, à moins de 6 mois. (Hors Internet Explorer)</li>
+        <li>Un iPhone (version 4S minimum) doté du système d’exploitation minimum iOS9 ou tout appareil SmartPhone fonctionnant sous l’OS Android. L’Abonné fait son affaire personnelle de l’évolution ou de la mise à jour des logiciels nécessaires à l’utilisation du Service.</li>
+      </ul>
+      <p><u>4.02 Prérequis concernant l’Abonné</u><br>
+        <strong>Capacité et situation de l’Abonné </strong>: L’Abonné garantit :</p>
+      <ul>
+        <li>Etre une personne physique majeure et capable,</li>
+        <li>Etre domicilié dans l’un des états de l’Espace Economique Européen (EEE),</li>
+        <li>Disposer d’une adresse e-mail valide ou des identifiants FACEBOOK ou GOOGLE + rattachés à des comptes dont il déclare être l’utilisateur exclusif,</li>
+        <li>S’il était utilisateur direct non abonné par un licencié, être titulaire d’un compte de dépôt ouvert auprès d’un établissement de crédit situé dans l’EEE, ainsi que d’une carte bancaire en cours de validité sur ce compte autorisant les transferts de fonds par carte,</li>
+        <li>Utiliser le Service à des fins non commerciale exclusivement.</li>
+      </ul>
+      <p>L’Abonné s’engage à fournir tout justificatif nécessaire à la vérification de ces déclarations sur première demande de tinycoaching.<br>
+        Pendant toute la durée de l’Abonnement, l’Abonné doit informer spontanément tinycoaching de tout changement intervenant dans sa situation et pouvant avoir une incidence sur le Service.<br>
+        tinycoaching se réserve le droit de résilier ce Contrat, à tout moment, en cas de fausse déclaration ou de non- respect de l’une des exigences susvisées.<br>
+        Identification préalable :<br>
+        Pour pouvoir souscrire au Service, l’Abonné doit impérativement :</p>
+      <ul>
+        <li>Renseigner ses nom et prénom, son adresse de courrier électronique, et d’autres informations conformément à l’article « Accès au Service » ci-dessous ;</li>
+        <li>Choisir ses Identifiants, constitués par (i) son adresse de courrier électronique associé à (ii) un code secret licite et suffisamment sécurisé, à défaut de quoi tinycoaching en informe l’Abonné et se réserve le droit de le refuser ou (iii) par ses identifiants FACEBOOK ou GOOGLE + selon l’option choisie.</li>
+      </ul>
+      <p>Acceptation des moyens de communication L’Abonné accepte expressément que tinycoaching lui adresse toutes informations relatives au Service par courrier électronique, par SMS ou par notifications via son Espace Personnel.</p>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Accès au Service – Processus de commande d’un Abonnement
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>L’accès au Service sur la Plateforme est simple et se résume par les différentes étapes suivantes que l’Abonné doit impérativement suivre et respecter pour commander un Abonnement/bénéficier du Service s’il est Abonné Bénéficiaire.<br>
+        L’Abonné reconnaît et accepte que la collecte et le traitement de ses Données (Données de résultat PIX et données personnelles et professionnelles) par tinycoaching est indispensable à l’ouverture de son Abonnement et l’utilisation du Service, dans les conditions précisées à l’article « Charte de confidentialité – données personnelles » ci-dessous.<br>
+        L’Abonné s’engage strictement à fournir des informations véridiques, exactes, à jour et complètes lors de l’inscription au Service et pendant toute la durée de l’Abonnement, à défaut de quoi il est informé et accepte que tinycoaching ne pourra pas rendre le Service.<br>
+        L’Abonné peut, à tout moment, effectuer les modifications de ses Données depuis son Espace Personnel.</p>
+      <ul>
+        <li>Etape 1 – choix des Identifiants : l’Abonné doit remplir le formulaire d’inscription en choisissant ses Identifiants. L’Abonné est informé que son mot de passe doit être suffisamment sécurisé pour éviter d’être facilement usurpé par un tiers (ne sont pas recommandés, par exemple, les mots de passe correspondant au nom et prénom de l’Abonné ou à des membres de sa famille, ou à des informations susceptibles d’être connues par des tiers ou aisément accessibles).</li>
+        <li>Etape 2 – informations sur le profil : l’Abonné doit remplir le formulaire d’inscription en renseignant les Données relatives à son nom, prénom, le choix de son genre de langage conversationnel envoyé par Tiny (masculin, féminin), le sélection de sa situation de handicap ou non pour adapter les envois de contenus pédagogiques, le choix d’envoi des notification push. &nbsp;A défaut de communiquer ses Données, l’Abonné reconnaît qu’il ne pourra pas passer à l’étape suivante de souscription.</li>
+      </ul>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Obligations de l’Abonné
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="mb-0">Outre l’obligation de régler les mensualités de son Abonnement sous peine de résiliation, l’Abonné est tenu du respect des obligations ci-après qu’il s’engage à respecter en souscrivant au Service.<br>
+        <u>6.01 Obligation de sécurité et de vigilance constante</u><br>
+        L’Abonné fait son affaire personnelle, et demeure exclusivement responsable :<br>
+        — de l’acquisition, de l’installation, de la connexion, de l’entretien, et plus généralement, de la garde de ses équipements matériels et logiciels qu’il utilise dans le cadre du Service (ses « Equipements »);&nbsp;de ses Identifiants, qu’il détient et conserve à ses risques et périls.<br>
+        L’Abonné est pleinement averti du risque lié à la perte ou au vol de ses Identifiants, au piratage de ses Equipements ou à tout autre agissement frauduleux permettant une utilisation non autorisée de son Espace Personnel.<br>
+        L’Abonné s’engage ainsi à ne jamais communiquer ses Identifiants ou les laisser accessibles à des tiers et ne pas laisser ses Equipements sans surveillance.<br>
+        En outre, l’Abonné est seul responsable de la sécurité de son Compte, de sorte que toute activité liée à ce dernier est réputée avoir été effectuée par l’Abonné sous sa seule responsabilité.<br>
+        <u>6.02 Responsabilité de ses Données – Respect de la réglementation en vigueur et des droits de tinycoaching</u><br>
+        L’Abonné s’engage en outre à ce que ses Données transmises à tinycoaching et Tinydata de manière générale, que toutes utilisations du Service ;</p>
+      <ul>
+        <li>Ne constituent pas des spams ;</li>
+        <li>Ne constituent pas des données violant les règlementations et lois applicables et/ou contraires aux bonnes mœurs;</li>
+        <li>Ne constituent pas des informations abusives, violentes, obscènes, menaçantes, injurieuses, diffamatoires, portant atteinte à la protection des mineurs ou de manière générale, incitant à la haine raciale, ni ne constituent pas des informations ou contenus de toutes natures illicites ;</li>
+        <li>Ne constituent pas une violation des droits de tinycoaching en particulier de leurs droits de propriété intellectuelle, l’Abonné s’engageant ainsi à respecter l’article « Propriété Intellectuelle » ci-dessous.</li>
+        <li>Ne constituent pas une contrefaçon ou ne portent pas atteinte aux droits de tiers ;</li>
+        <li>Ne contiennent aucun virus, chevaux de Troie ou tous autres codes informatiques, fichiers, scripts ou programmes nuisibles ou susceptibles de porter atteinte au bon fonctionnement de la Plateforme et du Service;</li>
+        <li>Ne soient pas susceptibles d’interférer ou perturber l’intégrité ou la performance des Contenus, de la Plateforme ou du Service.</li>
+      </ul>
+      <p>Chaque Abonné s’engage ainsi, de manière générale, à utiliser le Service dans le strict respect de la loi et des règles professionnelles françaises et des réglementations en vigueur.<br>
+        L’Abonné garantit et est seul responsable de l’exactitude, de la qualité, de l’intégrité, de la licéité, de la fiabilité et de la pertinence de toutes ses Données.<br>
+        L’Abonné est informé que tinycoaching peut refuser d’héberger ses Données sur la Plateforme, de supprimer temporairement ou définitivement sans préavis un Compte qui violerait les présents engagements.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Conditions tarifaires de l’Abonnement au Service
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>A l’exception des Abonnés Bénéficiaires, le Service est soumis à tarification dans les conditions ci-après.<br>
+        Le prix de l’Abonnement ne comprend pas les coûts liés aux Equipements et aux communications électroniques, nécessaires à la souscription et à l’utilisation du Service, lesdits coûts restant à la charge de l’Abonné.<br>
+        L’Abonné accepte de recevoir ses factures d’Abonnement par voie dématérialisée.<br>
+        L’Abonné est seul responsable du paiement de l’ensemble des sommes dues au titre de l’Abonnement sauf en cas d’Abonné Bénéficiaire dont le Licencié lui propose l’Abonnement au titre de la Licence.<br>
+        Le règlement de l’Abonnement se fait par carte bancaire, telle qu’acceptée par le Prestataire de Service de Paiement de tinycoaching auprès duquel l’Abonné effectue son règlement qui lui sera précisée au plus tard avant la validation de sa commande.<br>
+        En cas de paiement infructueux, et sauf cas de vol ou d’opposition, le Prestataire de Service de Paiement choisi par tinycoaching pourra être amené à représenter le paiement jusqu’à sa régularisation.<br>
+        En tout état de cause, tinycoaching se réserve le droit de refuser l’accès au Service, de résilier l’Abonnement en cours, voire de supprimer toute possibilité de réabonnement ultérieur en cas de paiement non honoré.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Entrée en vigueur et durée de l’Abonnement
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>L’Abonnement entre en vigueur à compter de la validation du paiement de la première mensualité par l’Abonné, pour une durée d’un (1) mois renouvelable tacitement, sauf cas de dénonciation/résiliation expressément prévus par les présentes.<br>
+        Tout mois d’Abonnement commencé est dû et n’ouvre aucun droit à remboursement de la mensualité concernée.<br>
+        L’Abonnement reste en vigueur et produit ses pleins et entiers effets nonobstant les changements structurels et juridiques de tinycoaching en cas de fusion, absorption ou scission notamment, avec ou sans création d’une nouvelle entité.<br>
+        En cas d’Abonnement d’un Abonné Bénéficiaire entre en vigueur à compter de la validation du contrat signé avec le licencié pour la durée destinée dans ledit contrat.</p>
+
+    </mat-expansion-panel >
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Responsabilité de tinycoaching et tinydata
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="mb-0">Tinycoaching et tinydata fournissent les Services dans le cadre d’une obligation de moyens.
+        La responsabilité de tinycoaching et de tinydata ne pourra pas être recherchée en cas de dommages immatériels
+        et indirects et, tous dommages confondus, en cas de force majeure ou pour tout autre événement indépendant
+        de sa volonté empêchant l’utilisation de la Plateforme ou du Service.
+        <br>
+        En particulier, tinycoaching n’est en aucun cas responsable, ce que l’Abonné accepte sans réserves:</p>
+      <ul>
+        <li>des défaillances des Equipements de l’Abonné,</li>
+        <li>des interruptions, lenteurs et inaccessibilités à Internet ou de tout autre problème affectant les transmissions sur les réseaux de télécommunications et perturbant le Service,</li>
+        <li>de la non-conformité des Données aux réglementations en vigueur ;</li>
+        <li>de l’inexactitude des Données ou de l’incomplétude de certaines qui seraient pourtant indispensables à la fourniture du Service ;</li>
+        <li>de la perte, de la détérioration ou de la destruction accidentelle des Données du Client, notamment si un tiers a accédé aux Services au moyen des Identifiants remis au Client.</li>
+        <li>du fait de ses Contenus, en considération notamment de l’avertissement donné à l’Abonné sur la portée et les limites du Service ci-dessous.</li>
+      </ul>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Force Majeure
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Ni tinycoaching ni l’Abonné ne sera responsable d’un quelconque dommage directement lié à un cas de force majeure tel que retenu par la jurisprudence française (y compris l’interruption, la suspension, la réduction ou les coupures d’électricité ou de réseaux de télécommunications) que la partie défaillante notifiera à l’autre partie sans délai et fera tout son possible de limiter.</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Droit de rétractation
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>L’Abonné a le droit de changer d’avis et d’annuler son Abonnement en exerçant son droit de rétractation dans les quatorze (14) jours suivant l’entrée en vigueur du Contrat sans donner de motifs ou payer de pénalités dans le respect des dispositions de l’article L 121-1 du Code de la consommation.<br>
+        L’Abonné peut exercer son droit de rétractation en adressant un courriel à tinycoaching indiquant sa volonté non équivoque de renoncer à son Abonnement (avec indication claire de ses nom et prénom, et de ses coordonnées postales/téléphoniques), à l’adresse e-mail suivante :<br>
+        contact@fastforward.com<br>
+        L’Abonné qui a exercé son droit de rétractation sera remboursé des sommes versées au titre de son Abonnement à compter de la date à laquelle tinycoaching est informé de sa décision.<br>
+        Si l’Abonné souhaite que l’exécution de son Abonnement commence avant la fin dudit délai de rétractation, il doit en avisé tinycoaching par e-mail à l’adresse électronique susvisée.<br>
+        L’Abonné qui a exercé son droit de rétractation de l’Abonnement dont l’exécution a commencé à sa demande expresse avant la fin du délai de rétractation verse à tinycoaching un montant correspondant au service fourni jusqu’à la communication de sa décision de se rétracter.<br>
+        L’Abonné reconnaît et accepte que le droit de rétractation susvisé ne lui est plus ouvert si son Abonnement a commencé dans le délai de rétractation après accord préalable exprès de sa part et son renoncement exprès à son droit de rétractation.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Charte de confidentialité – Données Personnelles
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p><u>12.01 Description et finalités du traitement</u></p>
+      <p><span style="font-weight: 400;">Tinycoaching est autorisé à traiter pour le compte du responsable de traitement les données à caractère personnel nécessaires pour l’exécution de ses prestations et services.</span></p>
+      <p><span style="font-weight: 400;">La nature des opérations réalisées sur les données personnelles est :&nbsp;</span></p>
+      <ul>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">La collecte</span></i></li>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">La conservation&nbsp;</span></i></li>
+      </ul>
+      <p><span style="font-weight: 400;">La ou les finalité(s) du traitement&nbsp; des&nbsp; données peuvent être :&nbsp;</span></p>
+      <ul>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Identification des profils pédagogiques</span></i></li>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Progression de l’apprentissage</span></i></li>
+      </ul>
+      <p><span style="font-weight: 400;">Les données à caractère personnel traitées peuvent être en fonction des programmes de formation </span><i><span style="font-weight: 400;">:&nbsp;</span></i></p>
+      <ul>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Identité, données d’identification (nom, prénom, adresse mail, numéro de téléphone)</span></i></li>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Vie professionnelle (entreprise, statut, fonction professionnelle)</span></i></li>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Données de connexion (adresse mail, heure de connexion, données pédagogiques)</span></i></li>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">Internet (cookie, CGU, données de navigations, mesure d’audience)</span></i></li>
+      </ul>
+      <p><span style="font-weight: 400;">Les catégories de personnes concernées par ces traitement sont</span><i><span style="font-weight: 400;"> les utilisateurs de tinycoaching.</span></i></p>
+      <p><u>12.02 Engagement tinycoaching et tinydata</u></p>
+      <p><span style="font-weight: 400;">Conformément à la réglementation en vigueur applicable au traitement de données à caractère personnel, Tinycoaching&nbsp; et tinydata s’engagent, dans le cadre de l’exécution de ses prestations, à respecter et à faire respecter par son personnel, les obligations suivantes :</span></p>
+      <ul>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Ne collecter et traiter les données personnelles que conformément aux instructions et aux finalités liées à l’objet des prestations listées dans le marché,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Mettre en œuvre toutes les mesures techniques et organisationnelles appropriées afin de garantir la sécurité, l’intégrité et la confidentialité des données personnelles collectées ou enregistrées dans le cadre de l’exécution des contrats et d’empêcher qu’elles ne soient déformées, endommagées, perdues, détournées, corrompues, divulguées, transmises ou communiquées à des personnes non autorisées,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Tenir un registre de toutes les catégories d’activité de traitement effectuées pour le compte de l’acheteur et à le mettre à sa&nbsp; disposition en cas de besoin,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Respecter les principes de protection des données dès la conception et par défaut,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Obligation de conseil et d’assistance à l’acheteur pour l’instruction des demandes d’exercice du droit des personnes concernées, conformément aux modalités définies à l’article 3. ci-après,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Mettre à disposition toute la documentation justifiant du respect de ses obligations,</span></li>
+        <li style="font-weight: 400;"><span style="font-weight: 400;">Alerter sans délai le client en cas de violation, de perte ou de divulgation non autorisée de données personnelles collectées dans le cadre du contrat.&nbsp; Cette notification doit être accompagnée de toute documentation utile afin de lui permettre, si nécessaire, de notifier cette violation à l’autorité de contrôle.</span></li>
+      </ul>
+      <p><u>12.03 Le sort des données personnelles en fin de contrat</u></p>
+      <p><span style="font-weight: 400;">À l’issue de la période d’exécution du contrat, tinycoaching s’engage à&nbsp;</span></p>
+      <ul>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">détruire toutes les données à caractère personnel et justifier par écrit de la destruction (déclaration sur l’honneur, attestation)</span></i></li>
+      </ul>
+      <p><i><span style="font-weight: 400;">La durée de conservation des données au sein de la plate-forme Tinycoaching et Tinydata relative aux traitements listés ci-dessous sont de :</span></i></p>
+      <ul>
+        <li style="font-weight: 400;"><i><span style="font-weight: 400;">12 mois (1 an)&nbsp;</span></i></li>
+      </ul>
+      <p><i><span style="font-weight: 400;">A l’issue de la période de conservation les données sont automatiquement supprimées des bases de données de tinycoaching et tinydata.&nbsp;</span></i></p>
+      <p><u>12.04 En cas de sous-traitance</u></p>
+      <p><span style="font-weight: 400;">Il appartient à tinycoaching et tinydata de s’assurer que le sous-traitant présente les garanties suffisantes quant à la mise en œuvre de mesures techniques et organisationnelles appropriées de manière à ce que le traitement réponde aux exigences du règlement européen sur la protection des données.&nbsp;</span></p>
+      <p><span style="font-weight: 400;">Si le sous-traitant ne remplit pas ses obligations en matière de protection des données, Tinycoaching et tinydata demeurent pleinement responsable devant le client&nbsp; de l’exécution par le sous-traitant de ses obligations.</span></p>
+      <p><u>12.05 Exercice des droits des personnes concernées par le traitement des données</u></p>
+      <p><span style="font-weight: 400;">Tinycoaching et tinydata doivent répondre, au nom et pour le compte de l’acheteur, aux demandes des personnes concernées en cas d’exercice de leurs droits (droit d’accès, de rectification, d’effacement et d’opposition, droit à la limitation du traitement, droit à la portabilité des données, droit de ne pas faire l’objet d’une décision individuelle automatisée), s’agissant des données faisant l’objet de traitement dans le cadre du présent marché.&nbsp;</span></p>
+      <p><span style="font-weight: 400;">Il appartient à tinycoaching et tinydata&nbsp; de fournir l’information aux personnes concernées par les opérations de traitement au moment de la collecte des données selon le format convenu avec le client.</span></p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Modifications du service
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p><u>13.01Modifications à l’initiative de Tinycoaching</u><br>
+        Tinycoaching se réserve le droit de modifier unilatéralement l’Abonnement selon les modalités prévues dans les Conditions Générales d’Utilisation.<br>
+        En cas de changement des conditions tarifaires ou de toute autre condition substantielle ayant un impact conséquent sur le Service, tinycoaching le notifiera l’Abonné dans son Espace Personnel suffisamment à l’avance afin la date d’entrée en vigueur prévue.<br>
+        L’Abonné est réputé avoir accepté la modification s’il n’a pas notifié à tinycoaching, avant la date d’entrée en vigueur, son désaccord. S’il refuse la modification proposée, l’Abonné peut résilier son Abonnement sans frais.</p>
+      <p><u>13.02 Modifications imposées par des textes législatifs ou réglementaires</u><br>
+        Toutes dispositions législatives ou réglementaires qui rendraient nécessaire la modification de tout ou partie du Contrat seront applicables dès leur date d’entrée en vigueur, sans préavis.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Suspension/résiliation de l’Abonnement
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="mb-0">En dehors des abonnements d’Abonnés Bénéficiaires définis entre DIGITAL FAST FORWARD et le Licencié, l’Abonnement est valable un (1) mois et sera tacitement reconductible sauf résiliation pouvant intervenir à tout moment et au plus tard avant la date d’anniversaire mensuelle de l’Abonnement.<br>
+        Toute demande de résiliation par l’Abonné devra être notifiée à tinycoaching en cliquant sur l’onglet « résilier mon abonnement » disponible sur son Espace Personnel.<br>
+        La résiliation prendra effet à la fin du mois calendaire de l’Abonnement en cours et l’Abonné restera redevable de la ou des mensualité(s) restant due(s) jusqu’à cette date, sauf résiliation anticipée pour force majeure.<br>
+        tinycoaching  et tinydata disposent également de la faculté de résilier et/ou suspendre l’Abonnement, à tout moment et de plein droit dans les cas suivants :</p>
+      <ul>
+        <li>En cas de non-paiement par l’Abonné de la ou des mensualités due(s) au titre de l’Abonnement ;</li>
+        <li>En cas de perte de validité du moyen de paiement utilisé dans le cadre des présentes ;</li>
+        <li>En cas où les Données communiquées par l’Abonné dans le cadre de la souscription de l’Abonnement sont incomplètes, inexactes, invalides ou obsolètes ;</li>
+        <li>Plus généralement, en cas de violation par l’Abonné des présentes Conditions Générales d’Abonnement ;</li>
+      </ul>
+      <p>La résiliation entrainera la désactivation immédiate des droits accordés à l’Abonné dans le cadre du Service sans droit à indemnité ni à remboursement.<br>
+        Cette résiliation sera faite sans préjudice de toute action en réparation que tinycoaching pourra engager à l’encontre l’Abonné ou de tous tiers sous sa responsabilité.<br>
+        Enfin, l’Abonné Bénéficiaire reconnaît et accepte que son Abonnement sera résilié de plein droit au terme de la Licence dont il dépend, pour quelque raison que ce soit, tinycoaching ne pouvant en aucun cas être tenue responsable sur ce fondement, à charge pour l’Abonné Bénéficiaire de se rapprocher du Licencié pour obtenir plus d’informations sur les raisons de la déchéance de ses droits.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Convention de preuve
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="mb-0">L’Abonné et les services tinycoaching et tinydata reconnaissent la validité et la force probante des courriers électroniques, des SMS, et des notifications effectuées via l’Espace Personnel de l’Abonné, des documents numérisés échangés entre eux dans le cadre du présent Abonnement, ainsi que de tous enregistrements électroniques conservés par tinycoaching et tinydata.<br>
+        La preuve écrite de toutes les opérations effectuées sur son Compte par l’Abonné incombe à tinycoaching et peut résulter de tous les documents susvisés qui sont présumés avoir force probante entre les parties, sauf preuve du contraire apportée par tous moyens par l’Abonné.</p>
+
+      <div>
+        <p>
+          Loi et langue et applicables au Contrat
+        </p>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion class="cguMargin">
+    <mat-expansion-panel [ngClass]="{ 'nightBackground nightText nightShadow ': this.settingsStorageService.nightStorage === 'true'}">
+      <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+        <mat-panel-title [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+          Loi et langue et applicables au Contrat
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>Le présent Contrat est conclu en langue française, qui est la langue choisie et utilisée par les deux parties dans leurs relations contractuelles.<br>
+        Le Contrat est soumis au droit français.</p>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+</div>
+

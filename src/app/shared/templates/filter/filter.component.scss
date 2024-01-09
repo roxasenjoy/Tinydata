@@ -1,0 +1,74 @@
+::ng-deep .mat-slider-wrapper {
+    .mat-slider-thumb-container {
+      .mat-slider-thumb-label {
+        width: 20px !important;
+        height: 20px !important;
+        top: -24px !important;
+        right: -10px !important;
+      }
+    }
+
+    
+
+    .mat-slider-thumb-label {
+      transform: rotate(45deg) !important;
+      border-radius: 50% 50% 0 !important;
+    }  
+    .mat-slider-thumb {
+      transform: scale(0) !important;
+    }  
+    .mat-slider-thumb-label-text {
+      opacity: 1 !important;
+      font-size: 10px;
+    }
+}
+
+::ng-deep .mat-slider-min-value {
+  .mat-slider-thumb-label{
+    background-color: var(--purple) !important;
+  }
+}
+
+.zoomSlider{
+  text-align: center;
+  width:100%;
+  margin-top:5px;
+  color:var(--purple);
+}
+
+.closeButtonDiv{
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 96%;
+}
+
+
+.filterFormationsALL .mat-checkbox-layout{
+  display: initial !important;
+}
+
+.numberFiltered{
+  background-color: var(--purple);
+  color: var(--white);
+  margin-left: 5px;
+  border-radius: 8px;
+  padding: 5px 7.5px;
+  font-size: 12px;
+}
+
+.filterContainer .filterTitle:hover .numberFiltered{
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+.resetModalBtn{
+  background-color: var(--pink);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.resetModalBtn:hover,
+.validModalBtn:hover{
+  background-color: var(--blueGreen);
+}

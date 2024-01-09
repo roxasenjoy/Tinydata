@@ -1,0 +1,164 @@
+
+<div [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true',
+                 'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+
+    <div *ngIf="!isLoading" class="settingsContentText"  [ngClass]="{'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+
+      <div class="settingsFieldContainer">
+
+
+        <!--------
+          Changement de l'adresse email de l'utilisateur
+        ---------->
+        <div class="settingsField">
+          <label for="email">Adresse email</label>
+          <input type="email" placeholder="Adresse email" id="email"
+                 [(ngModel)]="email"
+                 [value]="this.email"
+                 [disabled]="this.emailField === false">
+          <div class="settingsButtonModificationContainer">
+            <!--------
+               Changement du texte en fonction de ce que fait l'utilisateur
+             ---------->
+             <span
+               (click)="this.emailField === false ? this.changeField('email') : verifyInformation(email, 'email') "
+               [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+                    {{ this.emailField === false ? 'Modifier' : 'Enregistrer' }} <!-- Texte -->
+               <i class="fas " [ngClass]="this.emailField === false ? 'fa-pen' : 'fa-save'"></i> <!-- Icône -->
+              </span >
+
+            <!--------
+               L'utilisateur cancel son changement d'adresse email
+             ---------->
+              <span
+                [hidden]="this.emailField === false"
+                (click)="cancelField(this.email, this.emailMemory, 'email')"
+                [ngClass]="{'nightShadow': this.settingsStorageService.nightStorage === 'true'}"
+                class="settingsDeleteModification">
+                  Annuler
+                  <i class="far fa-trash-alt"></i>
+                </span >
+          </div>
+        </div>
+
+        <!--------
+            Modification du mot de passe de l'utilisateur
+         ---------->
+
+        <div class="settingsField">
+          <p class="title">Mot de passe</p>
+          <button class="button" (click)="displayActualPasswordSection()">Modifier son mot de passe</button>
+        </div>
+
+
+        <!--------
+          On vérifie que l'utilisateur connait son mot de passe avant de le modifier
+        ---------->
+        <div [hidden]="!showActualPassword">
+          <hr [ngClass]="{'nightBackgroundPurple': this.settingsStorageService.nightStorage === 'true'}">
+          <div class="settingsField" >
+
+            <div class="errorContainer" [hidden]="errors != 'INVALID_PASSWORD'" >
+              <div class="iconDanger">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+
+              <div class="error">
+                <h4 class="errorTitle"> Un problème est survenu </h4>
+                <!-- ERREUR - Mot de passe incorrect -->
+                <div [hidden]="errors != 'INVALID_PASSWORD'">
+                  Votre mot de passe est invalide.
+                </div>
+              </div>
+            </div>
+
+            <label for="currentPassword" [hidden]='loadingNewPassword'>Mot de passe actuel</label>
+            <div class="settingsFieldContent"  [hidden]='loadingNewPassword'>
+              <input [type]="displayPassword ? 'text' : 'password'"
+                     placeholder="Mot de passe actuel"
+                     id="currentPassword"
+                     [(ngModel)]="actualPassword">
+              <i
+                class="far  iconPassword transition"
+                (click) = "displayActualPassword()"
+                 [ngClass]="{
+                    'fa-eye-slash': !displayPassword,
+                    'fa-eye': displayPassword
+                    }">
+
+              </i>
+            </div>
+          </div> <!-- Fin field -->
+
+
+
+          <!-------
+              L'utilisateur peut à présent changer son mot de passe
+          -------->
+          <div [hidden]="!showActualPassword">
+
+            <div class="errorContainer" [hidden]="errors != 'Mot de passe incorrect'">
+              <div class="iconDanger">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="error">
+                <h4 class="errorTitle"> Un problème est survenu </h4>
+
+                <!-- ERREUR - Les mots de passe ne sont pas les mêmes -->
+                <div [hidden]="errors != 'INVALID_SAME_PASSWORD'">
+                  Vos mots de passe ne correspondent pas
+                </div>
+
+                <!-- ERREUR - Les mots de passe ne sont pas les mêmes -->
+                <div [hidden]="errors != 'Mot de passe incorrect'">
+                  Votre mot de passe doit contenir au moins :
+                  <ul>
+                    <li> 8 caractères </li>
+                    <li> 1 majuscule </li>
+                    <li> 1 minuscule </li>
+                    <li> 1 caractère spécial @&>$§!%*</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="settingsField">
+              <label for="newPassword" [hidden]='loadingNewPassword'>Nouveau mot de passe</label>
+              <div class="settingsFieldContent" [hidden]='loadingNewPassword'>
+                <input [type]="displayNewPassword ? 'text' : 'password'" placeholder="Nouveau mot de passe" id="newPassword" [(ngModel)]="newPassword">
+                <i class="far  iconPassword transition" (click) = "displayNewPwd()"
+                  [ngClass]="{
+                    'fa-eye-slash': !displayNewPassword,
+                    'fa-eye': displayNewPassword
+                    }">
+                </i>
+              </div>
+            </div>
+
+            <div class="settingsField" >
+              <label for="newPasswordValidation" [hidden]='loadingNewPassword'>Confirmer le mot de passe</label>
+              <div class="settingsFieldContent" [hidden]='loadingNewPassword'>
+                <input [type]="displayNewVerifyPassword ? 'text' : 'password'" placeholder="Confirmer le mot de passe" id="newPasswordValidation" [(ngModel)]="newVerifyPassword">
+                <i class="far  iconPassword transition" (click) = "displayNewVerifyPwd()"
+                   [ngClass]="{
+                    'fa-eye-slash': !displayNewVerifyPassword,
+                    'fa-eye': displayNewVerifyPassword
+                    }">
+                </i>
+              </div>
+
+              <figure class="loading" [hidden]='!loadingNewPassword' style="margin-bottom: 50px"></figure>
+              <button class="button" (click)="changePassword()" [hidden]='loadingNewPassword' style="margin-top: 20px">
+                Enregistrer
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="message loadingMessage settingsContentText" [ngClass]="{'nightBody': this.settingsStorageService.nightStorage === 'true'}">
+    <mat-spinner style="margin: auto;"></mat-spinner>
+  </div>
+</div>

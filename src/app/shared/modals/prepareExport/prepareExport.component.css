@@ -1,0 +1,75 @@
+
+.exportModal{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000008a;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exportModalWrapper{
+    width: 50%;
+    min-width: 370px;
+    height: 540px;
+    background-color: white;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.exportModalContent{
+    padding:20px;
+    width:100%
+}
+
+.exportTitle{
+    text-align: center;
+    color: var(--purple);
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.modalExportButtons{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
+}
+
+.modalExportButtons button:hover{
+    background-color: var(--blueGreen) !important;
+    color: var(--white);
+}
+
+.inColumn{
+    display: flex;
+    flex-direction: column; 
+}
+
+.error{
+    color: var(--pink);
+    font-size: 14px;
+    margin: 0 0 0 5px;
+}
+
+.hint--error.hint--right:before{
+    border-right-color: var(--pink);
+}
+
+.hint--error:after{
+    background-color: var(--pink);
+    color: var(--white);
+    font-family: var(--policeText);
+}
+
+#errorPDFExport{
+    display: flex;
+
+}
+

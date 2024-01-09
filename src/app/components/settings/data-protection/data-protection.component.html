@@ -1,0 +1,348 @@
+
+
+
+
+<div class="settingsContentText" [ngClass]="{ 'nightBackground': this.settingsStorageService.nightStorage === 'true',
+                  'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+
+  <div class="dataProtectionSection" [ngClass]="{ 'nightTextWhite nightShadow nightBackground ': this.settingsStorageService.nightStorage === 'true', 'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+    <div (click)="showDataProtection()">
+      <p>Notre politique de protection des données</p>
+    </div>
+
+    <div (click)="showDataSecurity()">
+      <p>Sécurité des données</p>
+    </div>
+  </div>
+
+  <div class="dataProtectionContent" *ngIf="dataProtection">
+
+    <div style="margin-top: 10px">
+      <a href="" class="downloadCGU" [ngClass]="{ 'nightText': this.settingsStorageService.nightStorage === 'true',
+                  'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">Télécharger notre politique de protection des données</a>
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header
+            [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+                          'weightText': this.settingsStorageService.weightStorage === 'true',
+                          'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Généralités sur la politique de confidentialité des données
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p>Cette politique de confidentialité générique s’applique :</p>
+            <ul>
+              <li><strong>À l’application web Tinycoaching</strong>&nbsp; : https://tiny-coaching.com/coach/#/welcome</li>
+              <li><strong>Au site internet :</strong> https://tiny-coaching.com</li>
+            </ul>
+            <p>L’application web Tinycoaching est disponible depuis les navigateurs :</p>
+            <ul>
+              <li>Chrome</li>
+              <li>Safari</li>
+              <li>Firefox</li>
+              <li>Microsoft Edge</li>
+              <li>Opera</li>
+              <li>Brave</li>
+              <li>Vivaldi</li>
+              <li>Samsung Internet</li>
+            </ul>
+            <p>Cette politique de confidentialité des données s’applique également via les services de messageries instantanées :</p>
+            <ul>
+              <li><strong>Teams</strong> : depuis la catégorie “Applications”</li>
+              <li><strong>Messenger</strong> : depuis la page officielle de Tinycoaching : https://www.facebook.com/TinycoachingOfficiel</li>
+            </ul>
+            <p>La présente politique de confidentialité a pour but d’exposer à l’ensemble des utilisateurs de Tinycoaching par le biais de ses différents canaux et services (application web, site internet, messageries instantanées) :</p>
+            <ul>
+              <li>La manière dont sont traitées et collectées les données personnelles. Doivent être considérées comme personnelles toutes les données susceptibles d’identifier un utilisateur. Il s’agit notamment du nom, prénom, de l’âge, de l’adresse postale, de l’adresse mail, de la localisation de l’utilisateur ou encore de son adresse IP.</li>
+              <li>Quels sont les droits des utilisateurs concernant ces données.</li>
+              <li>Qui est responsable du traitement des données à caractères personnels collectées et traitées.</li>
+              <li>Comment sont traitées, conservées et supprimées ces données.</li>
+            </ul>
+            <p>Cette politique de confidentialité complète les mentions légales et les Conditions générales d’utilisation que les utilisateurs peuvent consulter à l’adresse ci-après : https://tiny-coaching.com/index.php/conditions-dutilisation/</p>
+            </div>
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Éditeur
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><strong>Digital Fast Forward</strong><br>
+              12 ste des Larris<br>
+              92400 Courbevoie</p>
+            <p>CEO&nbsp;: M. Hubert Gervais</p>
+          </div>
+
+
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Coordonnées Tinycoaching
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div  [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><strong>Tinycoaching Normandie</strong><br>
+              Forum Digital<br>
+              8 Rue Léopold Sédar-Senghor Bâtiment Erable<br>
+              14460 Colombelles (Caen la Mer)</p>
+            <p><strong>Tinycoaching Paris</strong><br>
+              120 rue Jean Jaurès<br>
+              92300 Levallois-Perret</p>
+          </div>
+
+
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Hébergement
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p>OVHcloud</p>
+            <p>Route de la Ferme Masson<br>
+              59820 Gravelines<br>
+              France<br>
+              SIRET 42476141900052</p>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Délégué à la protection des données personnelles
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p>Déléguée à la protection des données : Mme Caroline Barkhou</p>
+            <p>Conformément à la loi « informatiques et libertés » du 6 janvier 1978, vous bénéficiez d’un droit d’accès, de rectification et d’opposition sur les données à caractère personnel vous concernant. Vous pouvez exercer ces droits, et/ou formuler toute demande d’information relative à vos données personnelles, en contactant notre Déléguée à la protection des données :</p>
+            <p>– par voie électronique, en adressant votre d<span style="color: #747474;">emand</span>e accompagnée de la copie d’un titre d’identité, à <a style="color: #747474;" href="mailto:dpo@tiny-coaching.com">dpo@tiny-coaching.com</a></p>
+            <p>– par courrier, accompagné de la copie d’un titre d’identité, à l’adresse suivante : Digital Fast Forward, 120 rue Jean Jaurès, 92300 Levallois Perret</p>
+
+          </div>
+          <p>Déléguée à la protection des données : Mme Caroline Barkhou</p>
+          <p>Conformément à la loi « informatiques et libertés » du 6 janvier 1978, vous bénéficiez d’un droit d’accès, de rectification et d’opposition sur les données à caractère personnel vous concernant. Vous pouvez exercer ces droits, et/ou formuler toute demande d’information relative à vos données personnelles, en contactant notre Déléguée à la protection des données :</p>
+          <p>– par voie électronique, en adressant votre d<span style="color: #747474;">emand</span>e accompagnée de la copie d’un titre d’identité, à <a style="color: #747474;" href="mailto:dpo@tiny-coaching.com">dpo@tiny-coaching.com</a></p>
+          <p>– par courrier, accompagné de la copie d’un titre d’identité, à l’adresse suivante : Digital Fast Forward, 120 rue Jean Jaurès, 92300 Levallois Perret</p>
+
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Description et finalités du traitement
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><span style="font-weight: 400;">Tinycoaching est autorisé à traiter pour le compte du responsable de traitement les données à caractère personnel nécessaires pour l’exécution de ses prestations et services.</span></p>
+            <p><span style="font-weight: 400;">La nature des opérations réalisées sur les données personnelles est :&nbsp;</span></p>
+            <ul>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">La collecte</span></i></li>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">La conservation&nbsp;</span></i></li>
+            </ul>
+            <p><span style="font-weight: 400;">La ou les finalité(s) du traitement&nbsp; des&nbsp; données peuvent être :&nbsp;</span></p>
+            <ul>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Identification des profils pédagogiques</span></i></li>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Progression de l’apprentissage</span></i></li>
+            </ul>
+            <p><span style="font-weight: 400;">Les données à caractère personnel traitées peuvent être en fonction des programmes de formation </span><i><span style="font-weight: 400;">:&nbsp;</span></i></p>
+            <ul>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Identité, données d’identification (nom, prénom, adresse mail, numéro de téléphone)</span></i></li>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Vie professionnelle (entreprise, statut, fonction, profession)</span></i></li>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Données de connexion (adresse mail, heure de connexion, données pédagogiques)</span></i></li>
+              <li style="font-weight: 400;"><i><span style="font-weight: 400;">Internet (cookie, CGU, données de navigations, mesure d’audience)</span></i></li>
+            </ul>
+            <p><span style="font-weight: 400;">Les catégories de personnes concernées par ces traitement sont</span><i><span style="font-weight: 400;"> les utilisateurs de Tinycoaching.</span></i></p>
+
+          </div>
+           </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Engagement Tinycoaching
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><span style="font-weight: 400;">Conformément à la réglementation en vigueur applicable au traitement de données à caractère personnel, Tinycoaching&nbsp; s’engage, dans le cadre de l’exécution de ses prestations, à respecter et à faire respecter par son personnel, les obligations suivantes :</span></p>
+            <ul>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Ne collecter et traiter les données personnelles que conformément aux instructions et aux finalités liées à l’objet des prestations listées dans le marché,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Mettre en œuvre toutes les mesures techniques et organisationnelles appropriées afin de garantir la sécurité, l’intégrité et la confidentialité des données personnelles collectées ou enregistrées dans le cadre de l’exécution des contrats et d’empêcher qu’elles ne soient déformées, endommagées, perdues, détournées, corrompues, divulguées, transmises ou communiquées à des personnes non autorisées,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Tenir un registre de toutes les catégories d’activité de traitement effectuées pour le compte de l’acheteur et à le mettre à sa&nbsp; disposition en cas de besoin,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Respecter les principes de protection des données dès la conception et par défaut,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Obligation de conseil et d’assistance à l’acheteur pour l’instruction des demandes d’exercice du droit des personnes concernées, conformément aux modalités définies à l’article 3. ci-après,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Mettre à disposition toute la documentation justifiant du respect de ses obligations,</span></li>
+              <li style="font-weight: 400;"><span style="font-weight: 400;">Alerter sans délai le client en cas de violation, de perte ou de divulgation non autorisée de données personnelles collectées dans le cadre du contrat.&nbsp; Cette notification doit être accompagnée de toute documentation utile afin de lui permettre, si nécessaire, de notifier cette violation à l’autorité de contrôle.</span></li>
+            </ul>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Stockage, conservation, suppression données
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p>IDENTIFICATION DONNÉES</p>
+            <ul>
+              <li><em>Tous les comptes Tinycoaching sont sécurisés par : </em>
+                <ul>
+                  <li><em>l’adresse mail de l’utilisateur saisi lors de son inscription</em></li>
+                  <li><em>une double authentification du mot de passe de l’utilisateur lors de la création de son compte.&nbsp;</em></li>
+                </ul>
+              </li>
+            </ul>
+            <p>SECURISATION DONNÉES</p>
+            <ul>
+              <li><em>Si un autre appareil se connecte au compte de l’utilisateur, celui-ci recevra automatiquement un mail de sécurité sur l’adresse mail fournie lors de la création de compte l’avertissant qu’un autre appareil s’est connecté avec la même adresse mail.&nbsp;</em></li>
+              <li><em>En cas de fraude l’utilisateur est enjoint à contacter l’équipe de sécurité Tinycoaching à l’adresse : tiny@tiny-coaching.com</em></li>
+            </ul>
+            <p>CONSERVATION DONNÉES</p>
+            <ul>
+              <li><i><span style="font-weight: 400;">La durée de conservation des données au sein de l’application Tinycoaching relative aux traitements listés ci-dessu</span></i><i><span style="font-weight: 400;">s est de </span></i><i>12 mois (1 an) à l’issu de la période&nbsp;d’exécution du contrat.&nbsp;</i></li>
+            </ul>
+            <p>SUPPRESSION DONNÉES</p>
+            <p><span style="font-weight: 400;">À l’issue de la période d’exécution du contrat, Tinycoaching&nbsp; s’engage à&nbsp;</span></p>
+            <ul>
+              <li style="font-weight: 400;"><i>Supprimer automatiquement les données des bases de données de Tinycoaching.&nbsp;</i></li>
+            </ul>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              En cas de sous-traitance
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><span style="font-weight: 400;">Il appartient à Tinycoaching de s’assurer que le sous-traitant présente les garanties suffisantes quant à la mise en œuvre de mesures techniques et organisationnelles appropriées de manière à ce que le traitement réponde aux exigences du règlement européen sur la protection des données.&nbsp;</span></p>
+            <p><span style="font-weight: 400;">Si le sous-traitant ne remplit pas ses obligations en matière de protection des données, Tinycoaching demeure pleinement responsable devant le client&nbsp; de l’exécution par le sous-traitant de ses obligations.</span></p>
+          </div>
+         </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+
+    <div>
+      <mat-accordion >
+        <mat-expansion-panel  [ngClass]="{ 'nightBackground nightText nightShadow': this.settingsStorageService.nightStorage === 'true'}">
+          <mat-expansion-panel-header [ngClass]="{ 'nightBackground nightText cguHover': this.settingsStorageService.nightStorage === 'true',
+       'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <mat-panel-title  [ngClass]="{ 'nightBackground nightText': this.settingsStorageService.nightStorage === 'true'}">
+              Exercice des droits des personnes concernées par le traitement des données
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div [ngClass]="{'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            <p><span style="font-weight: 400;">Tinycoaching doit répondre, au nom et pour le compte de l’acheteur, aux demandes des personnes concernées en cas d’exercice de leurs droits (droit d’accès, de rectification, d’effacement et d’opposition, droit à la limitation du traitement, droit à la portabilité des données, droit de ne pas faire l’objet d’une décision individuelle automatisée), s’agissant des données faisant l’objet de traitement dans le cadre du présent marché.&nbsp;</span></p>
+            <p><span style="font-weight: 400;">Il appartient à Tinycoaching&nbsp; de fournir l’information aux personnes concernées par les opérations de traitement au moment de la collecte des données selon le format convenu avec le client.</span></p>
+          </div>
+       </mat-expansion-panel>
+      </mat-accordion >
+    </div>
+  </div>
+
+  <div *ngIf="dataSecurity" class="dataSecurityContent">
+    <div class="dataSecurity">
+        <div class="left">
+          <img src="../assets/images/settings/dataProtection.svg" alt=" Vos données en sécurité">
+        </div>
+        <div class="right">
+          <p class="title"> Vos données en sécurité</p>
+          <p class="text" [ngClass]="{'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">Toutes vos données sont conservées de manière sécurisée sur les serveurs d'OVHcloud à Gravellines</p>
+        </div>
+    </div>
+
+    <div class="sendAlert">
+      <div class="left">
+        <img src="../assets/images/settings/alert.svg" alt="Nous vous donnons l'alerte">
+      </div>
+      <div class="right">
+          <p class="title">Nous vous donnons l'alerte</p>
+          <p class="text" [ngClass]="{'nightTextWhite': this.settingsStorageService.nightStorage === 'true'}">Une alerte vous est envoyée par mail en cas d'événement qui suggérerait un acte malveillant</p>
+      </div>
+    </div>
+
+    <div class="showDataProtection" (click)="showDataProtection()">
+      <p>Voir la politique de protection des données </p>
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,61 @@
+<!-- La barre de recherche -->
+<div class="dashboardSection"
+     [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+
+  <div class="dashboardResearchBar">
+      <mat-form-field class="dashboardSearch"  [ngClass]="this.settingsStorageService.nightStorage === 'true' ?this.settingsStorageService.nightTextCSS: 'false'">
+
+        <input
+                #autoCompleteInput
+                type="text"
+                placeholder=""
+                matInput
+                [formControl]="myControl"
+                [matAutocomplete]="auto"
+                [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+                 'smallText': this.settingsStorageService.textSizeStorage === 'true'}"
+                
+                
+        >
+        <mat-placeholder class="placeholder" [ngClass]="{'weightText': this.settingsStorageService.weightStorage === 'true',
+        'nightBackgroundPlaceholder': this.settingsStorageService.nightStorage === 'true'}">Rechercher un parcours de formation, une compétence, un utilisateur… </mat-placeholder>
+
+        <div class="icon-container" *ngIf="isSearching">
+          <figure class="loadingResearch"></figure>
+        </div>
+
+
+        <!-- Barre de recherche -->
+        <mat-autocomplete
+                autoActiveFirstOption="true"
+                #auto="matAutocomplete"
+                class="matAutocomplete"
+                [displayWith]="displayObjectName"
+               >
+
+
+          <!--
+            Si la valeur ne retourne rien, ça affiche le message suivant
+          -->
+          <mat-option *ngIf="errorResearch" value="" disabled="true">
+            <b>Désolé, aucune des données ne correspond à votre recherche. </b>
+          </mat-option>
+
+          <mat-option (keyup.enter)="selectItem(returnValues)" (click)="selectItem(returnValues)" *ngFor="let returnValues of filtered | async " [value]="returnValues"
+                       [ngClass]="{'nightText nightField': this.settingsStorageService.nightStorage === 'true', 'weightText': this.settingsStorageService.weightStorage === 'true',
+                       'smallText': this.settingsStorageService.textSizeStorage === 'true'}">
+            {{ returnValues.objectId }} - {{ returnValues.title }}
+            <span class="researchOptions">{{ returnValues.type}}</span>
+          </mat-option>
+
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <button (click)="research()" class="dashboardSearchButton" [disabled]="errorResearch || cancelResearchButton">
+        <i class="fa fa-search"></i>
+      </button>
+      <!-- Fin barre de recherche -->
+  </div>
+
+</div>
